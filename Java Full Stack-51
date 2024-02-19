@@ -1,0 +1,781 @@
+Java Full Stack
+
+Front end + Back end
+
+UI  + Processsing Storage
+
+
+Module-1 (Back end) 4 Months
+
+Java 
+Adavance Java
+Oracle DBMS
+
+Module-2  (Front End) 2 Months
+
+Html
+Css
+Java Script
+Angular/React JS
+
+
+Module-3     2-3 Months
+
+Spring
+Spring Boot
+Microservies
+Real time projects
+Real time tools
+
+8 Months
+
+Moudule-1
+
+Core Java
+
+Java Introduction:
+------------------
+
+Why Java?
+
+Platform Independent
+
+
+C language  VS Java language
+
+D:\tets>javac Demo.java
+
+D:\tets>java Demo
+weclcome
+
+D:\tets>java De
+Error: Could not find or load main class De
+
+D:\tets>
+
+
+D:\tets>javac Demo.java
+
+D:\tets>java Demo
+Error: Main method not found in class Demo, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+
+D:\tets>
+
+
+
+
+
+
+
+     Demo.c    (.c Extension will represent it as c program)
+               (ASCII a-z A-Z 0-9 Special Symbols)
+
+
+     compile    (Generates .exe file)
+
+
+
+     Demo.exe    (Low level instructions) + O/s Info
+
+
+     RUn the Program
+
+
+     O/s output
+
+    Demo.c
+
+    
+    compile
+
+
+    Demo.exe
+
+Java:
+-----
+
+      Demo.java   (HLL )
+
+
+      Java Compiler
+
+
+      Demo.class  (InterMediate File) Special Java Instructions
+
+
+JVM           JVM       JVM            (Java Virtual Machine)
+
+Windows      Linux      IOS
+
+
+Note:
+
+Java is platform Independent
+JVM  is platfrom Dependent
+
+WORA -> Write Once Run Anywhere Programming Language
+
+JVM Architecture:
+-----------------
+
+1)Class Loader Sub System (Loads .class files into JVM)
+
+Error: A JNI error has occurred, please check your installation and try again
+Exception in thread "main" java.lang.ClassFormatError: Incompatible magic value 996959339 in class file Addition
+
+1)Loading
+----------
+
+1)The class loader reads the bytcode from .class file and generate corresponding binary data and save it in Method Area.
+
+    i)Info of the loaded class
+    ii)Its immediate parent class
+    iii)varibales
+    iv)Methods
+    v)Modiifers
+    vi)Whether .class file is generated for a class/interface/enum
+
+JVM creates an Object of type Class(built in object)and  represnt this info in the Heap area.
+
+package com.demo;
+
+public class Address {	
+	public static void main(String[] args) {
+		Address address = new Address();	
+		Class classObj = address.getClass();	
+		System.out.println(classObj.getName());
+		System.out.println(classObj.getClassLoader());	
+	}
+}
+
+package com.demo;
+import java.lang.reflect.Field;
+
+public class Address {
+
+	int age = 30;
+
+	public static void main(String[] args) {
+
+		Address address = new Address();
+		Class cls = address.getClass();
+		System.out.println(cls.isInterface());
+		System.out.println(cls.getSuperclass());
+		Field[] field = cls.getDeclaredFields();
+		System.out.println(field[0]);
+
+	}
+
+}
+
+package com.demo;
+
+import java.lang.reflect.Field;
+public class Address {
+	int age = 30;
+	public static void main(String[] args) {
+		Address address = new Address();
+		Class cls = address.getClass();
+		System.out.println(cls.getClassLoader());
+	}
+
+}
+
+Note:
+
+For every that is loaded class JVM will create an Object.
+2)Linking
+-----------
+
+1)Verification
+---------------
+
+It has to check the correctness fo the .class fie that is loaded.
+ByteCodeVerifer
+java.lang.VerifyError
+If the Byte code Verification is completed then your class is ready for compilation.
+
+ByteCodeVerifer
+
+
+2)Preperation of Data
+-----------------------
+JVM allocate memory for static variables and initialize with Default values.
+
+
+Intialization
+----------------
+Static variables/Static Blocks it will be intialized with actual values
+
+ClassLoaders:
+--------------
+1)BootStrap Class Loader
+------------------------
+Load Core Java Api classes
+ ------Java\jdk1.8.0_261\jre\lib -> Boot strap Path
+
+2)Application Class Loader
+---------------------------
+All the classes that are  there application class path will be loaded by Application Classloader.
+
+3)Extension Class loader
+---------------------------
+It loads .class files from extension directories.
+-----Java\jdk1.8.0_261\jre\lib\ext
+
+package com.demo;
+
+public class Address {
+
+	public static void main(String[] args) {
+
+		Address address = new Address();
+		Class cls = address.getClass();
+		System.out.println(cls.getClassLoader());
+		
+	}
+
+}
+
+Class Loader:
+sun.misc.Launcher$AppClassLoader@73d16e93
+
+package com.demo;
+
+public class Address {
+
+	public static void main(String[] args) {
+		System.out.println(String.class.getClassLoader());
+		
+	}
+
+}
+
+Class Loader:
+null
+
+
+
+
+2)Rutime Data Areas  (Memory Allocation)
+3)Execution Engine   (Run the code)
+
+
+
+
+
+
+
+JDK Java develment kit
+JRE Java Runtime  environment
+
+
+
+Java is class based Object oriented Parogramming Langugage.
+
+Object -> Reusablity
+
+JSE API : Java standard edition
+JEE API : Java enterprize editin
+JME API : java Micor edition
+
+
+JAR -> java Archive
+
+path
+
+vs 
+
+classpath
+
+
+JDK
+
+JRE
+
+javac
+java
+javadoc
+
+
+java is class based object oreiented programming langauge
+
+If there is a class there is an object
+If no class no object
+for a class we can create any number of objects
+
+Syntax of class:
+-------------------
+
+package statemet;
+import statements;
+public class <classname>{
+	
+	//varibales
+	//methods
+	//constructors
+
+	public static void main(String abc[]){
+	    //variables
+	   //statemnets
+	}
+
+
+}
+
+
+compile:
+javac <Filename.java>
+
+
+run:
+java <classname>
+
+
+
+
+Commandline
+IDE
+
+
+
+public  class  FirstProgram{
+
+public static void main(String[] args){
+
+  System.out.println("welcome to java");
+
+}
+
+}
+
+
+D:\AshokIT\51JavaFullStack>javac FirstProgram.java
+
+D:\AshokIT\51JavaFullStack>java FirstProgram
+welcome to java
+
+D:\AshokIT\51JavaFullStack>
+
+
+
+class  SecondProgram{
+
+public static void main(String[] args){
+
+  System.out.println("welcome to java");
+
+}
+
+}
+
+
+D:\AshokIT\51JavaFullStack>javac FirstProgram.java
+
+D:\AshokIT\51JavaFullStack>java SecondProgram
+welcome to java
+
+D:\AshokIT\51JavaFullStack>
+
+
+
+
+
+
+Eclipse
+MyEclipse
+NetBeans
+IntelliJ
+STS
+Spring Toool Suite
+
+
+Environmnet Variables
+
+set path=value;
+set path= copy the path of javac/java command
+
+example:
+set path=C:\Program Files\Java\jdk1.8.0_261\bin;
+
+
+Advanced System Settings
+
+
+Data types in java:
+--------------------
+
+Data types will specify what type of data storing in the memory
+
+int  - age
+float -salary
+char - grade
+String - name
+boolean - true/false
+
+Staticlly typed programming lanaguage
+------------------------------------
+
+Type check will happen at compile time
+
+Static  -> compile time
+Dynamic -> run time
+
+
+
+package com.demo.intro;
+ 
+class FirstPrgram {
+	public static void main(String[] args) {
+		int a = "s";
+	}
+
+}
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	Type mismatch: cannot convert from String to int
+	at com.demo.intro.FirstPrgram.main(FirstPrgram.java:8)
+
+
+Exception in thread "main" java.lang.OutOfMemoryError: Requested array size exceeds VM limit
+	at com.demo.intro.FirstPrgram.main(FirstPrgram.java:7)
+
+
+D:\AshokIT\51JavaFullStack>javac ArrayDemo1.java
+
+D:\AshokIT\51JavaFullStack>java ArrayDemo1
+Exception in thread "main" java.lang.OutOfMemoryError: Requested array size exceeds VM limit
+        at ArrayDemo1.main(ArrayDemo1.java:5)
+
+D:\AshokIT\51JavaFullStack>javac ArrayDemo1.java
+ArrayDemo1.java:5: error: incompatible types: String cannot be converted to int
+                int a="s";
+                      ^
+1 error
+
+D:\AshokIT\51JavaFullStack>
+
+
+
+Primitive                    vs              non-primtive
+---------
+
+Allows only single value at a time
+
+
+Fundamental
+
+Integer category (-ve to +ve with out decimal) (Signed data type)
+-------------------------
+
+byte
+short
+int
+long
+
+
+Floating Point Category: (-ve to +ve with decimal ) (Signed data type)
+-------------------------------------------
+
+float
+double
+
+ex: temperature
+
+character category: (to represent single charcter in java)(Unsigned Data type)
+------------------------
+
+char
+
+ex: grade
+
+
+boolean category:  true or false
+----------------
+
+boolean 
+
+
+if(0) {
+			System.out.println("test");
+		}	
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	Type mismatch: cannot convert from int to boolean
+	at com.demo.intro.FirstPrgram.main(FirstPrgram.java:7)
+
+
+package com.demo.intro;
+class FirstPrgram {
+	public static void main(String[] args) {
+		if(true) {
+			System.out.println("test");
+		}	
+	}
+}
+
+
+Variables in Java:
+-------------------
+
+Variable:
+--------
+A variable is a name given to memory location
+
+ int age =30;
+ age is a variable of type int(-ve to +ve without any decimal)
+
+ int -> data type
+ age -> variable
+ =   -> Assignment operator
+ 30  -> value/ expression
+
+
+int  	
+
+
+
+class ArrayDemo1{
+	public static void main(String[] args) {
+		 int age;
+	}
+}
+
+
+
+Variable Decleration
+
+
+Variable Intilaization
+
+
+variable Assignment
+
+
+data size and range:
+--------------------
+
+byte      1   byte
+short     2   bytes
+int       4   bytes
+long      8   bytes
+
+float     4   bytes
+double    8   bytes
+
+
+
+boolean   1   byte
+
+char      2   bytes
+
+Statically Typed Programming(type check will happen)
+Dynamic Programming langage (memory allocation will happen run time)
+
+int x=10;
+
+x-> allows values from -ve to +ve without decimal 
+x -> 4 bytes of memory will allocated 
+
+
+byte    
+
+size  : 1 bytes
+Range : 
+
+package com.demo.intro;
+
+class FirstPrgram {
+
+	public static void main(String[] args) {
+
+		 System.out.println(Byte.SIZE);
+		 System.out.println(Byte.MAX_VALUE);
+		 System.out.println(Byte.MIN_VALUE);
+	}
+
+}
+
+
+1 byte = 8 bites
+Max : 127
+Min : -128
+
+Formula :
+------------
+
+  n-1            n-1
+-2        0    2         -1
+
+
+package com.demo.intro;
+
+class FirstPrgram {
+
+	public static void main(String[] args) {
+
+		System.out.println(Byte.SIZE);
+		System.out.println(Byte.MAX_VALUE);
+		System.out.println(Byte.MIN_VALUE);
+		System.out.println(Math.pow(2, 8));
+		System.out.println(Math.pow(2, 7));//-128
+		System.out.println(Math.pow(2, 7)-1);//-127		
+
+	}
+
+}
+
+package com.demo.intro;
+
+class FirstPrgram {
+
+	public static void main(String[] args) {
+
+		System.out.println(Short.SIZE);
+		System.out.println(Short.MAX_VALUE);
+		System.out.println(Short.MIN_VALUE);
+		System.out.println(Math.pow(2, 16));
+		System.out.println(Math.pow(2, 15));
+		System.out.println(Math.pow(2, 15)-1);		
+
+	}
+
+}
+
+
+16
+32767
+-32768
+65536.0
+32768.0
+32767.0
+
+
+
+package com.demo.intro;
+
+class FirstPrgram {
+
+	public static void main(String[] args) {
+
+		System.out.println(Character.SIZE);
+			
+
+	}
+
+}
+
+
+package com.demo.intro;
+
+class FirstPrgram {
+
+	public static void main(String[] args) {
+		System.out.println(Boolean.FALSE);
+		System.out.println(Boolean.TRUE);
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
