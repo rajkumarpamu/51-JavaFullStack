@@ -1,0 +1,254 @@
+
+IntegerCategory:
+
+byte
+short
+int 
+long 
+
+Default Type:
+int 
+Default value:
+0
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+	
+	public static void main(String[] args) {
+		
+	
+		System.out.println(Long.MAX_VALUE);
+		System.out.println(Long.MIN_VALUE);
+		long l = 2147483648L;
+		
+		/*
+		 * 9223372036854775807 -9223372036854775808
+		 */
+
+	}
+
+}
+
+
+
+
+
+Floating Point 
+
+float 
+double 
+
+default type;
+
+double 
+
+default value 
+
+0.0
+
+
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+	
+	public static void main(String[] args) {
+		
+	
+		float f=10.9;
+		System.out.println(f);
+		
+	}
+
+}
+
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	Type mismatch: cannot convert from double to float
+
+	at com.demo.intro.DataTypesDemo.main(DataTypesDemo.java:8)
+package com.demo.intro;
+
+public class DataTypesDemo {
+	
+	public static void main(String[] args) {
+		
+	
+		float f=10.9F;
+		System.out.println(f);
+		
+	}
+
+}
+
+
+character
+
+char
+
+Boolean Category
+
+boolean  true/false
+
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+	
+	public static void main(String[] args) {
+		
+		byte b =128;
+		System.out.println(b);
+		System.out.println(Byte.MIN_VALUE);
+		System.out.println(Byte.MAX_VALUE);
+		
+		
+	}
+
+}
+
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+	
+	public static void main(String[] args) {
+		
+		byte b =128;
+		System.out.println(b);
+		System.out.println(Byte.MIN_VALUE);
+		System.out.println(Byte.MAX_VALUE);
+		
+		int x=130;
+		byte b1  =(byte)x;
+		System.out.println(b1);
+	
+	}
+
+}
+
+
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	Type mismatch: cannot convert from int to byte
+
+	at com.demo.intro.DataTypesDemo.main(DataTypesDemo.java:7)
+
+
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+	
+	public static void main(String[] args) {
+		
+	
+		
+		 char c = 'A';
+		 System.out.println(c);
+		 System.out.println(Character.MAX_VALUE);
+		 System.out.println(Character.MIN_VALUE);
+		 System.out.println(Character.BYTES);
+		 
+		 
+		 short s=1999;
+		 System.out.println(Short.MAX_VALUE);
+		 System.out.println(Short.MIN_VALUE);
+		 System.out.println(Short.BYTES);
+		 System.out.println(Math.pow(2, 16)/2);
+
+	}
+
+}
+
+
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		// true or false
+		boolean b = true;
+		System.out.println(b);
+
+	}
+
+}
+
+
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		// true or false
+		//JVM Dependent
+		boolean b = true;
+		System.out.println(b);
+
+	}
+
+}
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	static  int a;
+	static  double b;
+	static  char c;
+	static  boolean d;
+	static  String name;
+	public static void main(String[] args) {
+
+		System.out.println(a);
+		System.out.println(b);
+		
+		System.out.println(c);
+		System.out.println(d);
+		System.out.println(name);
+
+
+	}
+}
+.
+Result :
+
+0
+0.0
+
+false
+null
+
+
+float f =10;
+.println
+
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		int c = 'a';
+		System.out.println(c);
+	}
+}
+
+
+97
+
+A --> 65
+Z --> 90
+a --> 97
+z --> 122
+0 --> 48
+! --> 33
+
+1 byte 0-255
+2 bytes 0-65535
+ASCII (0-9 a-z A_Z special symbols)
+Java un0-9icode programming 
