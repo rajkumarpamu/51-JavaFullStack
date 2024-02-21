@@ -1,0 +1,211 @@
+Varible Decleration:
+---------------------
+
+  datatype varname;
+
+  byte age;
+  float temp;
+  char grade;
+  boolean result;
+
+
+
+Varible INtialization:
+---------------------
+
+
+age=30;
+temp=48.7;
+grade='s';
+result=true;
+
+
+
+Varible Assignemnt:
+---------------------
+
+age=40;
+temp=48.9;
+grade='s';
+result=true;
+
+res
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		//Variable Decleration
+		int id;
+		
+		//Variable Intialization
+		id=1234;
+		System.out.println("Id  at Initialization :"+id);
+		
+		
+		//Variable Assignment
+		id=4321;
+		System.out.println("Id  at Assigment :"+id);
+
+	}
+}
+
+
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+	public static void main(String[] args) {
+		//Variable Decleration
+		int id;
+		//Variable Intialization
+		id=1234;
+		System.out.println("Id  at Initialization :"+id);		
+		//Variable Assignment
+		id=4321;
+		id=432;
+		id=43;
+		id=4;
+		System.out.println("Id  at Assigment :"+id);
+
+	}
+}
+
+
+Id  at Initialization :1234
+Id  at Assigment :4321
+
+
+Rules of an indentifiers:
+'-----------------------'
+
+datatype varname;
+
+datatype:
+byte
+short
+int
+long
+float
+double
+char
+boolean
+String
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	Int cannot be resolved to a type
+
+	at com.demo.intro.DataTypesDemo.main(DataTypesDemo.java:7)
+
+
+1)
+
+
+ byte age=30;
+ 1)An Indentifer should not start with a number
+
+ Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	Syntax error on token "12", delete this token
+
+	at com.demo.intro.DataTypesDemo.main(DataTypesDemo.java:7)
+
+
+2)An Indentifer should not contain any special charcters except 
+$ and _
+
+3)An Indentifer length should not be more than 16 ,its a 
+recomondation
+
+class name
+Captitalized Convention
+
+FirstProgram
+String
+StringBuffer
+Age
+Customer
+Patient
+BufferedReader
+Scanner
+
+
+variable name
+Camel case
+age
+sumOfTwoNumbers
+sum
+add
+test
+temp
+
+
+methodName
+
+temp()
+add()
+concat()
+main(String ar[])
+
+Addition
+Add
+age
+age()
+Test
+test
+test()
+String
+
+MAX_VALUE -> Constants
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		int x = 19;
+
+		x = x + 20;
+		System.out.println(x);
+
+	}
+}
+
+
+
+TEST - constant
+Test - class
+test - var
+test() - method
+Test() - constructor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
