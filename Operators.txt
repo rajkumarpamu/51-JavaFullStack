@@ -1,0 +1,321 @@
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		
+		int x = 'a';
+		System.out.println(x);
+		
+		float y ='a';
+		System.out.println(y);
+		
+		
+		float z=10;
+	}
+}
+
+
+Operators:
+-----------
+
+  a  +  b
+
+  opearnd  -> a,b
+
+  +       -> operatoer
+
+
+  Unary Operator
+  Any special symbol applied on single operand
+
+  Binary Operators
+  Any special symbol applied on two operand
+
+
+  ternary Operators
+  Any special symbol applied on three operand
+
+
+Unary Operator:
+-----------------
+
+Unary Minus:
+------------
+
+(-)
+
+Example
+---------
+
+int x=10;
+
+int y = -x;
+
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		int x = 10;
+		int y = -(x);
+		System.out.println(x);
+		System.out.println(y);
+
+	}
+}
+
+
+! Not Operator:
+--------------
+
+true to false
+false to true
+
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		boolean result = true;
+		System.out.println(!(result));
+
+	}
+}
+
+
+10+2
+a+b
+-a
+
+
+++
+---
+
+Increment Operator:
+-----------------------
++1
+
+Post:
+----
+First Perform the operation and then increment
+a++
+ex:
+Pre:
+----
+First increment then perform the operation
+++a
+
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		int a=10;
+		int b=++(a);
+		
+		System.out.println(a);
+		System.out.println(b);
+	}
+}
+
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		int a=10;
+		int b=(a)++;
+		
+		System.out.println(a);
+		System.out.println(b);
+	}
+}
+
+
+Decrement:
+---------
+
+Post Dec:
+a--
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		int a = 10;
+		int b = (a)--;
+
+		System.out.println(a);
+		System.out.println(b);
+
+	}
+}
+
+
+Pre Dec:
+--a
+
+package com.demo.intro;
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		int a = 10;
+		int b = (a)--;
+		int c = --(a) - b++;
+		int d = a+b-c;
+
+		System.out.println(a);//8 9
+		System.out.println(b);//11 11
+		System.out.println(c);//-2 -3
+		System.out.println(d);//21 
+
+	}
+}
+
+
+Binary Operator:
+-------------------
+
+Arithmetic Operators:
+-----------------------
+
++  - Addition
+
+-   Sub
+
+*   Mul
+
+/  Div
+
+%  Modulus
+
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		int a = 20;
+		int b = 2;
+		
+		System.out.println(a+b);
+		System.out.println(a-b);
+		System.out.println(a*b);
+		System.out.println(a/b);
+		System.out.println(a%b); //reminder
+	
+
+	}
+}
+
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		
+		byte b=10;
+		byte b1 = 20;
+		int  c =b+b1;
+		System.out.println(c);
+
+	}
+}
+
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		
+
+		System.out.println(10.0f/3);
+		System.out.println(10.0/3);
+
+	}
+}
+
+
+3.3333333  - Upto 7 decimal (Single Precision)
+3.3333333333333335  - 15 decimal digits((Double  precision))
+
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		long l = 100l;
+		float f = 10f;
+		double d = 10;
+		double sum = 1 + f + d;
+		System.out.println(sum);
+
+	}
+}
+
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		System.out.println(10/0);
+
+	}
+}
+
+
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+	at com.demo.intro.DataTypesDemo.main(DataTypesDemo.java:7)
+
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		System.out.println("10"+(10+10));
+		
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
