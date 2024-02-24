@@ -1,0 +1,256 @@
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		System.out.println(1.0/0.0);
+		System.out.println(-1.0/0.0);
+	}
+}
+
+
+Infinity
+-Infinity
+
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		System.out.println(1.0/0);
+		System.out.println(-1.0/0);
+	}
+}
+
+
+Infinity
+-Infinity
+
+Relational Operators:  Comparing 2 results
+-------------------
+
+>   Greater than
+
+<   Lesser than
+
+>=  Greater than OR Equal to
+
+<=  Lesser than  OR  Equal to 
+
+==   Equals to 
+
+!=   Not Equals
+
+Note:
+------
+
+boolean
+true
+false
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+	int x=10;
+	double y=20;
+	
+	System.out.println(x>y);
+	System.out.println(x<y);
+	System.out.println(x>=y);
+	System.out.println(x<=y);
+	
+	}
+}
+
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		boolean x = false;
+		boolean y = true;
+
+		System.out.println(x == y);
+
+		double z = 10;
+		System.out.println(z);
+
+		System.out.println(2 == 2.0);
+		System.out.println(2.0 == 2);
+	}
+}
+
+
+logical operators: combining the conditions
+------------------
+
+& -Logical AND
+
+T T T
+T F F
+F T F
+F F F
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		int a, b, c;
+		a = 10;
+		b = 20;
+		c = 30;
+		System.out.println((a > b) & (a > c));
+		System.out.println((c > a) & (c > b));
+
+	}
+}
+
+
+| - Logical OR
+
+T T T
+T f t
+F T T
+F F F
+
+^ - Exclusive OR
+
+t F T
+f F F
+t t F
+f t t
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		int a, b, c;
+		a = 18;;
+		b = 20;
+		c = 19;
+
+		System.out.println((a > b) | (a > c));
+
+		System.out.println((c > a) & (c > b));
+		
+		System.out.println((c > a) ^ (c > b));
+
+	}
+}
+
+
+&& - Double AND
+
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		int a, b, c;
+		a = 18;
+		b = 20;
+		c = 19;
+
+		System.out.println((a > b) & (a > c));
+		System.out.println((a > b) && (a > c));
+
+	}
+}
+
+
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		int a, b, c;
+		a = 18;
+		b = 20;
+		c = 19;
+
+		System.out.println((a > b) & (++a > ++c));
+		System.out.println(a);
+		System.out.println(c);
+	
+		
+		
+
+	}
+}
+
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		int a, b, c;
+		a = 18;
+		b = 20;
+		c = 19;
+		
+		System.out.println((a > b) & (++a > ++c));
+		System.out.println(a);
+		System.out.println(c);
+
+
+		System.out.println((a > b) && (++a > ++c));
+		System.out.println(a);
+		System.out.println(c);
+
+	}
+}
+
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		int a, b, c;
+		a = 18;
+		b = 20;
+		c = 19;
+		
+		System.out.println((a > b) || (++a > ++c));
+		System.out.println(a);
+		System.out.println(c);
+
+
+	}
+}
+
+
+
+|| - Double OR
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+
+
+		System.out.println(10 & 2);
+
+
+	}
+}
