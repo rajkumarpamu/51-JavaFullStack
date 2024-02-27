@@ -1,0 +1,186 @@
+Bitwise operators:
+------------------
+
+It is used to  perform operation on bits of given number
+
+
+&
+
+|
+
+^
+
+condition1 &  condition2
+
+integer & integer
+
+sysout(2&3)
+
+int x=10;
+int y= 2;
+
+sysout(x&y)
+
+ 8 4 2 1
+ 1 0 1 0
+ 0 0 1 0
+ --------
+ 0 0 1 0 = 2
+
+ 1 0 0 0 = 8
+
+
+ package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		int x = 10;
+		int y = 2;
+
+		System.out.println(x | y);
+
+	}
+}
+
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		double x = 10.5;
+		int y = 2;
+
+		System.out.println(x ^ y);
+
+	}
+}
+
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	The operator ^ is undefined for the argument type(s) double, int
+	at com.demo.intro.DataTypesDemo.main(DataTypesDemo.java:10)
+
+Ternary Operators:
+-------------------
+(?:)
+
+
+(condition) ? (expression1) : (expression2)
+
+true : expression1
+false : expression2
+
+
+age is 
+
+
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problems: 
+	The left-hand side of an assignment must be a variable
+	Syntax error on token ")", delete this token
+	Syntax error, insert ")" to complete Expression
+	Syntax error, insert "AssignmentOperator Expression" to complete Expression
+
+	at com.demo.intro.DataTypesDemo.main(DataTypesDemo.java:9)
+
+
+
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		int age=20;
+		
+		String result = (age >= 18) ? 
+				("eligible for voting") : 
+					("not eligible for voting");
+		
+		System.out.println(result);
+
+
+
+	}
+}
+
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		int age = 17;
+
+		int result = (age >= 18) ? (age + 10) : (age - 10);
+
+		System.out.println(result);
+
+	}
+}
+
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		int age = 19;
+
+		int result = (age >= 18) ?
+
+				((age > 30) ? (age - 10) : (age + 10)) : (age - 10);
+
+		System.out.println(result);
+
+	}
+}
+
+
+
+package com.demo.intro;
+
+public class DataTypesDemo {
+
+	public static void main(String[] args) {
+
+		int age =21;
+
+		Object result = (age >= 18) ? ("sachin") : (10);
+
+		System.out.println(result);
+
+	}
+}
+
+
+age
+Age
+age()
+AGE
+Age()
+m1()
+add()
+System
+print()
+
+control statements:
+--------------------
+
+
+
+
+
+
+
+
+
+
+
