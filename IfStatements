@@ -1,0 +1,309 @@
+
+sop(10/3); 
+
+int , int - int
+10.0f/3
+
+'a' + 'b'
+
+true + 12 
+
+byte a =10;
+byte b=20;
+
+byte c= a+b;
+
+byte  ->   short 
+
+
+                        int   ->   long  ->  float   ->  double
+
+
+           char  
+
+
+Control Statements:
+---------------------
+
+package com.demo.intro;
+
+public class ControlStatements {
+
+	public static void main(String[] args) {
+		
+		System.out.println("statement-1");
+		System.out.println("statement-2");
+		System.out.println("statement-3");
+		System.out.println("statement-4");
+		System.out.println("statement-5");
+		
+	}
+}
+
+
+statement-1
+statement-2
+statement-3
+statement-4
+statement-5
+
+
+
+if ..else
+---------
+
+if(condition){
+	//sattement
+}
+else{
+	//statement
+}
+
+
+	package com.demo.intro;
+	
+	public class ControlStatements {
+	
+		public static void main(String[] args) {
+	
+			int a = 10;
+			int b = 20;
+	
+			if (a > b) {
+				System.out.println("a is greater");
+			} else {
+				System.out.println("b is greater");
+			}
+	
+		}
+	}
+
+
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	Type mismatch: cannot convert from int to boolean
+
+	at com.demo.intro.ControlStatements.main(ControlStatements.java:10)
+
+
+
+
+	package com.demo.intro;
+	
+	public class ControlStatements {
+	
+		public static void main(String[] args) {
+	
+			int a = 20;
+			int b = 20;
+	
+			if (a+b == 20) {
+				System.out.println("a is greater");
+			} else {
+				System.out.println("b is greater");
+			}
+	
+		}
+	}
+
+
+
+	package com.demo.intro;
+	public class ControlStatements {
+		public static void main(String[] args) {	
+			if (0) {
+				System.out.println("a is greater");
+			} else {
+				System.out.println("b is greater");
+			}
+	
+		}
+	}
+
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	Type mismatch: cannot convert from int to boolean
+
+	at com.demo.intro.ControlStatements.main(ControlStatements.java:8)
+
+
+package com.demo.intro;
+
+public class ControlStatements {
+
+	public static void main(String[] args) {
+
+		int a = 20;
+		int b = 20;
+
+		if (a >  b)
+			System.out.println("a is greater");
+		else
+			System.out.println("b is greater");
+
+	}
+}
+
+
+
+
+package com.demo.intro;
+
+public class ControlStatements {
+
+	public static void main(String[] args) {
+
+		int a = 19;
+		int b = 20;
+
+		if (a <  b)
+			System.out.println("a is greater");
+		else
+			System.out.println("test");
+		System.out.println("Hello World");
+		
+
+
+	}
+}
+
+
+package com.demo.intro;
+
+public class ControlStatements {
+
+	public static void main(String[] args) {
+
+		int a = 19;
+		int b = 20;
+
+		if (a <  b)
+			System.out.println("a is greater");
+		if(true)
+		System.out.println("Hi");
+		else
+			System.out.println("test");
+		System.out.println("Hello World");
+		
+
+
+	}
+}
+
+
+package com.demo.intro;
+
+public class ControlStatements {
+
+	public static void main(String[] args) {
+
+		int a = 19;
+		int b = 20;
+
+		if (a <  b)
+			System.out.println("a is greater");
+		if(true)
+		System.out.println("Hi");
+		else
+			System.out.println("test");
+		System.out.println("Hello World");
+		
+
+
+	}
+}
+
+package com.demo.intro;
+
+public class ControlStatements {
+
+	public static void main(String[] args) {
+
+		int a = 19;
+		int b = 20;
+
+		if (a >  b)
+			System.out.println("a is greater");
+			System.out.println("test");
+			System.out.println("Hello World");
+		
+
+
+	}
+}
+
+
+package com.demo.intro;
+
+public class ControlStatements {
+
+	public static void main(String[] args) {
+
+		int a = 39;
+		int b = 20;
+		int c = 30;
+
+         if(a>b && a>c) 
+        	System.out.println("a is greater"); 
+         else if(b>a && b>c) 
+        	 System.out.println("b is greater");  
+ 
+       else
+        	 System.out.println("c is greater");
+		
+
+
+	}
+}
+
+
+package com.demo.intro;
+
+public class ControlStatements {
+
+	public static void main(String[] args) {
+
+		int a = 39;
+		int b = 20;
+		int c = 30;
+
+		if (a > b) {
+			if (a > c) {
+				System.out.println("a is greater");
+			} else {
+				System.out.println("a is not greater");
+			}
+		}
+
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
