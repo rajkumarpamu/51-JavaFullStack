@@ -1,0 +1,271 @@
+syntax:
+
+switch(value){
+	
+	case 1 : statement1;
+	break;
+
+	case 2 : statement1;
+	break;
+
+	case 3 : statement1;
+	break;
+
+	case 4 : statement1;
+	break;
+
+}
+
+
+package com.demo.intro;
+
+public class ControlStatements {
+
+	public static void main(String[] args) {
+
+		String value = "SAVINGS_ACCOUNT";
+
+		switch (value) {
+
+		case "SAVINGS_ACCOUNT":
+			System.out.println("---Openng SAVINGS_ACCOUNT---");
+			break;
+
+		case "CURRENT_ACCOUNT":
+			System.out.println("--Openng CURRENT_ACCOUNT--");
+			break;
+
+		default:
+			System.out.println("Not found");
+			break;
+
+		}
+
+	}
+}
+
+
+package com.demo.intro;
+
+public class ControlStatements {
+
+	public static void main(String[] args) {
+		int a = 10;
+		int b = 20;
+
+		int value = 10;
+
+		switch (value) {
+		case 1:
+			System.out.println("Addition :" + (a + b));
+			break;
+		case 2:
+			System.out.println("Subs :" + (a - b));
+			break;
+		default:
+			System.out.println("Not found");
+			break;
+		}
+
+	}
+}
+
+
+package com.demo.intro;
+
+public class ControlStatements {
+
+	public static void main(String[] args) {
+		int a = 10;
+		int b = 20;
+
+		int value = 2;
+
+		switch (value) {
+		case 1:
+			System.out.println("Addition :" + (a + b));
+		
+		case 2:
+			System.out.println("Subs :" + (a - b));
+	
+		default:
+			System.out.println("Not found");
+			break;
+		}
+
+	}
+}
+
+
+package com.demo.intro;
+
+public class ControlStatements {
+
+	public static void main(String[] args) {
+
+		char c = 'x';
+
+		switch (c) {
+		case 'a':
+			System.out.println("Its a vowel");
+			break;
+		case 'e':
+			System.out.println("Its a vowel");
+			break;
+		case 'i':
+			System.out.println("Its a vowel");
+			break;
+		case 'o':
+			System.out.println("Its a vowel");
+			break;
+		case 'u':
+			System.out.println("Its a vowel");
+			break;
+
+		default:
+			System.out.println("Its a consonant");
+			break;
+
+
+
+		}
+
+	}
+}
+
+
+package com.demo.intro;
+
+import java.io.IOException;
+
+public class ControlStatements {
+
+	public static void main(String[] args) throws IOException {
+
+		System.out.println("Enter Input");
+		int c = System.in.read();
+		System.out.println((char)c);
+		switch ((char)c) {
+		case 'a':
+			System.out.println("Its a vowel");
+			break;
+		case 'e':
+			System.out.println("Its a vowel");
+			break;
+		case 'i':
+			System.out.println("Its a vowel");
+			break;
+		case 'o':
+			System.out.println("Its a vowel");
+			break;
+		case 'u':
+			System.out.println("Its a vowel");
+			break;
+
+		default:
+			System.out.println("Its a consonant");
+			break;
+
+		}
+
+	}
+}
+
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	Cannot switch on a value of type float. Only convertible int values, strings or enum variables are permitted
+
+	at com.demo.intro.ControlStatements.main(ControlStatements.java:13)
+
+
+Loops:
+------
+
+for(initailization ; condition ; inc/dec){
+	
+	//statement
+}
+
+package com.demo.intro;
+
+import java.io.IOException;
+
+public class ControlStatements {
+
+	public static void main(String[] args) throws IOException {
+
+		for (int i = 1; i <= 5; i++) {
+			System.out.println("welcome to java");
+		}
+
+	}
+
+}
+
+              1        2     4
+	for (int i = 1; i <= 5; i++) {
+	         3
+			System.out.println("welcome to java");
+		}
+
+
+ package com.demo.intro;
+
+import java.io.IOException;
+
+public class ControlStatements {
+
+	public static void main(String[] args) throws IOException {
+
+		for (int i = 1; i <= 5; i++)
+			System.out.println("welcome to java");
+		System.out.println("welcome to java at AshokIt");
+
+	}
+
+}
+
+
+package com.demo.intro;
+
+import java.io.IOException;
+
+public class ControlStatements {
+
+	public static void main(String[] args) throws IOException {
+
+		for (int i = 1; false ; i++)
+			System.out.println("welcome to java");
+		System.out.println("welcome to java at AshokIt");
+
+	}
+
+}
+
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	Unreachable code
+
+	at com.demo.intro.ControlStatements.main(ControlStatements.java:10)
+
+		package com.demo.intro;
+
+import java.io.IOException;
+
+public class ControlStatements {
+
+	public static void main(String[] args) throws IOException {
+
+		for (int i = 1; true ; i++)
+			System.out.println("welcome to java");
+		System.out.println("welcome to java at AshokIt");
+
+	}
+
+}
+
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	Unreachable code
+
+	at com.demo.intro.ControlStatements.main(ControlStatements.java:11)
