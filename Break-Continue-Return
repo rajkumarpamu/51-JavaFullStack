@@ -1,0 +1,193 @@
+for-loop
+
+for(initilizaton : condition : inc/dec/expression)
+{
+	//statement
+}
+
+while
+----
+
+while(condition){
+	
+}
+
+do while;
+-------
+
+do{
+	
+}while(condition);
+
+
+break
+------
+Stop the iteration
+
+
+continue
+--------
+Skip the iteration
+
+for, while , do while , switch etc
+
+package com.demo.intro;
+
+class FirstPrgram {
+
+	public static void main(String[] args) {
+
+		for(int i=1;i<=10;i++) {
+			break;
+			System.out.println(i);
+			//Stops the iteration	
+		}
+		
+		System.out.println("Hi");
+
+	}
+
+
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	Unreachable code
+
+	at com.demo.intro.Test.main(Test.java:8)
+
+
+package com.demo.intro;
+
+class FirstPrgram {
+
+	public static void main(String[] args) {
+
+		for(int i=1;i<=10;i++) {
+			
+			if(i==5 || i==7)
+				//Stop the itertion or comes out of the loop
+				break;
+			else
+			System.out.println(i);	
+		}
+		
+		System.out.println("Hi");
+
+	}
+
+}
+
+
+for (int i = 1; i <= 10; i++) {
+			System.out.println("Hello world");
+			for (int j = 1; j <= 10; j++) {
+				System.out.println("Bye ");
+				break;
+			}
+		}
+		System.out.println("Hi");
+
+
+int i = 1       i <= 10         i++                      Hello World
+                1<=10   true    2
+                2<=10   true    3
+                3<=10   true    4
+                4<=10 ......
+
+
+    package com.demo.intro;
+
+public class Test {
+
+	public static void main(String[] args) {
+
+		for (int i = 1; i <= 10; i++) {
+
+			if (i == 5 | i == 7)
+				// Skip the iteration
+				continue;
+			else
+				System.out.println("I value :" + i);
+
+		}
+
+		System.out.println("Hi");
+
+	}
+
+}
+
+
+package com.demo.intro;
+
+class FirstPrgram {
+
+	public static void main(String[] args) {
+
+		for (int i = 1; i <= 5; i++) {
+			System.out.println("Loop-1 ");
+			for (int j = 1; j <= 5; j++) {
+				System.out.println("Loop-2");
+				for (int k = 1; k <= 5; k++) {
+					System.out.println("Loop-3 ");		
+					break;
+				}
+			}
+
+		}
+		System.out.println("Hi");
+
+	}
+
+}
+
+
+
+
+package com.demo.intro;
+
+public class Test {
+
+	public static void main(String[] args) {
+
+		for (int i = 1; i <= 10; i++) {
+			if (i == 5 | i == 7)
+				//exit the method
+				return;
+			else
+				System.out.println("I value :" + i);
+		}
+		System.out.println("Hi");
+
+	}
+
+}
+
+
+I value :1
+I value :2
+I value :3
+I value :4
+
+break
+Stops the Iteration
+Continue
+Skips the Iteration
+return
+exit the method
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
