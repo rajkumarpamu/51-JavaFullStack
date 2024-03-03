@@ -1,0 +1,164 @@
+Reverse a Number:
+----------------
+
+123 -> 321 
+
+while loop
+
+300+20+1 = 321
+
+package com.demo.intro;
+
+public class Test {
+
+	public static void main(String[] args) {
+		int number =123;
+		int temp= number;
+		int reverse=0;
+		
+		while(temp != 0 ) {
+			int reminder =temp%10; // 3 , 2 ,1
+			reverse = reverse*10+reminder;//3 , 32 , 321
+			temp= temp/10;//12, 1 , 0
+		}
+		System.out.println("Input Number :"+number);
+		System.out.println("Reverse Number :"+reverse);
+	}
+
+}
+
+package com.demo.intro;
+
+public class Test {
+
+	public static void main(String[] args) {
+		int number =434;
+		int temp= number;
+		int reverse=0;
+		
+		while(number != 0 ) {
+			int reminder =number%10;
+			reverse = reverse*10+reminder;
+			number= number/10;		
+		}
+		System.out.println("Input Number :"+temp);
+		System.out.println("Reverse Number :"+reverse);
+		
+		if(temp == reverse) {
+			System.out.println("Its a palindrone");
+		}
+		else {
+			System.out.println("Its not a a palindrome");
+		}
+		
+	}
+
+}
+
+
+package com.demo.intro;
+
+public class Test {
+
+	public static void main(String[] args) {
+		int number = 434;
+		int temp = number;
+		int sum = 0;
+
+		while (number != 0) {
+			int reminder = number % 10; // 4 , 3 , 4
+			sum = sum + reminder; //4 , 7 , 11
+			number = number / 10;//43 , 4 ,0
+		}
+		System.out.println("Input Number :" + temp);
+		System.out.println("Sum of the giver  Number :" + sum);
+	}
+
+}
+
+Prime Number:
+----------------
+Number Divisible by 1 or itself
+
+package com.demo.intro;
+
+public class Test {
+
+	public static void main(String[] args) {
+	
+		int i;
+		int number= 25;
+		int m= number/2;
+		int flag=0;
+		if(number==0 | number ==1) {
+			System.out.println(number +"is not a prime number");
+		}
+		else {
+			
+			for(i=2;i<m;i++) {
+				if(number%i ==0 ) {
+					System.out.println(number+":Its not prime number");
+					flag=1;
+					break;
+				}
+			}
+		}
+		
+		if(flag==0) {
+			System.out.println("Its a prime number");
+		}
+		
+	}
+
+}
+
+package com.demo.intro;
+
+public class Test {
+
+	public static void main(String[] args) {
+
+		int number = 25;
+		int m = number / 2; // 12
+		boolean flag = true;
+		if (number == 0 | number == 1) {
+			System.out.println(number + "is not a prime number");
+		} else {
+			for (int i = 2; i < m; i++) {
+				if (number % i == 0) {
+					System.out.println(number + ":Its not prime number");
+					flag = false;
+					break;
+				}
+			}
+		}
+		if (flag) {
+			System.out.println("Its a prime number");
+		}
+
+	}
+
+}
+
+
+factorial of a number:
+------------------
+
+5! = 5*4*3*2*1
+
+package com.demo.intro;
+
+public class Test {
+
+	public static void main(String[] args) {
+
+		int number = 5;
+		int fact = 1;
+		for (int i = 1; i <= number; i++) {
+			fact = fact * i;
+		}
+
+		System.out.println(fact);
+	}
+
+}
