@@ -1,0 +1,104 @@
+
+
+10&3
+
+for(;;)
+{
+	sop("Hello");
+}
+sop("test");
+
+1234 
+123
+12345
+
+Prime Number:
+-------------
+Number divisible by 1 and itself
+int n=5
+0,1  -> It is  not a prime number
+else{
+	
+
+
+package com.demo.intro;
+
+public class FirstProgram {
+
+	public static void main(String[] args) {
+
+		int sum = 0;
+		for (int i = 1; i <= 5; i++) {
+			sum = sum + i;
+		}
+		System.out.println(sum);
+	}
+}
+
+Objects and classes
+-------------------\
+Reusablity
+Object\
+A copy of class
+
+syntax of class:
+----------------
+
+class  <classname>{
+	
+}
+
+
+How to create an Object?
+
+datatype varname = value;
+
+classname refvar = new classname();
+new -> Keyword
+classname() -> constrcutor
+
+Dot Opertaor
+variable
+--------
+obj.variablename
+
+method :
+obj.methodName()
+obj.add()
+
+
+Demo d = new Demo();
+
+add
+add()
+Add
+ADD
+Add()
+
+package com.demo.newkeyword;
+
+public class App {
+	
+	public static void main(String[] args) {
+		
+		      Demo d=new Demo();
+		      System.out.println("At object Creation time");
+		      System.out.println(d.a);
+		      System.out.println(d.b);
+		      
+		      d.a=11;
+		      d.b=12;
+		      System.out.println("At modifying");
+		      System.out.println(d.a);
+		      System.out.println(d.b);
+		      
+		      
+		      Demo d1=new Demo();
+		      System.out.println(d1.a);
+		      System.out.println(d1.b);
+
+
+		
+	}
+
+}
