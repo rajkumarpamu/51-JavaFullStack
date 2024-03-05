@@ -1,0 +1,122 @@
+Methods in Java:
+----------------
+
+To perform an operation for multiple times we have to use a method and write our functional logic with in the method.
+
+Method Decleration
+------------------
+
+  public  returntype  methodname(paramter1,parameter2..)
+
+
+Method Body
+-------------
+{
+	//logic
+}
+
+Calling a method()
+-----------------
+
+Dot operator
+
+
+package com.demo.newkeyword;
+
+public class Addition {
+	
+	int x=30;
+
+	public int add(int no1, int no2) {
+		int sum = no1 + no2;
+		return sum;
+	}
+
+}
+
+
+package com.demo.newkeyword;
+
+public class App {
+	
+	public static void main(String[] args) {
+		
+
+		Addition obj =   new Addition(); 
+        int result = obj.add(10, 20);
+        System.out.println(result);
+        int result1 = obj.add(30, 20);
+        System.out.println(result1);
+        
+        System.out.println(obj.x);
+
+		
+	}
+
+}
+
+
+package com.demo.newkeyword;
+
+public class Addition {
+
+	int x = 30;
+
+	public int add(int no1, int no2) {
+		if (no1 > no2) {
+			return no1 + no2;
+		} else {
+			return no1 - no2;
+		}
+	}
+
+}
+
+
+package com.demo.newkeyword;
+
+public class App {
+	
+	public static void main(String[] args) {
+		Addition obj =   new Addition(); 
+        int result = obj.add(10, 20);
+        System.out.println(result);
+        int result1 = obj.add(30, 20);
+        System.out.println(result1);
+        System.out.println(obj.x);
+	}
+
+}
+
+package com.demo.newkeyword;
+
+public class Addition {
+
+	int x = 30;
+
+	public void add(int no1, int no2) {
+		if (no1 > no2) {
+			System.out.println(no1+no2);
+		} else {
+			System.out.println(no1-no2);
+		}
+	}
+
+}
+
+
+package com.demo.newkeyword;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		Addition obj = new Addition();
+		obj.add(10, 20);
+		obj.add(30, 20);
+		System.out.println(obj.x);
+
+	}
+
+}
+
