@@ -1,0 +1,185 @@
+Local Variables:
+---------------
+
+
+modifier returntype nmethodname(parameters){
+	
+	//statements
+
+}
+
+package com.demo.newkeyword;
+
+public class Student {
+
+	public void info(int id, String name, String cname) {
+		System.out.println(id);
+		System.out.println(name);
+		System.out.println(cname);
+
+	}
+
+}
+
+
+package com.demo.newkeyword;
+
+public class App {
+
+	public static void main(String[] args) {
+
+	   Student student = new Student();
+	   student.info(123,"Raj", "AshokIT");
+	   student.info(123,"Raj", "AshokIT"); 
+	   student.info(123,"Raj", "AshokIT"); 
+	   student.info(123,"Raj", "AshokIT");
+	   
+
+	}
+
+}
+
+
+
+package com.demo.newkeyword;
+
+public class Student {
+
+	// Instance Variable
+	String cname = "AshokIT";
+
+	// id,name local veriable
+	public void info(int id, String name) {
+		System.out.println(id);
+		System.out.println(name);
+		System.out.println(cname);
+	}
+
+}
+
+
+Cannot make a static reference to the non-static field a
+
+
+package com.demo.newkeyword;
+
+public class Demo {
+
+	int a = 30;
+
+	public static void main(String[] args) {
+		Demo demo = new Demo();
+		System.out.println(demo.a);
+		System.out.println(demo.hashCode());
+		
+		Demo demo1 = new Demo();
+		System.out.println(demo1.a);
+		System.out.println(demo1.hashCode());
+	}
+}
+
+
+
+package com.demo.newkeyword;
+
+public class Demo {
+
+	static int a = 30;
+
+	public static void main(String[] args) {
+		
+		 System.out.println(a);
+	}
+}
+
+package com.demo.newkeyword;
+
+public class Demo {
+	static int a = 30;
+	public static void main(String[] args) {
+		Demo d = new Demo();
+		System.out.println(d.a);
+	}
+}
+
+
+package com.demo.newkeyword;
+
+public class Student {
+
+	// static Variable
+	static String cname = "AshokIT";
+
+	// id,name local veriable
+	public void info(int id, String name) {
+		System.out.println(id);
+		System.out.println(name);
+		System.out.println(cname);
+	}
+
+}
+
+
+package com.demo.newkeyword;
+
+public class App {
+
+	public static void main(String[] args) {
+
+	   Student student = new Student();
+	   student.info(123,"Raj");
+	   
+	   Student student1 = new Student();
+	   student1.info(124,"Kumar"); 
+	   
+	   Student student2 = new Student();
+	   student2.info(124,"Ravi"); 
+	   
+	   Student student3 = new Student();
+	   student3.info(123,"Ash");
+	   
+
+	}
+
+}
+
+
+package com.demo.newkeyword;
+
+public class Demo {
+
+	int a = 1;
+
+	public Demo() {
+		a++;
+		System.out.println(a);
+	}
+
+	public static void main(String[] args) {
+		Demo d1 = new Demo();
+		Demo d2 = new Demo();
+		Demo d3 = new Demo();
+		Demo d4 = new Demo();
+
+	}
+}
+
+package com.demo.newkeyword;
+
+public class Demo {
+
+	 static int a = 1;
+
+	public Demo() {
+		++a;
+		System.out.println(a);
+	}
+
+	public static void main(String[] args) {
+		Demo d1 = new Demo();
+		Demo d2 = new Demo();
+		Demo d3 = new Demo();
+		Demo d4 = new Demo();
+
+	}
+}
