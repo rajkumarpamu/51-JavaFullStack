@@ -1,0 +1,202 @@
+Instance Variables:
+----------------
+
+Variables that are declared inside the class and out side the method without any static keyword
+
+class Test{
+	
+	int a;
+
+}
+
+Memory:
+------
+Heap Area
+
+When Object is created
+
+Access using .operator
+
+
+Static Variables:
+-----------------
+
+Varibales that are declared inside the class and outside the method with a static keyowrd
+
+Using the class name
+
+class Test{
+	
+	static int a;
+
+}
+
+Memory will be allocated at class loading time
+Access using Classname
+
+ex:
+--
+
+Test.a
+
+Local variables:
+--------------
+
+class Test{
+	
+	public void add(int a,int b){
+    int c=10;
+	}
+
+}
+
+a,b,c => Local variables
+
+Scope of these variables will be with in the method
+
+
+Memory:
+-----
+
+During method invocation time
+
+
+package com.demo;
+
+public class Addition {
+	
+	public void m1() {
+		//Illegal modifier for parameter a; only final is permitted
+		static int a;
+	}
+
+	public static void main(String[] args) {
+
+	}
+
+}
+
+
+package com.demo;
+
+public class Addition {
+
+	public void m1() {
+		// Decleration
+		int x;
+		// Accessing it
+		// The local variable x may not have been initialized
+		System.out.println(x);
+	}
+
+	public static void main(String[] args) {
+
+	}
+
+}
+
+It is mandatory to intialize a local variable, before accessing it.
+
+
+package com.demo;
+
+public class Addition {
+	// Instance Variable
+	int x;
+
+	// Static Variable
+	int y;
+
+	public void m1() {
+		System.out.println(x);
+		System.out.println(x);
+	}
+
+	public static void main(String[] args) {
+
+		Addition addition = new Addition();
+		addition.m1();
+
+	}
+
+}
+
+
+Static method:
+--------------
+//Instance Method
+public void m1(){
+	
+}
+
+//static method
+public static void m1(){
+	
+}
+
+
+package com.demo;
+
+public class Addition {
+
+	//Instance Method
+	public String print() {
+		return "welcome to ashokIT";
+	}
+
+	public static void main(String[] args) {
+
+		Addition addition = new Addition();
+		String message= addition.print();
+		System.out.println(message);
+		
+		Addition addition1 = new Addition();
+		String message1= addition1.print();
+		System.out.println(message1);
+
+	}
+
+}
+
+
+package com.demo;
+
+public class Addition {
+
+	// Static Method
+	public static String print() {
+		return "welcome to ashokIT";
+	}
+
+	public static void main(String[] args) {
+
+		String result = print();
+		System.out.println(result);
+
+		String result1 = print();
+		System.out.println(result1);
+
+	}
+
+}
+
+
+
+package com.demo;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		String result = Addition.print();
+		System.out.println(result);
+
+	}
+}
+
+
+Note:
+----
+
+We have to access it by using class name
+
