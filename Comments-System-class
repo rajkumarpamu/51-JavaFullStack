@@ -1,0 +1,130 @@
+JSE  - Stand alone  - Java standrad edition
+
+JEE  - Web based   - java eneterprised edition
+
+JME  - Mobile based - Java micro edition
+
+
+D:\51JavaFullStack>javadoc *.java
+
+Comments:
+---------
+
+Single line comment:
+-----------------------
+
+//
+
+Multiple lines:
+----------------
+/*
+*
+*
+*
+*
+*/
+
+Document line comments:
+------------------------
+package com.demo.newkeyword;
+
+import java.io.IOException;
+
+/**
+ * 
+ * @author RAJ KUMAR
+ * @version 1.8
+ * @since 2024
+ *
+ */
+public class Demo {
+
+
+	/**
+	 *  @author Raj
+	 *  @return age
+	 *  @param age
+	 *  @throws IOException
+	 * 
+	 */
+	public int age(int age) throws IOException{
+		
+		return 0;
+
+	}
+}
+
+//
+/*
+*
+*/
+
+/**
+*
+*/
+
+D:\javadoc>javadoc FirstJavaDoc.java
+
+System:
+-------
+
+Its a built in class 
+
+The System class contains several useful class fields and methods. It cannot be instantiated(Object Creation).
+
+static PrintStream	err;
+static InputStream	in;
+static PrintStream	out;
+
+static int a;
+
+class Test{
+	
+      int a; //member/variable/feild
+
+      static int b;
+
+}
+
+
+package com.demo.newkeyword;
+
+import java.io.PrintStream;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		int i1 = Demo.a;
+		System.out.println(i1);
+
+		PrintStream p = System.out;
+		p.print("welcome to java");
+		
+		System.out.print("welcome to java");
+
+	}
+
+}
+
+
+
+package com.demo.newkeyword;
+
+import java.io.PrintStream;
+
+public class App {
+
+	public static void main(String[] args) {
+
+
+		System.out.println(Demo.a);
+
+		PrintStream p = System.out;
+		p.print("welcome to java");
+		
+		System.out.print("welcome to java");
+
+	}
+
+}
