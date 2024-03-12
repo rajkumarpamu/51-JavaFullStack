@@ -1,0 +1,150 @@
+
+void	print(String s)
+Prints a string.
+
+
+void	println()
+Terminates the current line by writing the line separator string.
+
+ single newline character ('\n').
+
+
+ in   -. read
+ 
+ out   write
+
+ err    error
+
+
+ package com.demo.lang;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+public class Test {
+
+	public static void main(String[] args) throws IOException {
+
+		System.out.println("Enter you Input");
+		InputStream input = System.in;
+		int read = input.read();
+		System.out.println("Input Character is:"+(char)read);
+
+	}
+
+}
+
+package com.demo.lang;
+
+import java.io.IOException;
+
+public class Test {
+
+	public static void main(String[] args) throws IOException {
+
+		System.out.println("Enter you Input");
+		int input = System.in.read();
+		System.out.println("Input Character is:" + (char) input);
+
+	}
+
+}
+
+package com.demo.lang;
+
+import java.io.IOException;
+
+public class Test {
+
+	public static void main(String[] args) throws IOException {
+
+		System.out.println("Enter you Input");
+		int input = System.in.read();
+		System.out.println("Input Character is:" + (char) input);
+
+		System.out.println(10/0);
+		System.err.println("test");
+	}
+
+}
+
+BufferedReader
+----------------
+Reads text from a character-input stream,
+
+public String readLine()
+
+java.lang
+
+java.io
+
+package com.demo.lang;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Test {
+
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader bufferedReader = new BufferedReader
+				(new InputStreamReader(System.in));
+		System.out.println("Enter your no1");
+		String firstName = bufferedReader.readLine();
+		System.out.println("Enter your no2");
+		String lastName = bufferedReader.readLine();
+		
+		System.out.println("Name of an employee is :"+(firstName+lastName));
+
+	}
+
+}
+
+
+Scanner:
+
+A simple text scanner which can parse primitive types and strings using regular expressions.
+
+
+package com.demo.lang;
+
+import java.io.Console;
+
+public class Test {
+
+	public static void main(String[] args){
+
+		
+		
+		System.out.println(System.currentTimeMillis());
+		
+		//Terminates the currently running Java Virtual Machine
+		System.exit(0);
+
+		System.out.println(System.currentTimeMillis());
+	}
+
+}
+
+package com.demo.lang;
+
+import java.util.Scanner;
+
+public class Test {
+
+	public static void main(String[] args){
+
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter No1");
+		int no1= sc.nextInt();
+		System.out.println("Enter No2");
+		int no2= sc.nextInt();
+		
+		System.out.println("Input Params Sum is :"+(no1+no2));
+
+	}
+
+}
+
