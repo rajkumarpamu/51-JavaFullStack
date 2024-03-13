@@ -1,0 +1,219 @@
+Arrays:
+------
+
+int a; // Hold single value  --Variable Dec
+
+int a[]; //Hold Multple values  --Array Dec
+
+int a=10;
+
+int a[]={10,20,30,40};
+
+
+Array Decleration:
+------------------
+
+datatype varaname[];
+
+
+Array Creation:
+--------------
+
+varaname = new datatype[size];
+
+/Array Object is created in Heap Area
+Specifying size is mandatory
+
+public .....(String ar[]){}
+
+
+Array Intialization:
+-------------------
+marks[0]=90
+marks[1]=90
+marks[2]=90
+marks[3]=90
+marks[4]=90
+
+package com.demo.newkeyword;
+
+public class App {
+	
+	int marks[];
+	String s;
+
+	public static void main(String[] args) {
+
+		App a = new App();
+		System.out.println(a.marks);
+		System.out.println(a.s);
+	}
+
+}
+
+package com.demo.newkeyword;
+
+public class App {
+	
+
+
+	public static void main(String[] args) {
+		System.out.println(args);
+		System.out.println(args.length);
+	}
+
+}
+
+
+package com.demo.newkeyword;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		int[] marks1;
+		int marks2[];
+		int []marks3;
+
+	}
+
+}
+
+
+package com.demo.newkeyword;
+
+public class App {
+
+	public static void main(String[] args) {
+		//Array Decleration
+		int marks[];		
+		//Array Creation
+		marks =new int[5];	
+		System.out.println("Before Initialzation");
+		for(int i=0;i<marks.length;i++) {
+			System.out.println(marks[i]);
+		}		
+		//Intialization
+		marks[0]=89;
+		marks[1]=89;
+		marks[2]=89;
+		marks[3]=89;
+		marks[4]=89;	
+		System.out.println("After Initialzation");
+		for(int i=0;i<marks.length;i++) {
+			System.out.println(marks[i]);
+		}
+		
+
+
+	}
+
+}
+
+
+
+package com.demo.newkeyword;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		String names[] = { "raj", "rahul", "rohit" };
+
+		System.out.println("Object:" + names);
+		System.out.println("Length :" + names.length);
+
+		System.out.println("After Initialzation");
+		for (int i = 0; i < names.length; i++) {
+			System.out.println(names[i]);
+		}
+
+	}
+
+}
+
+Command Line Arguemnts:
+----------------------
+
+package com.demo.newkeyword;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		String names[] = { "raj", "10.9", "true","c" };
+
+		System.out.println("Object:" + names);
+		System.out.println("Length :" + names.length);
+
+		System.out.println("After Initialzation");
+		for (int i = 0; i < names.length; i++) {
+			System.out.println(names[i]);
+		}
+
+	}
+
+}
+
+
+package com.demo.newkeyword;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		System.out.println(args);
+		System.out.println(args.length);
+		System.out.println(args[0]);
+
+	}
+
+}
+
+
+[Ljava.lang.String;@515f550a
+0
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at com.demo.newkeyword.App.main(App.java:9)
+
+
+
+
+
+
+D:\51JavaFullStack>javac App.java
+
+D:\51JavaFullStack>javac App 10 20
+error: invalid flag: 10
+Usage: javac <options> <source files>
+use --help for a list of possible options
+
+D:\51JavaFullStack>java App 10 20
+2
+10
+20
+
+D:\51JavaFullStack>java App 10 Raj
+2
+10
+Raj
+
+D:\51JavaFullStack>java App 10 true
+2
+10
+true
+
+
+public class App {
+
+	public static void main(String[] args) {
+
+		System.out.println(args.length);
+
+		System.out.println(args[0]);
+		System.out.println(args[1]);
+
+
+	}
+
+}
