@@ -1,0 +1,399 @@
+Arrays:
+------
+
+int a; // Hold single value  --Variable Dec
+
+int a[]; //Hold Multple values  --Array Dec
+
+int a=10;
+
+int a[]={10,20,30,40};
+
+
+Array Decleration:
+------------------
+
+datatype varaname[];
+
+
+Array Creation:
+--------------
+
+varaname = new datatype[size];
+
+/Array Object is created in Heap Area
+Specifying size is mandatory
+
+public .....(String ar[]){}
+
+
+Array Intialization:
+-------------------
+marks[0]=90
+marks[1]=90
+marks[2]=90
+marks[3]=90
+marks[4]=90
+
+package com.demo.newkeyword;
+
+public class App {
+	
+	int marks[];
+	String s;
+
+	public static void main(String[] args) {
+
+		App a = new App();
+		System.out.println(a.marks);
+		System.out.println(a.s);
+	}
+
+}
+
+package com.demo.newkeyword;
+
+public class App {
+	
+
+
+	public static void main(String[] args) {
+		System.out.println(args);
+		System.out.println(args.length);
+	}
+
+}
+
+
+package com.demo.newkeyword;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		int[] marks1;
+		int marks2[];
+		int []marks3;
+
+	}
+
+}
+
+
+package com.demo.newkeyword;
+
+public class App {
+
+	public static void main(String[] args) {
+		//Array Decleration
+		int marks[];		
+		//Array Creation
+		marks =new int[5];	
+		System.out.println("Before Initialzation");
+		for(int i=0;i<marks.length;i++) {
+			System.out.println(marks[i]);
+		}		
+		//Intialization
+		marks[0]=89;
+		marks[1]=89;
+		marks[2]=89;
+		marks[3]=89;
+		marks[4]=89;	
+		System.out.println("After Initialzation");
+		for(int i=0;i<marks.length;i++) {
+			System.out.println(marks[i]);
+		}
+		
+
+
+	}
+
+}
+
+
+
+package com.demo.newkeyword;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		String names[] = { "raj", "rahul", "rohit" };
+
+		System.out.println("Object:" + names);
+		System.out.println("Length :" + names.length);
+
+		System.out.println("After Initialzation");
+		for (int i = 0; i < names.length; i++) {
+			System.out.println(names[i]);
+		}
+
+	}
+
+}
+
+Command Line Arguemnts:
+----------------------
+
+package com.demo.newkeyword;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		String names[] = { "raj", "10.9", "true","c" };
+
+		System.out.println("Object:" + names);
+		System.out.println("Length :" + names.length);
+
+		System.out.println("After Initialzation");
+		for (int i = 0; i < names.length; i++) {
+			System.out.println(names[i]);
+		}
+
+	}
+
+}
+
+
+package com.demo.newkeyword;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		System.out.println(args);
+		System.out.println(args.length);
+		System.out.println(args[0]);
+
+	}
+
+}
+
+
+[Ljava.lang.String;@515f550a
+0
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at com.demo.newkeyword.App.main(App.java:9)
+
+
+
+
+
+
+D:\51JavaFullStack>javac App.java
+
+D:\51JavaFullStack>javac App 10 20
+error: invalid flag: 10
+Usage: javac <options> <source files>
+use --help for a list of possible options
+
+D:\51JavaFullStack>java App 10 20
+2
+10
+20
+
+D:\51JavaFullStack>java App 10 Raj
+2
+10
+Raj
+
+D:\51JavaFullStack>java App 10 true
+2
+10
+true
+
+
+public class App {
+
+	public static void main(String[] args) {
+
+		System.out.println(args.length);
+
+		System.out.println(args[0]);
+		System.out.println(args[1]);
+
+
+	}
+
+}
+
+Parsing Technique:
+-------------------
+
+static int	parseInt(String s)
+Parses the string argument as a signed decimal integer.
+
+
+package com.ashokit.arrays;
+
+public class ArraysDemo {
+
+	public static void main(String[] args) {
+
+
+		
+		int i1= Integer.parseInt(args[0]);
+		int i2= Integer.parseInt(args[1]);
+		
+		System.out.println(i1+i2);
+	}
+	
+
+}
+
+
+
+Exception in thread "main" java.lang.NumberFormatException: For input string: "10.0"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:668)
+	at java.base/java.lang.Integer.parseInt(Integer.java:786)
+	at com.ashokit.arrays.ArraysDemo.main(ArraysDemo.java:9)
+
+
+package com.ashokit.arrays;
+
+public class ArraysDemo {
+
+	public static void main(String[] args) {
+
+
+		
+		double i1= Double.parseDouble(args[0]);
+		double i2= Double.parseDouble(args[1]);
+		
+		System.out.println(i1+i2);
+	}
+	
+
+}
+
+
+package com.ashokit.arrays;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ArraysDemo {
+
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader br = new BufferedReader
+				(new InputStreamReader(System.in));
+		System.out.println("Enter Number-1");
+		int n1 =Integer.parseInt( br.readLine());
+		
+		System.out.println("Enter Number-2");
+		int n2 =Integer.parseInt( br.readLine());
+		
+		System.out.println("Your result is :"+(n1+n2));
+	}
+	
+
+}
+
+
+package com.ashokit.arrays;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ArraysDemo {
+
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter Number-1");
+		boolean n1 = Boolean.parseBoolean(br.readLine());
+
+		System.out.println("Your result is :" + (n1));
+	}
+
+}
+
+
+
+Error: Main method not found in class com.ashokit.arrays.ArraysDemo, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+
+ex:
+
+String names[] = new String[];
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	Variable must provide either dimension expressions or an array initializer
+
+	at com.ashokit.arrays.ArraysDemo.main(ArraysDemo.java:12)
+
+
+
+public class ArraysDemo {
+
+	public static void main(String[] args) throws IOException {
+	
+		String names[] = new String[-1];
+		
+	}
+
+}
+
+
+
+Result:
+	Exception in thread "main" java.lang.NegativeArraySizeException: -1
+	at com.ashokit.arrays.ArraysDemo.main(ArraysDemo.java:10)
+
+
+Ex:
+
+	String names[] = new String[10.0];
+
+	Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	Type mismatch: cannot convert from double to int
+
+	at com.ashokit.arrays.ArraysDemo.main(ArraysDemo.java:10)
+
+
+package com.ashokit.arrays;
+
+import java.io.IOException;
+
+public class ArraysDemo {
+
+	public static void main(String[] args) throws IOException {
+
+	
+		System.out.println(Integer.MAX_VALUE);
+		String names[] = new String[2147483647];
+		
+	}
+
+}
+
+2147483647
+Exception in thread "main" java.lang.OutOfMemoryError: Requested array size exceeds VM limit
+	at com.ashokit.arrays.ArraysDemo.main(ArraysDemo.java:11)
+
+
+public class ArraysDemo {
+
+	public static void main(String[] args) throws IOException {
+
+	
+		System.out.println(Integer.MAX_VALUE);
+		String names[] = new String[2147483648];
+		
+	}
+
+}
+
+
+	Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	The literal 2147483648 of type int is out of range 
+
+	at com.ashokit.arrays.ArraysDemo.main(ArraysDemo.java:11)
+
+
