@@ -1,0 +1,189 @@
+
+Array Dec:
+---------
+
+int marks[];
+
+Array Creation:
+--------------
+
+marks = new int[5];
+
+Array Initialization
+-------------------------
+
+marks[index]=10;
+
+
+int marks[] = {10,20,,4030};
+
+package com.ashokit.arrays;
+
+import java.io.IOException;
+
+public class ArraysDemo {
+
+	public static void main(String[] args) throws IOException {
+
+	
+		String names[] = new String[3];
+		for(int i=0;i<names.length;i++) {
+			System.out.println(names[i]);
+		}
+		
+		names[0]="raj";
+		names[1]="kumar";
+		names[2]="ravi";
+		
+		for(int i=0;i<names.length;i++) {
+			System.out.println(names[i]);
+		}
+		
+	}
+
+}
+
+
+
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 3 out of bounds for length 3
+	at com.ashokit.arrays.ArraysDemo.main(ArraysDemo.java:20)
+
+
+
+	package com.ashokit.arrays;
+
+import java.io.IOException;
+
+public class ArraysDemo {
+
+	public static void main(String[] args) throws IOException {
+
+		// Array of Arrays
+		int stuMarks[][] = new int[2][5];
+		System.out.println(stuMarks[0]);
+		System.out.println(stuMarks[1]);
+
+	}
+
+}
+
+
+[I@515f550a
+[I@cac736f
+
+package com.ashokit.arrays;
+
+import java.io.IOException;
+
+public class ArraysDemo {
+
+	public static void main(String[] args) throws IOException {
+
+		// Array of Arrays
+		int stuMarks[][] = new int[2][5];
+		for (int i = 0; i < stuMarks.length; i++) {
+			System.out.println("Student " + i + " Marks");
+			for (int j = 0; j < stuMarks[i].length; j++) {
+				System.out.print(stuMarks[i][j] + " ");
+			}
+			System.out.println();
+		}
+		
+		stuMarks[0][0] = 20;
+		stuMarks[1][0] = 20;
+		stuMarks[1][1] = 20;
+		
+		for (int i = 0; i < stuMarks.length; i++) {
+			System.out.println("Student " + i + " Marks");
+			for (int j = 0; j < stuMarks[i].length; j++) {
+				System.out.print(stuMarks[i][j] + " ");
+			}
+			System.out.println();
+		}
+		
+	}
+
+}
+
+
+Jagged Array:
+---------
+
+package com.ashokit.arrays;
+
+import java.io.IOException;
+
+public class ArraysDemo {
+
+	public static void main(String[] args) throws IOException {
+
+		// Array of Arrays
+		int stuMarks[][] = new int[2][];
+		
+		stuMarks[0] = new int[1];
+		stuMarks[1] = new int[2];
+		
+		
+		for (int i = 0; i < stuMarks.length; i++) {
+			System.out.println("Student " + i + " Marks");
+			for (int j = 0; j < stuMarks[i].length; j++) {
+				System.out.print(stuMarks[i][j] + " ");
+			}
+			System.out.println();
+		}
+		
+		stuMarks[0][0] = 20;
+		stuMarks[1][0] = 20;
+		stuMarks[1][1] = 20;
+		
+		for (int i = 0; i < stuMarks.length; i++) {
+			System.out.println("Student " + i + " Marks");
+			for (int j = 0; j < stuMarks[i].length; j++) {
+				System.out.print(stuMarks[i][j] + " ");
+			}
+			System.out.println();
+		}
+		
+	}
+
+}
+
+
+Student 0 Marks
+0 
+Student 1 Marks
+0 0 
+Student 0 Marks
+20 
+Student 1 Marks
+20 20 
+
+
+
+
+package com.ashokit.arrays;
+
+import java.io.IOException;
+
+public class ArraysDemo {
+
+	public static void main(String[] args) throws IOException {
+
+		// Array of Arrays
+		int insStuMarks[][][] = new int[2][3][5];
+
+		for (int i = 0; i < insStuMarks.length; i++) {
+			System.out.println("Instituite " + i + " Marks");
+			for (int j = 0; j < insStuMarks[i].length; j++) {
+				System.out.println("Student " + j + " Marks");
+				for (int k = 0; k < insStuMarks[i][j].length; k++) {
+					System.out.print(insStuMarks[i][j][k] + " ");
+				}
+				System.out.println();
+			}
+			System.out.println();
+		}
+
+	}
+
+}
