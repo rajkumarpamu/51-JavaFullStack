@@ -1,0 +1,229 @@
+String:
+--------
+
+The String class represents character strings. 
+All string literals in Java programs, such as "abc", are implemented as instances(Object) of  this class.
+
+ex;
+Sysout("Hi");
+
+
+String str = new String(); //Empty String
+String str = ""; //Empty String
+
+1)Using new keyword
+String str = new String("sachin"); 
+2)String literals
+String str = "sachin";
+
+
+Ex:
+
+package com.ashokit.demo.strings;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		String str = new String("sachin");
+		System.out.println(str);
+
+		String str1 = new String("welcome to java");
+		System.out.println(str1);
+
+	}
+}
+
+
+
+package com.ashokit.demo.strings;
+
+public class App {
+	String str;
+	public static void main(String[] args) {
+		App app = new App();
+		System.out.println(app.str);
+
+	}
+}
+
+Result:
+null
+
+
+package com.ashokit.demo.strings;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		String str = "sachin";
+		System.out.println(str);
+
+	}
+}
+
+
+package com.ashokit.demo.strings;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		String str = "sachin";
+		System.out.println(str);
+
+		char c = str.charAt(4);
+		System.out.println(c);
+
+	}
+}
+
+
+package com.ashokit.demo.strings;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		String str = "sachin";
+		System.out.println(str);
+
+		char c = str.charAt(4);
+		System.out.println(c);
+
+		String name = str.concat("tendulkar");
+		System.out.println(name);
+
+	}
+}
+
+
+
+package com.ashokit.demo.strings;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		String s1 = "sachin";
+		String s2 = "tendulkar";
+
+		System.out.println(s1 + s2);
+		System.out.println(s1 + 10 + 20);
+		System.out.println(s1 + (10 + 20));
+
+	}
+}
+
+
+
+
+package com.ashokit.demo.strings;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		String s1 = "sachin";
+		String s2 = "tendulkar";
+		System.out.println(s1 + s2);
+		System.out.println(s1 + 10 + 20);
+		System.out.println(s1 + (10 - 20));
+	}
+}
+
+
+package com.ashokit.demo.strings;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		String str = "sachin";
+
+		boolean b1 = str.endsWith("hin");
+		System.out.println(b1);
+
+	}
+}
+
+package com.ashokit.demo.strings;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		String str = "sachin";
+
+		boolean b1 = str.startsWith("hin");
+		System.out.println(b1);
+
+	}
+}
+
+
+package com.ashokit.demo.strings;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		String str = "sachin";
+		String str1 = "Sachin";
+
+        boolean result = str.equals(str1);
+        
+        if(result) {
+        	System.out.println("Names are same");
+        }
+        else {
+        	System.out.println("Both are not same");
+        }
+
+	}
+}
+
+
+package com.ashokit.demo.strings;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		String str = "sachin";
+		String str1 = "SACHIN";
+
+        boolean result = str.equalsIgnoreCase(str1);
+        
+        if(result) {
+        	System.out.println("Names are same");
+        }
+        else {
+        	System.out.println("Both are not same");
+        }
+
+	}
+}
+
+
+package com.ashokit.demo.strings;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		String str = "sachin";
+
+		int size = str.length();
+
+		if (size > 0) {
+			System.out.println("Its a valid anme");
+		} else {
+			System.out.println("In validName");
+		}
+
+	}
+}
+
+
