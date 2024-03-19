@@ -1,0 +1,317 @@
+
+Method Chaining:
+-----------------
+
+package com.ashokit.demo.strings;
+
+public class Test {
+
+	public static void main(String[] args) {
+
+		String message = "sachin";
+		String concat = message.concat("tendulkar");
+		System.out.println(concat);
+		int length = concat.length();
+		System.out.println(length);
+
+		int length2 = message.concat("tendulkar").length();
+		System.out.println(length2);
+	}
+}
+
+
+
+package com.ashokit.demo.strings;
+
+public class Test {
+
+	public static void main(String[] args) {
+
+		String message = "sachin";
+
+		boolean endsWith = message.concat("tendulkar").endsWith("ar");
+		System.out.println(endsWith);
+
+	}
+}
+
+
+
+package com.ashokit.demo.strings;
+
+public class Test {
+
+	public static void main(String[] args) {
+
+		String message = "sachin";
+
+		int length = message.concat("tendulkar").substring(5).length();
+		System.out.println(length);
+
+	}
+}
+
+
+
+package com.ashokit.demo.strings;
+
+public class Test {
+
+	public static void main(String[] args) {
+
+		String message = "sachin";
+
+		boolean contains = message.contains("hin");
+		System.out.println(contains);
+
+	}
+}
+
+
+package com.ashokit.demo.strings;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Test {
+
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter Name");
+		String message = br.readLine();
+
+		if (message.length() > 0 | !(message.isEmpty()) | !(message.isBlank())) {
+			System.out.println("Thanks :" + message);
+		} else {
+			System.out.println("Please enter valid input");
+		}
+	}
+}
+
+
+String	substring(int beginIndex)
+Returns a string that is a substring of this string.
+Parameters:
+beginIndex - the beginning index, inclusive.
+
+package com.ashokit.demo.strings;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Test {
+
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter Name");
+		String message = br.readLine();
+
+		if (message.length() > 0 | !(message.isEmpty()) | !message.isBlank()) {
+			String substring = message.substring(3);
+			System.out.println("Last Name :" + substring);
+
+		} else {
+			System.out.println("Please enter valid input");
+		}
+	}
+}
+
+
+package com.ashokit.demo.strings;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Test {
+
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter Name");
+		String message = br.readLine();
+
+		if (message.length() > 0 | !(message.isEmpty()) | !message.isBlank()) {
+			String substring = message.substring(0,3);
+			System.out.println("First Name :" + substring);
+
+		} else {
+			System.out.println("Please enter valid input");
+		}
+	}
+}
+
+
+char[]	toCharArray()
+Converts this string to a new character array.
+
+package com.ashokit.demo.strings;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Test {
+
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter Message");
+		String message = br.readLine();
+
+		if (message.length() > 0 | !(message.isEmpty()) | !message.isBlank()) {
+			char[] ch = message.toCharArray();
+			if (ch[0] == 'y' | ch[0] == 'Y') {
+				System.out.println("Thanks for confirmation ");
+			}
+			else {
+				System.out.println("STopping the flow");
+			}
+
+		} 
+	}
+}
+
+
+raj@abc.com
+
+package com.ashokit.demo.strings;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Test {
+
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter Message");
+		String message = br.readLine();
+
+		if (message.length() > 0 | !(message.isEmpty()) | !message.isBlank()) {
+			String[] split = message.split("@");
+			System.out.println("Name is :" + split[0]);
+			// System.out.println(split[1]);
+		}
+	}
+}
+
+
+package com.ashokit.demo.strings;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Test {
+
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter Message");
+		String message = br.readLine();
+
+		if (message.length() > 0 | !(message.isEmpty()) | !message.isBlank()) {
+			String[] split = message.split("&");
+			System.out.println("Name is :" + split[0]);
+			// System.out.println(split[1]);
+		}
+	}
+}
+
+
+package com.ashokit.demo.strings;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Test {
+
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter Message");
+		String message = br.readLine();
+
+		if (message.length() > 0 | !(message.isEmpty()) | !message.isBlank()) {
+			String result = message.toUpperCase();
+			if (result.equals("YES")) {
+				System.out.println("Welcome ");
+			} else {
+				System.out.println("Will get back tp you");
+			}
+		}
+	}
+}
+
+package com.ashokit.demo.strings;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Test {
+
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter Message");
+		String message = br.readLine();
+		System.out.println("Message :" + message);
+		System.out.println("Message :" + message.length());
+		if (message.length() > 0 | !(message.isEmpty()) | !message.isBlank()) {
+			/*
+			 * with all leading and trailing space removed
+			 */
+			String result = message.toUpperCase().trim();
+			System.out.println("Message after trim :" + result.length());
+			if (result.equals("YES")) {
+				System.out.println("Welcome ");
+			} else {
+				System.out.println("Will get back tp you");
+			}
+		}
+	}
+}
+
+
+
+
+package com.ashokit.demo.strings;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Test {
+
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter Message");
+		String message = br.readLine();
+		System.out.println("Message :" + message);
+		System.out.println("Message :" + message.length());
+		if (message.length() > 0 | !(message.isEmpty()) | !message.isBlank()) {
+			String[] split = message.split(" ");
+			System.out.println("First Name :" + split[0]);
+			System.out.println("Last Name :" + split[1]);
+
+		}
+	}
+}
+
+
+
+String	substring(int beginIndex, int endIndex)
+Returns a string that is a substring of this string.
+
+Parameters:
+beginIndex - the beginning index, inclusive.
+endIndex - the ending index, exclusive.
