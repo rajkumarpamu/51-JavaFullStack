@@ -1,0 +1,61 @@
+
+String using new keyword
+---------------------------
+String str = new String("sachin");
+
+Memory Location:
+----------------
+Heap Memory/Area
+
+String literals
+---------------
+String str = "sachin";
+
+Memory Location:
+----------------
+String Constant Pool
+
+Deallocation
+----------
+String Constant Pool
+
+
+package com.demo.strings;
+
+public class App {
+	public static void main(String[] args) {
+		
+		String s1 = new String("sachin"); //Heap Area
+		String s2 = new String("sachin");//Heap Area
+		
+		String s3="Dhoni"; //SCP
+		String s4="Dhoni"; //SCP
+		
+		System.out.println(s1==s2);
+		System.out.println(s1==s3);
+		System.out.println(s3==s4);
+		
+	}
+
+}
+
+
+package com.demo.strings;
+
+public class App {
+	public static void main(String[] args) {
+		
+		String s1 = new String("sachin"); 
+		System.out.println(s1);
+		
+	}
+
+}
+
+
+Note:
+
+2 Objects will be created 
+
+1 Heap Area
+2 String Constant Pool
