@@ -1,0 +1,126 @@
+String
+
+valueOf():
+---------
+
+public static String valueOf(boolean b)
+
+Returns the string representation of the boolean argument.
+
+package test;
+
+public class Test {
+
+	public static void main(String[] args) {
+
+		boolean result= true;
+		String valueOf = String.valueOf(result);
+		System.out.println(valueOf);
+		
+		int age=30;
+		String valueOf2 = String.valueOf(age);
+		System.out.println(valueOf2.charAt(0));
+		
+		double salary = 1000000.0;
+		String valueOf3= String.valueOf(salary);
+		System.out.println(valueOf3.length());
+
+
+
+	}
+}
+
+
+
+Strings are constant(Immutable); their values cannot be changed after they are created.
+
+Because String objects are immutable they can be shared. For example:
+
+     String str = "abc";
+ 
+is equivalent to:
+
+     char data[] = {'a', 'b', 'c'};
+     String str = new String(data);
+
+
+package test;
+
+public class Test {
+
+	public static void main(String[] args) {
+
+		String str = "sachin";
+		System.out.println("Original object before concat:" + str);
+
+		String str1 = str.concat("tendulkar");
+		System.out.println("Result 2:" + str1);
+		System.out.println("Original object before concat after concat:" + str);
+
+	}
+}
+
+
+package test;
+
+public class Test {
+
+	int a=10;
+	public static void main(String[] args) {
+
+		Test t = new Test();
+		System.out.println("Original Object a before :"+t.a);
+		
+		t.a=20;
+		System.out.println("Original Object a afetr:"+t.a);
+	}
+}
+
+
+StringBuffer:
+------------
+A thread-safe, mutable sequence of characters. 
+
+A string buffer is like a String, 
+At any point in time it contains some particular sequence of characters, but the length and content of the sequence can be changed through certain method calls.
+
+package test;
+
+public class Test {
+
+	public static void main(String[] args) {
+
+		StringBuffer sb = new StringBuffer("sachin");
+		System.out.println("Before append() :" + sb);
+
+		StringBuffer append = sb.append("tendulkar");
+		System.out.println("after append() :" + sb);
+
+	}
+}
+
+
+package test;
+
+public class Test {
+
+	public static void main(String[] args) {
+
+		StringBuffer sb = new StringBuffer("sachin");
+		System.out.println("Before append() :" + sb);
+
+		sb
+		.append("tendulkar ")
+		.append("remeash ")
+		.append("test ");
+
+		System.out.println("after append() :" + sb);
+
+	}
+}
+
+
+Note:
+
+Instances of StringBuilder are not safe for use by multiple threads. If such synchronization is required then it is recommended that StringBuffer be used.
+
