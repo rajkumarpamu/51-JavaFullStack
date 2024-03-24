@@ -1,0 +1,425 @@
+String 
+------
+
+String Object
+String literal
+
+String str1 = "sachin";
+String str2 = "sachin";
+
+sysout(str1==str2); //true
+
+String str1 = new String("sachin");
+String str2 = new String("sachin");
+
+sysout(str1==str2); //Compare reference - false
+
+str1.equals(str2);
+
+StringJoiner:
+--------------
+
+StringJoiner is used to construct a sequence of characters separated by a delimiter and optionally starting with a supplied prefix and ending with a supplied suffix.
+
+Result:
+--------
+[Java , by , ashokIt]
+
+
+package com.demo;
+
+import java.util.StringJoiner;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		/*
+		 * public StringJoiner(CharSequence delimiter, CharSequence prefix, CharSequence
+		 * suffix
+		 */
+		StringJoiner str = new StringJoiner(",", "[", "]");
+		str.add("Java").add("by").add("AshokIT");
+
+		System.out.println(str);
+	}
+
+}
+
+How to conver String to Integer?
+
+
+package com.demo;
+
+import java.util.StringJoiner;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		String str = "127";
+		int i1 = Integer.parseInt(str);
+		System.out.println("int type :" + i1);
+
+		String s1 = String.valueOf(i1);
+		System.out.println("string type :" + s1);
+
+	}
+
+}
+
+
+
+How to convert String to StringBuilder?
+---------------------------------------
+
+
+package com.demo;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		String str1 = new String("sachin");// Immutable Object
+		System.out.println("Immutable object :" + str1);
+
+		// Conevrting Immutable to Mutable (Thread - Safe)
+		StringBuffer buffer = new StringBuffer(str1);
+		System.out.println("Mutable String :" + buffer);
+
+		buffer.append("ramesh").append("tendulkar");
+		System.out.println("After Appending :" + buffer);
+
+		StringBuilder sbBuilder = new StringBuilder(str1);
+		System.out.println("Mutablle String :" + sbBuilder);
+
+		sbBuilder.append("test");
+		System.out.println(sbBuilder);
+
+	}
+
+}
+
+
+How to convert Mutable String to Immutable?
+-----------------------------------------
+
+
+package com.demo;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		StringBuffer stringBuffer = new StringBuffer("sachin");
+		System.out.println(stringBuffer);
+
+		String string1 = new String(stringBuffer);
+		System.out.println(string1);
+
+		StringBuilder stringBuilder = new StringBuilder("sachin");
+		System.out.println(stringBuilder);
+
+		String string2 = new String(stringBuilder);
+		System.out.println(string2);
+
+	}
+
+}
+
+
+
+
+package com.demo;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		StringBuffer stringBuffer = new StringBuffer("sachin");
+		
+		String string = new String("sachin");
+		
+		System.out.println(string.equals(stringBuffer));
+		
+		System.out.println(string.hashCode());
+		System.out.println(stringBuffer.hashCode());
+	}
+
+}
+
+
+
+String str = new String("sachin");
+
+1 Object in Heap Area
+2 Same copy will be created in SCP
+
+
+
+
+package com.demo;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		String string1 = new String("sachin");
+		String string2 = "sachin";
+
+		System.out.println(string1.equals(string2));
+
+		System.out.println(string1.hashCode());
+		System.out.println(string2.hashCode());
+	}
+
+}
+
+
+
+package com.demo;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		String string1 = new String("sachin");
+		String string2 = "sachin";
+
+		System.out.println(string1.equals(string2));
+
+		System.out.println(string1.hashCode());
+		System.out.println(string2.hashCode());
+
+		StringBuffer sb1 = new StringBuffer("sachin");
+		StringBuffer sb2 = new StringBuffer("sachin");
+
+		System.out.println(sb1.equals(sb2));
+	}
+
+}
+
+
+
+package com.demo;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		
+		String names[]= new String[3];;
+		names[0]="sachin";
+		names[1]="ramesh";
+		names[2]="tendulkar";
+		
+		for(int i=0;i<names.length;i++) {
+			System.out.println(names[i]);
+		}
+	}
+
+}
+
+
+
+
+package com.demo;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		String names[] = { "sachin", "ramesh", "tendulkar" };
+
+		StringBuffer sbBuffer = new StringBuffer();
+		sbBuffer.append(names[0]).append(" " + names[1]).append(" " + names[2]);
+		System.out.println(sbBuffer.toString()); 	
+
+	}
+
+}
+
+
+
+package com.demo;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		String names[] = { "sachin", "ramesh", "tendulkar" };
+		StringBuffer sbBuffer = new StringBuffer();
+		for (int i = 0; i < names.length; i++) {
+			sbBuffer.append(names[i] + " ");
+		}
+		String newNamesString = sbBuffer.toString();
+		System.out.println(newNamesString);
+
+	}
+
+}
+
+
+
+package com.demo;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class App {
+
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter the String");
+		String string = br.readLine();
+		int count = 0;
+
+		for (int i = 0; i < string.length(); i++) {
+			if (string.charAt(i) != ' ') {
+				count++;
+			}
+		}
+
+		System.out.println("Total Count :" + count);
+
+	}
+
+}
+
+
+
+package com.demo;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class App {
+
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter the String");
+		String string = br.readLine();
+		int count = 0;
+
+		for (int i = 0; i < string.length(); i++) {
+			if (!(string.charAt(i) == ' ')) {
+				count++;
+			}
+		}
+
+		System.out.println("Total Count :" + count);
+
+	}
+
+}
+
+
+
+
+package com.demo;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class App {
+
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter the String");
+		String s1 = br.readLine();
+		System.out.println("Enter the Charcter");
+		String s2 = br.readLine();
+		char[] c = s2.toCharArray();
+
+		int count = 0;
+
+		for (int i = 0; i < s1.length(); i++) {
+			if ((s1.charAt(i) == c[0])) {
+				count++;
+			}
+		}
+
+		System.out.println("Total Count Charcter for " + c[0] + " " + count);
+
+	}
+
+}
+
+
+
+
+package com.demo;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class App {
+
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter the String");
+		String s1 = br.readLine();
+		System.out.println("Enter the Charcter");
+		String s2 = br.readLine();
+
+		int count = 0;
+
+		for (int i = 0; i < s1.length(); i++) {
+			if ((s1.charAt(i) == s2.charAt(0))) {
+				count++;
+			}
+		}
+
+		System.out.println("Total Count Charcter for " + " " + count);
+
+	}
+
+}
+
+
+
+
+package com.demo;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class App {
+
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter the String");
+		String s1 = br.readLine();
+
+		String str2 = s1.replaceAll("raj", "");
+		System.out.println(str2);
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
