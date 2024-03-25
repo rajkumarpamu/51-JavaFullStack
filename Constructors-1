@@ -1,0 +1,354 @@
+Constructor:
+------------
+It is a special type of method to initialze the object.
+
+Ex:
+--
+Demo d = new Demo();
+
+Method: To perform an operation for multiple times
+Constructors : To do initialization
+
+
+Scenario-1
+
+package com.demo.constructors;
+
+public class Employee {
+	//Instane Variable
+	//Decleration and Intialization
+	int a=10;
+	
+	public static void main(String[] args) {
+		
+		Employee emp = new Employee();
+		System.out.println(emp.a);
+		
+	}
+
+}
+
+
+
+package com.demo.constructors;
+
+public class Employee {
+
+	// Decleration
+	int a;
+
+	public static void main(String[] args) {
+
+		Employee emp = new Employee();
+		// Intialization
+		emp.a = 10;
+		System.out.println(emp.a);
+
+	}
+
+}
+
+Rules of a creating constructor:
+--------------------------------
+
+Its a specail type of method:
+
+1)Constructor name should be always same as class name
+2)It should not contain any return type not even void
+3)COnstructor will be executed when Object is created
+
+package com.demo.constructors;
+
+public class Employee {
+
+	// Decleration
+	int a;
+
+	// Constructor
+	public Employee() {
+		// Intialization
+		a = 10;
+	}
+
+	public static void main(String[] args) {
+
+		Employee emp = new Employee();
+		System.out.println(emp.a);
+
+	}
+
+}
+
+
+When object is creating automaically the corresponding construtor will be invoked.
+
+
+package com.demo.constructors;
+
+public class Employee {
+
+	// Decleration
+	int a;
+
+	// Constructor
+	public Employee() {
+		// Intialization
+		a = 10;
+	}
+
+	public void m1() {
+		System.out.println("a value is "+a);
+	}
+	public static void main(String[] args) {
+
+		Employee emp = new Employee();
+		System.out.println(emp.a);
+        emp.m1();
+	}
+
+}
+
+
+javap response:
+
+D:\AshokIT\51JavaFullStack>javap Employee
+Compiled from "Employee.java"
+public class Employee {
+  int a;
+  public Employee(); //Default Constructor
+  public static void main(java.lang.String[]);
+}
+
+public class Employee {
+	
+	int a;
+
+	public static void main(String[] args) {
+
+		Employee emp = new Employee();
+		System.out.println(emp.a);
+
+	}
+
+}
+
+
+
+package com.demo.constructors;
+
+public class Employee {
+
+	// Decleration
+	int a;
+	
+	//
+	public Employee() {
+		a=0;
+	}
+
+	public static void main(String[] args) {
+		Employee emp = new Employee();
+		System.out.println(emp.a);
+	}
+
+}
+
+User defined constrcutpr:
+-------------------------
+
+package com.demo.constructors;
+
+public class Employee {
+
+	// User defined constructor
+	public Employee() {
+		System.out.println("Employee cons is called");
+	}
+
+	public static void main(String[] args) {
+
+		Employee emp = new Employee();
+
+	}
+
+}
+
+
+User defined Constructor is classified into  2 types:
+-----------------------------------------------------
+
+
+Zero arguement Constructor
+-------------------------
+
+package com.demo.constructors;
+
+public class Employee {
+
+	int a;
+	// User defined constructor
+	public Employee() {
+		a=10;
+	}
+
+	public static void main(String[] args) {
+
+		Employee emp = new Employee();
+		System.out.println(emp.a);
+
+	}
+
+}
+
+
+package com.demo.constructors;
+
+public class Employee {
+
+	int a;
+
+	// User defined constructor with parameters
+	public Employee(int x) {
+		a = x;
+	}
+
+	public static void main(String[] args) {
+
+		// Invoking Parameterized constrctor
+		Employee emp = new Employee(10);
+		System.out.println(emp.a);
+
+	}
+
+}
+
+
+package com.demo.constructors;
+
+public class Employee {
+
+	String name;
+	int id;
+
+	public Employee(String n, int i) {
+		name = n;
+		id = i;
+	}
+
+	public void display() {
+		System.out.println("Name is :" + name);
+		System.out.println("Id is :" + id);
+	}
+
+	public static void main(String[] args) {
+
+		Employee emp = new Employee("raj", 1);
+		emp.display();
+		
+		Employee emp1 = new Employee("kumar", 2);
+		emp1.display();
+
+	}
+
+}
+
+
+package com.demo.constructors;
+
+public class Employee {
+
+	String name;
+	int id;
+
+	public Employee(String n, int i) {
+		name = n;
+		id = i;
+
+	}
+
+	public void display() {
+		System.out.println("Name is :" + name);
+		System.out.println("Id is :" + id);
+	}
+
+	public static void main(String[] args) {
+
+		Employee emp = new Employee("raj", 1);
+        emp.display();
+        emp.display();
+        emp.display();
+
+	}
+
+}
+
+
+Parameterized Contructors
+-------------------------
+
+
+package com.demo.constructors;
+
+public class Employee {
+
+	String name;
+	int id;
+
+	public Employee(String n, int i) {
+		name = n;
+		id = i;
+
+	}
+
+	public void display() {
+		System.out.println("Name is :" + name);
+		System.out.println("Id is :" + id);
+	}
+
+	public static void main(String[] args) {
+
+		Employee emp = new Employee("raj", 1);
+        emp.display();
+        emp.display();
+        emp.display();
+
+	}
+
+}
+
+For static varibales , memory will be alcated during clas loading time ,
+onstructor will not initailze the static variables but it can do assigment.
+
+package com.demo.constructors;
+
+public class Employee {
+
+	static String name;
+	int id;
+
+	public Employee(String n, int i) {
+		name = n;
+		id = i;
+
+	}
+
+	public void display() {
+		System.out.println("Name is :" + name);
+		System.out.println("Id is :" + id);
+	}
+
+	public static void main(String[] args) {
+
+		Employee emp = new Employee("raj", 1);
+        emp.display();
+        emp.display();
+        emp.display();
+
+	}
+
+}
+
+
+
+
+
