@@ -201,6 +201,21 @@ public class Employee {
 
 }
 
+New Example:
+
+InputStream is = System.in;
+InputStreamReader ir = new InputStreamReader(is)
+BufferedReader bufferedReader = new BufferedReader(ir);
+
+
+old example:
+
+BufferedReader bufferedReader = new BufferedReader
+				(new InputStreamReader(System.in));
+
+
+
+
 
 
 
