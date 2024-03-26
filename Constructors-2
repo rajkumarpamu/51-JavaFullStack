@@ -1,0 +1,207 @@
+public String(String original)
+Initializes a newly created String object so that it represents the same sequence of characters as the argument
+
+String str = new String("sachin");
+
+
+package com.demo.constructors;
+
+public class Employee {
+
+	String name;
+	Address address;
+
+	public Employee(String n, Address addr) {
+		name = n;
+		address = addr;
+	}
+
+	public void display() {
+		System.out.println("Name is :" + name);
+		System.out.println(address.city);
+		System.out.println(address.state);
+		System.out.println(address.street);
+	}
+
+	public static void main(String[] args) {
+
+		Address address = new Address("apet", "hyd", "ts");
+		Employee emp = new Employee("raj", address);
+		emp.display();
+
+	}
+
+}
+
+
+String  str = new String("sachin");
+StringBuffer sb = new StringBuffer("sachin");
+StringBuilder sbl= new StringBuffer("sachin");
+
+
+
+
+
+
+
+
+
+
+
+
+package com.demo.constructors;
+
+public class Address {
+	
+
+	String street;
+	String city;
+	String state;
+	
+	public Address(String str, String ct, String st) {
+		street = str;
+		city = ct;
+		state = st;
+	}
+	
+	
+
+}
+
+
+
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	The constructor Employee(String) is undefined
+
+	at com.demo.constructors.Employee.main(Employee.java:23)
+
+
+package com.demo.constructors;
+
+public class Employee {
+
+	String name;
+	Address address;
+
+	//Constructor-1
+	public Employee(String n, Address addr) {
+		System.out.println("Constrcutor-1");
+		name = n;
+		address = addr;
+	}
+
+	//Constructor-2
+	public Employee(String n) {
+		System.out.println("Constrcutor-2");
+		name = n;
+	}
+
+	public void display() {
+		System.out.println("Name is :" + name);
+	}
+
+	public static void main(String[] args) {
+
+		Address address = new Address("apet", "hyd", "ts");
+		Employee emp = new Employee("raj", address);
+		emp.display();
+		
+		
+		Employee emp1 = new Employee("raj");
+		emp1.display();
+
+	}
+
+}
+
+
+Copy Values from one contructor to another constrcutr?
+
+
+package com.demo.constructors;
+
+public class Employee {
+
+	String name;
+	int id;
+
+	// Constructor-1
+	public Employee(String n, int i) {
+		System.out.println("Constrcutor-1");
+		name = n;
+		id = i;
+	}
+
+	// Constructor-2
+	public Employee(Employee employee) {
+		System.out.println("Constrcutor-2");
+		name = employee.name;
+		id = employee.id;
+	}
+
+	public void display() {
+		System.out.println("Name is :" + name);
+		System.out.println("id is :" + id);
+	}
+
+	public static void main(String[] args) {
+
+		Employee employee = new Employee("sachin", 1);
+		employee.display();
+
+		System.out.println("Copy one constructor value into another constrcutor");
+		Employee employee1 = new Employee(employee);
+		employee1.display();
+
+	}
+
+}
+
+
+
+for each loop:
+--------------
+
+Enhanced Loop
+
+
+Specially for Arrays or Collections
+
+Syntax:
+-------
+
+for(type var : array){
+	
+}
+
+package com.demo.constructors;
+
+public class Employee {
+
+	public static void main(String[] args) {
+
+		String names[] = new String[3];
+		names[0] = "raj";
+		names[1] = "raj";
+		names[2] = "raj";
+
+		// for loop
+		for (int i = 0; i < names.length; i++) {
+			System.out.println(names[i]);
+		}
+
+		System.out.println("Enhanced Loop");
+		// for each loop
+		for (String name : names) {
+			System.out.println(name);
+		}
+
+	}
+
+}
+
+
+
+
+
