@@ -1,0 +1,307 @@
+oops:
+---
+
+Inheritance:
+-------------
+Aquiring properties from parent class to child class.
+
+Reusablity
+----------
+
+Super class
+------------
+
+Sub Class
+-----------
+
+
+IS-A RelationShip
+------------------
+
+class Employee{
+	
+}
+
+class Programmer{
+	
+}
+
+
+Programmer IS A Employee
+
+class Bank{
+	
+}
+
+class SBI{
+	
+}
+
+SBi IS A  Bank
+
+class Bike{}
+
+
+class Pulsar{
+	
+}
+
+Pulsar IS A Bike
+
+
+class BIke{
+	
+}
+
+class Engine{
+	
+}
+
+BIke HAS A  Engine
+
+
+Syntax:
+-------
+
+class Employee{
+	//properties
+}
+
+class Programmer <extends>  Employee{
+	
+
+}
+
+package com.demo.inheritance;
+
+public class Employee {
+
+	int id=1;
+	String name="Raj Kumar";
+}
+
+
+package com.demo.inheritance;
+
+public class Programmer extends Employee{
+
+	String role="Develop the code";
+}
+
+
+package com.demo.inheritance;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		Programmer programmer = new Programmer();
+		System.out.println("Role :" + programmer.role);
+		System.out.println("Id :" + programmer.id);
+		System.out.println("Name is :" + programmer.name);
+
+	}
+}
+
+
+package com.demo.inheritance;
+
+public class Employee {
+	
+	public Employee() {
+		System.out.println("Employee object is created");
+	}
+
+	int id=1;
+	String name="Raj Kumar";
+}
+
+
+
+package com.demo.inheritance;
+
+public class Programmer extends Employee{
+	
+	public Programmer() {
+		System.out.println("Programmer object is created");
+	}
+
+	String role="Develop the code";
+}
+
+
+
+
+package com.demo.inheritance;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		Programmer programmer = new Programmer();
+		System.out.println("Role :" + programmer.role);
+		System.out.println("Id :" + programmer.id);
+		System.out.println("Name is :" + programmer.name);
+
+	}
+}
+
+
+
+package com.demo.inheritance;
+
+public class Employee {
+
+	int id = 1;
+	String name = "Raj Kumar";
+
+	public Employee() {
+		System.out.println("Employee object is created");
+	}
+
+}
+
+
+package com.demo.inheritance;
+
+public class Programmer extends Employee {
+	
+	String role = "Develop the code";
+	int id=2;
+
+	public Programmer() {
+		System.out.println("Programmer object is created");
+	}
+
+}
+
+
+package com.demo.inheritance;
+
+public class App {
+	public static void main(String[] args) {
+		Programmer programmer = new Programmer();
+		System.out.println("Role :" + programmer.role);
+		System.out.println("Id :" + programmer.id);
+		System.out.println("Name is :" + programmer.name);
+
+	}
+}
+
+
+public class Employee {
+
+	int id = 1;
+	String name = "Raj Kumar";
+	static String institute = "Ashok IT";
+
+	public Employee() {
+		System.out.println("Employee object is created");
+	}
+
+}
+
+
+package com.demo.inheritance;
+
+public class Programmer extends Employee {
+
+	String role = "Develop the code";
+
+	public Programmer() {
+		System.out.println("Programmer object is created");
+	}
+
+}
+
+
+public class App {
+
+	public static void main(String[] args) {
+
+		Programmer programmer = new Programmer();
+		System.out.println("Role :" + programmer.role);
+		System.out.println("Id :" + programmer.id);
+		System.out.println("Name is :" + programmer.name);
+		System.out.println("Name is :" + Employee.institute);
+
+	}
+}
+
+
+Single level Inheriatance
+--------------------------------
+
+  class A{}
+
+  class B extends A{}
+
+
+Multi Level Inheriatnce:
+--------------------------
+
+class A{}
+
+class B extends A{}
+
+class C extends B{}
+
+class D extends C{}
+
+
+
+package com.demo.inheritance;
+
+public class Employee {
+
+	int id = 1;
+	String name = "Raj Kumar";
+	static String institute = "Ashok IT";
+
+	public Employee() {
+		System.out.println("Employee object is created");
+	}
+
+}
+
+
+package com.demo.inheritance;
+
+public class Programmer extends Employee {
+
+	String role = "Developer";
+
+	public Programmer() {
+		System.out.println("Programmer object is created");
+	}
+
+}
+
+
+package com.demo.inheritance;
+
+public class JavaDevloper extends Programmer {
+
+	public JavaDevloper() {
+		System.out.println("JavaDevloper object is created");
+	}
+	String developer = "Develop the code in Java Programming Language";
+
+}
+
+
+package com.demo.inheritance;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		JavaDevloper devloper  = new JavaDevloper();
+		System.out.println("Role :" + devloper.role);
+		System.out.println("Id :" + devloper.id);
+		System.out.println("Name is :" + devloper.name);
+		System.out.println("Name is :" + devloper.developer);
+		System.out.println("Name is :" + Employee.institute);
+
+	}
+}
