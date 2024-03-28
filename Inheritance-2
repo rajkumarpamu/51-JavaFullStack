@@ -1,0 +1,170 @@
+Employee
+Address
+
+Institute
+Student
+
+Instutute
+Department
+
+Animal
+Dog
+
+Employee
+Programmer
+
+Employee
+Accountant
+
+
+package com.demo.inheritance;
+
+public class Animal {
+
+	public Animal() {
+		System.out.println("Animal Object is created");
+	}
+
+	public void animal() {
+		System.out.println("It is animal");
+	}
+}
+
+
+package com.demo.inheritance;
+
+public class Dog extends Animal{
+	
+	public Dog() {
+		System.out.println("Dog object is created");
+	}
+	
+	public void bark() {
+		System.out.println("Dog is barking");
+	}
+
+}
+
+
+
+package com.demo.inheritance;
+
+public class App {
+
+	public static void main(String[] args) {
+
+
+		Dog dog = new Dog();
+		dog.animal();
+		dog.bark();
+
+	}
+}
+
+
+Multiple Inheriatnce:
+---------------------
+
+class  C extends A,B{
+	
+}
+
+Not possible becuase of ambiguity.
+
+
+Hierarchial Inheritance:
+------------------------
+
+
+Employee
+
+   String name;
+   Address address;
+   int id;
+
+
+   --------------------------------------------------------------------
+
+
+HAS-A RelationShip:
+==================
+
+class Employee{
+
+       Address address;
+	
+}
+
+
+class Address{
+	
+}
+
+
+
+package com.demo.inheritance;
+
+public class Address {
+
+	String street;
+	String city;
+	String state;
+
+	public Address(String street, String city, String state) {
+		this.street = street;
+		this.city = city;
+		this.state = state;
+	}
+
+}
+
+
+package com.demo.inheritance;
+
+public class Employee {
+
+	String name;
+	int id;
+	Address address;
+
+	public Employee(String name, int id, Address address) {
+		this.name = name;
+		this.id = id;
+		this.address = address;
+	}
+
+	
+	public void display() {
+		System.out.println(name);
+		System.out.println(id);
+		System.out.println(address.street);
+		System.out.println(address.city);
+		System.out.println(address.state);
+		
+	}
+	public Employee() {
+		System.out.println("Employee object is created");
+	}
+
+}
+
+
+raj Kumar
+123
+apet
+hyd
+ts
+
+
+
+
+Association:
+-------------
+
+Establishing relation ship between 2 classes through Objects we call as  Association.
+
+Aggregation
+
+
+Composition
+
