@@ -1,0 +1,307 @@
+
+
+this keyword
+-------------
+this is a refernce variable that will refer to current object.
+
+this
+
+ex: this to access current class instance variable:
+-----------------------------------------------
+
+Before:
+------
+package com.demo.thiskeyword;
+
+public class Student {
+
+	String name;
+	int id;
+
+	public Student(String n, int i) {
+		name = n;
+		id = i;
+	}
+	
+	public void display() {
+		System.out.println("---Students Details are---");
+		System.out.println("Name :"+name);
+		System.out.println("Id :"+id);
+	}
+	
+	public static void main(String[] args) {
+		
+		Student student = new Student("raj kumar", 123);
+		student.display();
+		
+	}
+
+}
+
+
+
+
+package com.demo.thiskeyword;
+
+public class Student {
+
+	String name;
+	int id;
+
+	public Student(String name, int id) {
+		this.name = name;
+		this.id = id;
+	}
+
+	public void display() {
+		System.out.println("---Students Details are---");
+		System.out.println("Name :" + name);
+		System.out.println("Id :" + id);
+	}
+
+	public static void main(String[] args) {
+
+		Student student = new Student("raj kumar", 123);
+		student.display();
+
+	}
+
+}
+
+
+this reference that refers to current class constructor:
+--------------------------------------------------------
+
+package com.demo.thiskeyword;
+
+import java.util.Random;
+import java.util.stream.IntStream;
+
+public class Student {
+
+	String name;
+	int id;
+
+	public Student(String name, int id) {
+		this.name = name;
+		this.id = id;
+	}
+
+	public Student(String name) {
+		this(name,1);
+	}
+
+	public void display() {
+		System.out.println("---Students Details are---");
+		System.out.println("Name :" + name);
+		System.out.println("Id :" + id);
+	}
+
+	public static void main(String[] args) {
+
+		Student student = new Student("raj kumar");
+		student.display();
+
+	}
+
+}
+
+
+
+package com.demo.thiskeyword;
+
+import java.util.Random;
+import java.util.stream.IntStream;
+
+public class Student {
+
+	String name;
+	int id;
+
+	public Student(String name, int id) {
+		this.name = name;
+		this.id = id;
+		System.out.println("Student 2 Arguement COns");
+	}
+
+	public Student(String name) {
+		this(name,1);
+		System.out.println("Student 1 Arguement COns");
+	}
+
+	public void display() {
+		System.out.println("---Students Details are---");
+		System.out.println("Name :" + name);
+		System.out.println("Id :" + id);
+	}
+
+	public static void main(String[] args) {
+
+		Student student = new Student("raj kumar");
+		student.display();
+
+	}
+
+}
+
+
+this reference that refers to current class method:
+==================================================
+
+
+package com.demo.thiskeyword;
+
+import java.util.Random;
+import java.util.stream.IntStream;
+
+public class Student {
+
+	String name;
+	int id;
+
+	public Student(String name, int id) {
+		this.name = name;
+		this.id = id;
+
+	}
+
+	public void display() {
+		System.out.println("---Students Details are---");
+		this.displayStudentDetails();
+
+	}
+
+	public void displayStudentDetails() {
+		System.out.println("Name :" + name);
+		System.out.println("Id :" + id);
+	}
+
+	public static void main(String[] args) {
+
+		Student student = new Student("raj kumar", 1);
+		student.display();
+
+	}
+
+}
+
+
+package com.demo.thiskeyword;
+
+import java.util.Random;
+import java.util.stream.IntStream;
+
+public class Student {
+
+	String name;
+	int id;
+
+	public Student(String name, int id) {
+		this.name = name;
+		this.id = id;
+
+	}
+
+	public void display() {
+		System.out.println("---Students Details are---");
+		displayStudentDetails();
+
+	}
+
+	public void displayStudentDetails() {
+		System.out.println("Name :" + name);
+		System.out.println("Id :" + id);
+	}
+
+	public static void main(String[] args) {
+
+		Student student = new Student("raj kumar", 1);
+		student.display();
+
+	}
+
+}
+
+
+this reference variable that returns current class Object:
+--------------------------------------------------------
+
+package com.demo.thiskeyword;
+
+public class Student {
+
+	public String m1() {
+		return new String("sachin");
+	}
+
+	public static void main(String[] args) {
+
+		Student stu = new Student();
+		String s2 = stu.m1();
+		System.out.println("Result :" + s2);
+
+	}
+
+}
+
+
+package com.demo.thiskeyword;
+
+public class Student {
+	String name;
+
+	public Student(String name) {
+		this.name = name;
+	}
+
+	public Student getStudent() {
+		return this;
+	}
+
+	public static void main(String[] args) {
+
+		Student stu = new Student("sachin");
+
+		Student stu1 = stu.getStudent();
+		System.out.println(stu1.name);
+
+	}
+
+}
+
+package com.demo.thiskeyword;
+
+public class Student {
+	String name;
+
+	public Student(String name) {
+		this.name = name;
+	}
+
+	public Student getStudent() {
+		return this;
+	}
+
+	public static void main(String[] args) {
+
+		Student stu = new Student("sachin");
+
+		Student stu1 = stu.getStudent();
+		System.out.println(stu1.name);
+		System.out.println(stu==stu1);
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
