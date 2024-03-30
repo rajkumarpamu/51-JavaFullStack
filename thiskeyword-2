@@ -1,0 +1,172 @@
+Its is reference variable that refers to current class object
+
+this reference to access current class instance variable
+
+this reference to access current class instance method
+
+this reference to access current class contructor
+
+this reference to return current class instance 
+
+3 parmetreized String int Address
+2 paremetr strng string
+
+Employee
+
+Employee emp = new Employee()
+
+this
+
+
+package com.demo.constructors;
+
+public class Employee {
+
+	public Employee(String name, Address address) {
+		System.out.println(name);
+		System.out.println(address.city);
+	}
+
+	public Employee(String str, int b) {
+		this(str, new Address("apet", "hyd", "ts"));
+	}
+
+	public static void main(String[] args) {
+
+		Employee employee = new Employee("raj", 1);
+
+	}
+}
+
+
+
+
+package com.demo.constructors;
+
+public class Employee {
+	
+	int a;
+	int b;
+	
+	public Employee() {
+		a=10;
+		b=20;
+	}
+	
+	
+	public Employee getEmployee() {
+		return this; //accessing current class object
+	}
+	
+	public static void main(String[] args) {
+		
+		Employee employee = new Employee(); //current class object
+		Employee employee2 = employee.getEmployee();
+		System.out.println(employee2.a);
+		System.out.println(employee2.b);
+		
+		System.out.println(employee.hashCode());
+		System.out.println(employee2.hashCode());
+		
+		
+	}
+
+	
+}
+
+
+
+using this refernce as a method parameter:
+---------------------------------
+
+package com.demo.constructors;
+
+public class Employee {
+
+	int a;
+	int b;
+
+	public Employee() {
+		a = 10;
+		b = 20;
+	}
+
+	public void display(Employee emp) {
+		System.out.println(emp.a);
+		System.out.println(emp.b);
+	}
+
+	public void get() {
+		display(this);
+	}
+
+	public static void main(String[] args) {
+		Employee employee = new Employee(); // current class object
+		employee.get();
+	}
+
+}
+
+
+
+
+
+Advantages:
+----------
+
+
+It helps to distinguish between instance variables and local variables with same.
+
+	int a;
+	int b;
+
+	public Employee(int a, int b) {
+		this.a = 10;
+		this.b = 20;
+	}
+
+
+We can pass current object as a parameter to another method.
+
+COntructors:
+------------
+
+In a contrutctor call, this should be first statemnet.
+
+Note:
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	Constructor call must be the first statement in a constructor
+	at com.demo.constructors.Employee.<init>(Employee.java:14)
+	at com.demo.constructors.Employee.main(Employee.java:28)
+
+
+package com.demo.constructors;
+
+public class Employee {
+
+	static int a = 10;
+
+	public static void test() {
+		System.out.println(this.a);
+	}
+
+	public static void main(String[] args) {
+		Employee employee = new Employee(); // current class object
+		employee.test();
+	}
+
+}
+
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	Cannot use this in a static context
+
+	at com.demo.constructors.Employee.test(Employee.java:8)
+	at com.demo.constructors.Employee.main(Employee.java:13)
+
+
+
+
+
+
