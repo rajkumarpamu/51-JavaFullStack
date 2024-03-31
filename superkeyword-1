@@ -1,0 +1,124 @@
+Super keyword:
+----------
+
+super is reference variable that will refer to super class object
+
+super class instance variable
+
+package com.demo.constructors;
+
+public class Employee {
+
+	String name = "raj kumar";
+}
+
+
+package com.demo.constructors;
+
+public class RegularEmployee extends Employee {
+
+	String name = "Kumar";
+
+	public void display() {
+		System.out.println(this.name);
+		System.out.println(super.name);
+	}
+
+	public static void main(String[] args) {
+
+		RegularEmployee employee = new RegularEmployee();
+		employee.display();
+
+	}
+}
+
+super class instance method
+
+package com.demo.constructors;
+
+public class Employee {
+
+	public void message() {
+		System.out.println("I am an Employee");
+	}
+}
+
+package com.demo.constructors;
+
+public class RegularEmployee extends Employee {
+
+	@Override
+	public void message() {
+		System.out.println("I am an Regular Employee");
+	}
+
+	public void display() {
+		this.message();
+		super.message();
+	}
+
+	public static void main(String[] args) {
+
+		RegularEmployee employee = new RegularEmployee();
+		employee.display();
+
+	}
+}
+
+
+
+super class constructor
+
+package com.demo.constructors;
+
+public class Employee {
+	public Employee() {
+		System.out.println("Employee Object is created");
+	}
+}
+
+
+package com.demo.constructors;
+
+public class RegularEmployee extends Employee {
+
+	public RegularEmployee() {
+		super();//optional
+		System.out.println("RegularEmployee object is created");
+		
+	}
+
+	public static void main(String[] args) {
+
+		RegularEmployee employee = new RegularEmployee();
+
+	}
+}
+
+
+package com.demo.constructors;
+
+public class Employee {
+	public Employee(String name) {
+		System.out.println("Employee Object is created :"+name);
+	}
+}
+
+
+package com.demo.constructors;
+
+public class RegularEmployee extends Employee {
+
+	public RegularEmployee() {
+		super("raj kumar");
+		System.out.println("RegularEmployee object is created");
+
+	}
+
+	public static void main(String[] args) {
+
+		RegularEmployee employee = new RegularEmployee();
+
+	}
+}
+
