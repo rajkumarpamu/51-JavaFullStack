@@ -1,0 +1,154 @@
+Code Reusbality is best achieved using Aggregation.
+
+
+Composition:
+-----------
+
+Its a design technqique to implement HAS-A Relation.
+
+Job  -> id,role,salayry
+Person -> Job
+
+	public Person() {
+		//Part-Of Relation Ship
+		this.job = new Job();
+		job.setSalary(100000.0);
+	}
+
+
+1)Its  a part of Relation Ship
+2)Job objct is part of Person object
+3)If  Person gets Detryoed Job also gets destryed
+4)Without Peson Job cannot survive indepedently
+
+Job is part -  of Person
+
+package com.demo.constructors;
+
+public class Job {
+	
+	String role;
+    double salary;
+    int id;
+	
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
+	public double getSalary() {
+		return salary;
+	}
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+}
+
+package com.demo.constructors;
+
+public class Person {
+
+	Job job;
+
+	public Person() {
+		//Part-Of Relation Ship
+		this.job = new Job();
+		job.setSalary(100000.0);
+	}
+
+	public double getSalary() {
+		return job.getSalary();
+	}
+
+}
+
+
+Assocoation
+
+Aggregation  -> Weak Assocaition  -> Loosly coupled -> HAS-A Relation Ship
+Composition  -> Strong Assocaition -> Tightly Coupled -> Part-Of Relation Ship
+
+
+Engine: Entity
+ 
+  move(){}
+
+
+Car : Entity
+
+  Car(){
+     this.engine= new Engine();
+  }
+
+  Car car = new Car();
+
+  Car  -> Engine  (Part - of)
+  Human -> Heart (part - of )
+
+
+Engine engine = new Engine();
+Car car = new Car(engine);
+  Car(Engine engine){
+     this.engine= engine;
+  }
+
+
+
+
+Inheritance:
+-------------
+
+Resuablity
+
+Super class
+
+Sub class    
+
+extends
+
+
+Constructor Invocation : Parent to child
+Property Execution : Child to Parent
+
+Child  Class : If we create an object to child class, so that we can members of child class as well as parent class.
+
+this : refrence variable that refers to current class object
+
+this on instance veriable
+this to invoke current class constructor : this should be first statement
+this to invoke instance method
+this as return type
+this as method parameter
+
+super : refrence  variable that refers to super class object
+
+super on instance varibale
+super on constructor : super()
+super on method
+
+Assocaitaion
+Aggregation - HAS - A
+Composition - Part - Of
+
+
+Polymorphism:
+-------------
+Overloading
+Method Overlaoding
+Constructor Overlaoding
+
+Overiding
+Method Overidng
+Constructor Overidng
+Method Hiding
+
+
