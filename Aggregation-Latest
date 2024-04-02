@@ -1,0 +1,347 @@
+HAS- A relationShip:
+-------------------
+
+Employee  -> Address (HAS -A )
+Bank      -> Employee (HAS-A)
+Institute -> Student
+Institute -> Department
+
+Animal -> Dog (IS - A)
+
+Relation between 2 seperate class which is established through their objects.
+
+
+package com.demo.constructors;
+
+public class Employee {
+
+	String name;
+	Address address;
+
+	public Employee(String name, Address address) {
+		this.name = name;
+		this.address = address;
+	}
+
+	public void display() {
+		System.out.println(name);
+		System.out.println(address.city);
+		System.out.println(address.street);
+		System.out.println(address.state);
+
+	}
+
+}
+
+
+package com.demo.constructors;
+
+public class Address {
+
+	String street;
+	String city;
+	String state;
+
+	public Address(String street, String city, String state) {
+		this.street = street;
+		this.city = city;
+		this.state = state;
+	}
+
+}
+
+
+package com.demo.constructors;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		Address address = new Address("apet", "hyd", "ts");
+		Employee employee = new Employee("sachin", address);
+		employee.display();
+
+	}
+
+}
+
+
+Association:
+--------------
+Association is a relation ship between two seperate classes which is established through thier objects.
+
+one-one mapping
+one-to-many mappng
+etc
+
+
+sachin
+[
+Address [street=apet, city=hyd, state=ts], 
+Address [street=btm, city=ban, state=ka]
+]
+
+
+
+
+package com.demo.constructors;
+
+import java.util.List;
+
+public class Employee {
+
+	String name;
+	List<Address> address; // Multiple Address (one-to-many)
+
+	public Employee(String name, List<Address> address) {
+		this.name = name;
+		this.address = address;
+	}
+
+	public void display() {
+		System.out.println(name);
+		System.out.println(address);
+
+	}
+
+}
+
+
+package com.demo.constructors;
+
+public class Address {
+
+	String street;
+	String city;
+	String state;
+
+	public Address(String street, String city, String state) {
+		this.street = street;
+		this.city = city;
+		this.state = state;
+	}
+
+	@Override
+	public String toString() {
+		return "Address [street=" + street + ", city=" + city + ", state=" + state + "]";
+	}
+
+}
+
+
+package com.demo.constructors;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		Address tempAddress = new Address("apet", "hyd", "ts");
+		Address permAddress = new Address("btm", "ban", "ka");
+
+		List<Address> addressList = new ArrayList<>();
+		addressList.add(tempAddress);
+		addressList.add(permAddress);
+
+		Employee employee = new Employee("sachin", addressList);
+		employee.display();
+
+	}
+
+}
+
+
+sachin
+[
+Address [street=apet, city=hyd, state=ts], 
+Address [street=btm, city=ban, state=ka]
+]
+
+
+package com.demo.constructors;
+
+public class Employee {
+
+	String name;
+	Address[] address;
+
+	public Employee(String name, Address address[]) {
+		this.name = name;
+		this.address = address;
+	}
+
+	public void display() {
+		System.out.println(name);
+
+		for (Address adres : address) {
+			System.out.println(adres);
+		}
+
+	}
+
+}
+
+
+package com.demo.constructors;
+
+public class Address {
+
+	String street;
+	String city;
+	String state;
+
+	public Address(String street, String city, String state) {
+		this.street = street;
+		this.city = city;
+		this.state = state;
+	}
+
+	@Override
+	public String toString() {
+		return "Address [street=" + street + ", city=" + city + ", state=" + state + "]";
+	}
+
+}
+
+
+package com.demo.constructors;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		Address address[] = new Address[2];
+		address[0] = new Address("apet", "hyd", "ts");
+		address[1] = new Address("btm", "ban", "ka");
+
+		Employee employee = new Employee("sachin", address);
+		employee.display();
+
+	}
+
+}
+
+Institute 
+[instituteName=Ashok IT, 
+deprtment=[Department [deptName=EEE, 
+studentList=[Student [name=ravi , id=3], Student [name=rahul , id=4]]], Department [deptName=ECE, 
+studentList=[Student [name=raj , id=1], Student [name=kumar , id=2]]]]]
+
+package com.demo.constructors;
+
+public class Student {
+
+	String name;
+	int id;
+
+	public Student(String name, int id) {
+		this.name = name;
+		this.id = id;
+	}
+	
+
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", id=" + id + "]";
+	}
+
+
+}
+
+
+package com.demo.constructors;
+
+import java.util.List;
+
+public class Department {
+
+	String deptName;
+	List<Student> studentList;
+
+	public Department(String deptName, List<Student> studentList) {
+		this.deptName = deptName;
+		this.studentList = studentList;
+	}
+
+	@Override
+	public String toString() {
+		return "Department [deptName=" + deptName + ", studentList=" + studentList + "]";
+	}
+}
+
+
+package com.demo.constructors;
+
+import java.util.List;
+
+public class Institute {
+
+	String instituteName; // one-to-one
+	List<Department> deprtment; // one-to-many
+
+	public Institute(String instituteName, List<Department> deprtment) {
+		this.instituteName = instituteName;
+		this.deprtment = deprtment;
+	}
+
+	@Override
+	public String toString() {
+		return "Institute [instituteName=" + instituteName + ", deprtment=" + deprtment + "]";
+	}
+
+}
+
+
+package com.demo.constructors;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		Student student1 = new Student("raj ", 1);
+		Student student2 = new Student("kumar ", 2);
+
+		List<Student> ecelist = new ArrayList<>();
+		ecelist.add(student1);
+		ecelist.add(student2);
+
+		Student student3 = new Student("ravi ", 3);
+		Student student4 = new Student("rahul ", 4);
+
+		List<Student> eeelist = new ArrayList<>();
+		eeelist.add(student3);
+		eeelist.add(student4);
+
+		Department ECEdepartment = new Department("ECE", ecelist);
+		Department EEEdepartment = new Department("EEE", eeelist);
+		Department MECHdepartment = new Department("EEE", null);
+
+		List<Department> departments = new ArrayList<>();
+		departments.add(EEEdepartment);
+		departments.add(ECEdepartment);
+		departments.add(MECHdepartment);
+
+		Institute institute = new Institute("Ashok IT", departments);
+
+		System.out.println(institute);
+
+	}
+
+}
+
+
+
+
+
+Institute [instituteName=Ashok IT, 
+deprtment=[Department [deptName=EEE, studentList=[Student [name=ravi , id=3], Student [name=rahul , id=4]]], 
+Department [deptName=ECE, studentList=[Student [name=raj , id=1], Student [name=kumar , id=2]]], 
+Department [deptName=EEE, studentList=null]]]
+
+
+
