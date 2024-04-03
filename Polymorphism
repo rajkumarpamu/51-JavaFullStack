@@ -1,0 +1,216 @@
+Polymorphism:
+==============
+
+Poly - many
+morphism - forms
+
+If a class exhibit many forms we call it as Polymorphism.
+
+
+Compile Time Polymorphism
+
+1)Overloading  
+
+       i) Method Overloading
+       ii)Constructor Overloading
+
+
+Runtime Polymorphism
+
+1)Overriding
+
+
+       i) Method Overriding
+
+
+Method Overaloding:
+-------------------
+
+
+Duplicate method m1() in type Addition
+
+1)No of parameters are diffrent
+2)If same of numberv of parameters type of parameter should be diffrent
+3) Or Order of parameters should be different
+
+
+package com.demo.poly;
+
+public class Addition {
+
+	public void m1() {
+		System.out.println("we are in m1");
+	}
+
+	public void m1(int a) {
+		System.out.println("we are in m1 :" + a);
+	}
+
+	public void m1(double a) {
+		System.out.println("we are in m1 :" + a);
+	}
+
+	public void m1(double a, int b) {
+		System.out.println("we are in m1 double:" + a);
+		System.out.println("we are in m1 int :" + b);
+	}
+
+	public void m1(int a, double b) {
+		System.out.println("we are in m1 :" + a);
+	}
+
+	public static void main(String[] args) {
+
+		Addition addition = new Addition();
+		addition.m1(1.0, 1);
+
+	}
+
+}
+
+
+
+
+package com.demo.poly;
+
+public class Addition {
+
+	public void printI(int a) {
+		System.out.println("int :" + a);
+	}
+
+	public void printI(byte a) {
+		System.out.println("byte :" + a);
+	}
+
+	public void printI(short a) {
+		System.out.println("short :" + a);
+	}
+
+	public void printI(long a) {
+		System.out.println("long :" + a);
+	}
+
+	public static void main(String[] args) {
+
+		Addition addition = new Addition();
+		byte b = 10;
+		addition.printI(b);
+
+	}
+
+}
+
+
+package com.demo.poly;
+
+public class Addition {
+
+	public int add(int a,int b) {
+		return a+b;
+	}
+
+	public int add(int a,int b , int c) {
+		return a+b+c;
+	}
+
+	public int add(int a,int b,int c,int d) {
+		return a+b+c+d;
+	}
+
+
+
+	public static void main(String[] args) {
+
+		Addition addition = new Addition();
+		int add = addition.add(10, 20, 30, 40);
+		System.out.println(add);
+
+	}
+
+}
+
+
+static String	valueOf(double d)
+Returns the string representation of the double argument.
+static String	valueOf(float f)
+Returns the string representation of the float argument.
+static String	valueOf(int i)
+Returns the string representation of the int argument.
+
+package com.demo.poly;
+
+public class Addition {
+
+	public static void main(String args) {
+		System.out.println(args);
+	}
+
+	public static void main(String[] args) {
+
+		main("Raj kumar");
+
+	}
+
+}
+
+
+package com.demo.poly;
+
+public class Addition {
+
+	public Addition() {
+		System.out.println("Zero Arguement cons");
+	}
+	public Addition(int a) {
+		System.out.println("one Arguement cons");
+	}
+	public Addition(int a ,int b) {
+		System.out.println("two Arguement cons");
+	}
+	
+	public static void main(String[] args) {
+		
+		Addition  addition = new  Addition(10, 20);
+		
+	}
+}
+
+
+
+package com.demo.poly;
+
+public class Addition {
+
+	public Addition() {
+		System.out.println("Zero Arguement cons");
+	}
+	public Addition(int a) {
+		System.out.println("one Arguement cons");
+	}
+	public Addition(int a ,int b) {
+		System.out.println("two Arguement cons");
+	}
+	
+	public static void main(String[] args) {
+		
+		Addition  addition1 = new  Addition(10, 20);
+		Addition  addition2 = new  Addition(10);
+		Addition  addition3 = new  Addition();
+		
+		
+	}
+}
+
+
+String(String original)
+
+Initializes a newly created String object so that it represents the same sequence of characters as the argument; in other words, the newly created string is a copy of the argument string.
+
+String(StringBuffer buffer)
+
+Allocates a new string that contains the sequence of characters currently contained in the string buffer argument.
+
+String(StringBuilder builder)
+Allocates a new string that contains the sequence of characters currently contained in the string builder argument.
+
