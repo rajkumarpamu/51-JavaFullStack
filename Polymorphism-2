@@ -1,0 +1,166 @@
+Overiding:
+----------
+
+int a=10;
+
+a=20;
+
+package com.demo.inheritance;
+
+public class Dog {
+
+	public void dog() {
+		System.out.println("---Dog------");
+	}
+
+}
+
+
+package com.demo.inheritance;
+
+public class PetDog extends Dog {
+
+	@Override
+	public void dog() {
+		System.out.println("---Pet Dog---");
+	}
+
+}
+
+
+package com.demo.inheritance;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		Dog d1 = new PetDog();
+		d1.dog();
+
+	}
+}
+
+
+package com.demo.inheritance;
+
+public class Programmer extends Employee {
+
+	public void programmer() {
+		System.out.println("Programmer");
+	}
+
+}
+
+
+package com.demo.inheritance;
+
+public class JavaProgrammer extends Programmer {
+
+
+	@Override
+	public void programmer() {
+         System.out.println("Java Programmer");
+	}
+}
+
+
+package com.demo.inheritance;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		Programmer programmer = new JavaProgrammer();
+		programmer.programmer();
+
+		JavaProgrammer javaProgrammer = new JavaProgrammer();
+		javaProgrammer.programmer();
+	}
+}
+
+
+Parent p = new Child();  //Possible
+
+Child c = new  Child(); //Possible
+
+Child c= new Parent(); // Not possible
+
+package com.demo.inheritance;
+
+public class Programmer extends Employee {
+
+	public void programmer() {
+		
+		System.out.println("Programmer");
+	}
+	
+	public void m2() {
+		System.out.println("we are in m1 :Programmer ");
+	}
+}
+
+
+package com.demo.inheritance;
+
+public class JavaProgrammer extends Programmer {
+
+	@Override
+	public void programmer() {
+		super.programmer();
+	}
+
+	@Override
+	public void m2() {
+		System.out.println("we are in m1 :JavaProgrammer ");
+	}
+}
+
+
+package com.demo.inheritance;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		Programmer programmer = new JavaProgrammer();
+		programmer.programmer();
+		programmer.m2();
+
+	}
+}
+
+
+package com.demo.inheritance;
+
+public class Programmer extends Employee {
+
+	public static void m2() {
+		System.out.println("we are in m2 :Programmer ");
+	}
+}
+
+
+package com.demo.inheritance;
+
+public class JavaProgrammer extends Programmer {
+
+	public static void m2() {
+		System.out.println("we are in m2 :JavaProgrammer ");
+	}
+}
+
+
+package com.demo.inheritance;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		Programmer programmer = new JavaProgrammer();
+		programmer.m2();
+
+	}
+}
+
+
+
