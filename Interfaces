@@ -1,0 +1,311 @@
+
+public void add(); 
+
+Abstarction (0%-100%)
+
+asbtract class Test{
+	
+	//Concrete Method
+	public void m1(){
+
+	}
+
+   //Abstract
+   abstract void m2();
+}
+
+Interface :
+-----------
+
+Abstraction : 100%
+Multiple Inheritance : yes
+
+
+class:
+-----
+
+public class <classname>{
+	
+
+}
+
+interface:
+---------
+
+public interface <interfacename>
+{
+	
+}
+
+How to save?
+-------------
+interfacename.java
+
+How to compile?
+--------------
+javac interfacename.java
+
+****
+By default interface methods are  public and abstract.
+
+package com.demo;
+
+public interface Bill {
+
+	public abstract void calBill(int noOfUnits);
+	
+	public abstract void printBill();
+	
+}
+
+
+Note:
+For interfaces if we want to override we have to use implements keyword.
+
+package com.demo;
+
+public class EBill implements Bill{
+
+	@Override
+	public void calBill(int noOfUnits) {
+		int biilAmount = noOfUnits*10;
+		printBill(biilAmount);
+		
+	}
+
+	@Override
+	public void printBill(int billamount) {
+		System.out.println("Total bill amunt is:"+billamount);
+	}
+
+}
+
+
+
+package com.demo;
+
+
+public class App {
+
+	public static void main(String[] args)  {
+
+		Bill bill = new EBill();
+		bill.calBill(10000);
+
+	}
+
+}
+
+
+
+package com.demo;
+
+public interface Bill {
+	public abstract void calBill(int noOfUnits);	
+	public abstract void printBill(int billamount);
+	
+}
+
+package com.demo;
+public  abstract class EBill implements Bill{
+	@Override
+	public void calBill(int noOfUnits) {
+		int biilAmount = noOfUnits*10;
+		printBill(biilAmount);
+	}
+
+}
+
+
+package com.demo;
+
+public class PrintBill extends EBill{
+	@Override
+	public void printBill(int billamount) {
+		System.out.println("Total bill amunt is:"+billamount);
+	}
+
+}
+
+
+
+package com.demo;
+public class App {
+	public static void main(String[] args)  {
+		Bill bill = new PrintBill();
+		bill.calBill(10000);
+	}
+
+}
+
+
+package com.demo;
+
+public interface Bill {
+	
+	String company="NPDCL";
+
+	public abstract void calBill(int noOfUnits);
+	
+	public abstract void printBill(int billamount);
+	
+}
+
+
+
+package com.demo;
+
+
+public class App {
+
+	public static void main(String[] args)  {
+
+	
+		Bill bill = new PrintBill();
+		Bill.company="No Name";
+		bill.calBill(10000);
+
+	}
+
+}
+
+
+***
+Interface variables are by default public static final.
+
+Multiple Inheritance using Interface?
+------------------------------------
+
+   A               B
+
+
+
+           c
+
+class  C extends A,B{} //Not allowed
+
+A,B interface
+C  -> Implmentation class
+
+class C implemnets A,B{  //Allowed
+	
+}
+
+
+package com.demo;
+
+public interface Bill {
+	String company = "NPDCL";
+	public abstract void calBill(int noOfUnits);
+}
+
+
+package com.demo;
+
+public interface PBill {	
+	public abstract void printBill(int billamount);
+}
+
+
+package com.demo;
+
+public class CalBill implements Bill, PBill {
+
+	@Override
+	public void calBill(int noOfUnits) {
+		printBill(noOfUnits * 10);
+	}
+
+	@Override
+	public void printBill(int billamount) {
+		System.out.println("Distribution Name:" + Bill.company);
+		System.out.println("Total bill amount is:" + billamount);
+	}
+
+}
+
+
+
+
+package com.demo;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		CalBill bill = new CalBill();
+		bill.calBill(100);
+
+	}
+
+}
+
+
+
+package com.demo;
+public class App {
+	public static void main(String[] args) {
+		CalBill bill = new CalBill();
+		bill.calBill(100);
+	}
+
+}
+
+
+package com.demo;
+
+public interface Bill {
+
+	String company = "NPDCL";
+
+	public abstract void calBill(int noOfUnits);
+
+}
+
+package com.demo;
+
+public interface PBill extends Bill{
+	
+	public abstract void printBill(int billamount);
+
+}
+
+
+package com.demo;
+
+public class CalBill implements PBill {
+
+	@Override
+	public void calBill(int noOfUnits) {
+		printBill(noOfUnits * 10);
+	}
+
+	@Override
+	public void printBill(int billamount) {
+		System.out.println("Distribution Name:" + Bill.company);
+		System.out.println("Total bill amount is:" + billamount);
+	}
+
+}
+
+
+
+package com.demo;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		CalBill bill = new CalBill();
+		bill.calBill(100);
+
+	}
+
+}
+
+
+
+
+
+
+
