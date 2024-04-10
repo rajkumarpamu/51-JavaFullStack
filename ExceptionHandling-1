@@ -1,0 +1,122 @@
+Exception Handling:
+-------------------
+Exception Handling is a mechanism in java to handle run time errors, so that the normal flow of the application can be maintained.
+
+package com.demo.exceptionhnadling;
+
+public class ExceptionHandling {
+	
+	public static void main(String[] args) {
+		
+		System.out.println("statemnt-1");
+		System.out.println("statemnt-2");
+		System.out.println(10/0);
+		System.out.println("statemnt-4");
+		System.out.println("statemnt-5");
+		
+	}
+
+}
+
+
+statemnt-1
+statemnt-2
+
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+	at com.demo.exceptionhnadling.ExceptionHandling.main(ExceptionHandling.java:9)
+
+
+package com.demo.exceptionhnadling;
+
+public class ExceptionHandling {
+	
+	public static void main(String[] args) {
+		String s= null;
+		System.out.println("statemnt-1");
+		System.out.println("statemnt-2");
+		System.out.println(s.length());
+		System.out.println("statemnt-4");
+		System.out.println("statemnt-5");
+	}
+
+}
+
+
+statemnt-1
+statemnt-2
+Exception in thread "main" java.lang.NullPointerException
+	at com.demo.exceptionhnadling.ExceptionHandling.main(ExceptionHandling.java:9)
+
+
+package com.demo.exceptionhnadling;
+
+public class ExceptionHandling {
+	public static void main(String[] args) {	
+		int ar[]= new int[2];
+		System.out.println(ar[2]);
+	}
+
+}
+
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 2
+	at com.demo.exceptionhnadling.ExceptionHandling.main(ExceptionHandling.java:8)
+
+
+package com.demo.exceptionhnadling;
+
+public class ExceptionHandling {
+	
+	public static void main(String[] args) {
+		
+		int ar[]= new int[2147483647];
+		System.out.println(ar[2]);
+	}
+
+}
+
+
+Exception in thread "main" java.lang.OutOfMemoryError: Requested array size exceeds VM limit
+	at com.demo.exceptionhnadling.ExceptionHandling.main(ExceptionHandling.java:7)
+
+
+Hierarchy of Exceptions:
+---------------------
+
+								Throwable
+(The Throwable class is the superclass of all errors and exceptions in the Java language)
+
+
+    Exception   (Sub class)
+                                            
+The class Exception and its subclasses 
+are a form 
+of Throwable that indicates conditions 
+that a 
+reasonable application might want to catch.
+
+ex:  ArithmeticException , NullPointerException etc
+
+
+Error:
+------
+
+An Error is a subclass of Throwable that indicates serious problems that a reasonable application should not try to catch. Most such errors are abnormal conditions.
+
+VirtualMachineError , IOError 
+
+
+                            Throwable
+
+                             extends
+
+                            Exception
+
+
+            Checked Exception                 Unchecked Exception
+
+            Compile Time                        Runtime Time
+
+                                                 ArrayIndexOutOfBoundsException
+        IOException                              ArithmeticException
+        SQLEXception                             NullPointerException
+                    
