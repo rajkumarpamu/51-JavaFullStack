@@ -1,0 +1,325 @@
+Handling an exception:
+---------------------
+try
+catch
+throw
+throws
+finally   keywords
+
+Runtime Exception:
+-------------------
+try... catch block
+
+try{
+	//statement
+}
+catch(Exception e){
+	
+}
+
+
+statement-1 :5
+statement-2 :3
+Please dont introduce / by zero
+statement-4 :2
+statement-5 :1
+
+
+package com.demo.exceptionhnadling;
+
+public class ExceptionHandling {
+
+	public static void main(String[] args) {
+
+		System.out.println("statement-1 :" + (10 / 2));
+		System.out.println("statement-2 :" + (10 / 3));
+		try {
+			System.out.println("statement-3 :" + (10 / 0));
+		} 
+		catch (ArithmeticException ex) {
+			System.out.println("Please dont introduce / by zero");
+		}
+		System.out.println("statement-4 :" + (10 / 4));
+		System.out.println("statement-5 :" + (10 / 6));
+
+	}
+
+}
+
+
+package com.demo.exceptionhnadling;
+
+public class ExceptionHandling {
+
+	public static void main(String[] args) {
+
+		try {
+		System.out.println("statement-1 :" + (10 / 2));
+		System.out.println("statement-2 :" + (10 / 3));
+		System.out.println("statement-2 :" + (10 / 0));
+		}
+		catch (ArithmeticException ex) {
+			System.out.println("Please dont introduce / by zero");
+		}
+		System.out.println("statement-4 :" + (10 / 4));
+		System.out.println("statement-5 :" + (10 / 6));
+
+	}
+
+}
+
+
+package com.demo.exceptionhnadling;
+
+public class ExceptionHandling {
+
+	public static void main(String[] args) {
+
+		try {
+		System.out.println("statement-1 :" + (10 / 0));
+		System.out.println("statement-2 :" + (10 / 3));
+		System.out.println("statement-3 :" + (10 / 4));
+		}
+		catch (ArithmeticException ex) {
+			System.out.println("Please dont introduce / by zero");
+		}
+		System.out.println("statement-4 :" + (10 / 4));
+		System.out.println("statement-5 :" + (10 / 6));
+
+	}
+
+}
+
+
+package com.demo.exceptionhnadling;
+
+import java.util.Scanner;
+
+public class ExceptionHandling {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the Number");
+		int div = sc.nextInt();
+		try {
+			System.out.println("statement-1 :" + (10 / div));
+			System.out.println("statement-2 :" + (20 / div));
+			System.out.println("statement-3 :" + (30 / div));
+		} catch (ArithmeticException ex) {
+			System.out.println("Please dont introduce / by zero");
+		}
+		System.out.println("statement-4 :" + (10 / 4));
+		System.out.println("statement-5 :" + (10 / 6));
+
+	}
+
+}
+
+
+Enter the Name
+raj
+Exception in thread "main" java.lang.NullPointerException
+	at com.demo.exceptionhnadling.ExceptionHandling.main(ExceptionHandling.java:13)
+
+
+
+	package com.demo.exceptionhnadling;
+
+import java.util.Scanner;
+
+public class ExceptionHandling {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the Name");
+		String name = sc.next();
+		try {
+			// Assigning to null
+			name = null;
+			System.out.println("Length is :" + name.length());
+		} catch (ArithmeticException ex) {
+			System.out.println("Please dont introduce / by zero");
+		} catch (NullPointerException ex) {
+			System.out.println("Please dont introduce Null values");
+		}
+
+		System.out.println("End");
+
+	}
+
+}
+
+
+package com.demo.exceptionhnadling;
+
+import java.util.Scanner;
+
+public class ExceptionHandling {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the Name");
+		String name = sc.next();
+		try {
+			System.out.println(10/0);
+			// Assigning to null
+			name = null;
+			System.out.println("Length is :" + name.length());
+		} catch (ArithmeticException ex) {
+			System.out.println("Please dont introduce / by zero");
+		} catch (NullPointerException ex) {
+			System.out.println("Please dont introduce Null values");
+		}
+		System.out.println("End");
+
+	}
+
+}
+
+
+
+package com.demo.exceptionhnadling;
+
+import java.util.Scanner;
+
+public class ExceptionHandling {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the Name");
+		String name = sc.next();
+		try {
+			System.out.println(10 / 0);
+		} catch (ArithmeticException ex) {
+			System.out.println("Please dont introduce / by zero");
+
+		}
+		try {
+			// Assigning to null
+			name = null;
+			System.out.println("Length is :" + name.length());
+		} catch (NullPointerException ex) {
+			System.out.println("Please dont introduce Null values");
+		}
+
+		System.out.println("End");
+
+	}
+
+}
+
+
+/ by zero
+java.lang.ArithmeticException: / by zero
+	at com.demo.exceptionhnadling.Ex
+
+
+package com.demo.exceptionhnadling;
+
+import java.util.Scanner;
+
+public class ExceptionHandling {
+
+	public void m1() {
+		try {
+			System.out.println(10 / 0);
+		} catch (ArithmeticException ex) {
+			// Detailed Eception Info
+			ex.printStackTrace();
+		} catch (NullPointerException ex) {
+			System.out.println("Please dont introduce Null values");
+		}
+	}
+
+	public static void main(String[] args) {
+
+	  ExceptionHandling exceptionHandling = new ExceptionHandling();
+	  exceptionHandling.m1();
+
+	}
+
+}
+
+
+
+Exception in thread "main" java.lang.NumberFormatException: For input string: "raj"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:580)
+	at java.lang.Integer.<init>(Integer.java:867)
+	at com.demo.exceptionhnadling.ExceptionHandling.m1(ExceptionHandling.java:9)
+	at com.demo.exceptionhnadling.ExceptionHandling.main(ExceptionHandling.java:21)
+
+package com.demo.exceptionhnadling;
+
+import java.util.Scanner;
+
+public class ExceptionHandling {
+
+	public void m1() {
+		try {
+			Integer i = new Integer("raj");
+		} catch (ArithmeticException ex) {
+			// Detailed Eception Info
+			ex.printStackTrace();
+		} catch (NullPointerException ex) {
+			System.out.println("Please dont introduce Null values");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		System.out.println("end");
+	}
+
+	public static void main(String[] args) {
+
+		ExceptionHandling exceptionHandling = new ExceptionHandling();
+		exceptionHandling.m1();
+
+	}
+
+}
+
+
+java.lang.ArithmeticException: / by zero
+	at com.demo.exceptionhnadling.ExceptionHandling.m1(ExceptionHandling.java:9)
+	at com.demo.exceptionhnadling.ExceptionHandling.main(ExceptionHandling.java:21)
+
+
+
+package com.demo.exceptionhnadling;
+
+import java.util.Scanner;
+
+public class ExceptionHandling {
+
+	public void m1() {
+		try {
+			Integer i = new Integer("raj");
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		catch (ArithmeticException ex) {
+			// Detailed Eception Info
+			ex.printStackTrace();
+		} catch (NullPointerException ex) {
+			System.out.println("Please dont introduce Null values");
+		} 
+
+		System.out.println("end");
+	}
+
+	public static void main(String[] args) {
+
+		ExceptionHandling exceptionHandling = new ExceptionHandling();
+		exceptionHandling.m1();
+
+	}
+
+}
+
+
+Note:
+Unreachable catch block for ArithmeticException. It is already handled by the catch block for Exception
+
+Unreachable catch block for NullPointerException. It is already handled by the catch block for Exception
