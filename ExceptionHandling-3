@@ -1,0 +1,402 @@
+finally block:
+------------
+
+try{
+	//statments
+}
+catch(Exception e){
+	//If exception occur in try then corresponding catch block is called by jVM
+}
+finally{
+	//Irrespective of try and catch if there any statement we want to execute we have add statement inside finally block
+}
+
+
+package com.demo.exceptionhnadling;
+
+import java.util.Scanner;
+
+public class ExceptionHandling {
+
+	public void m1() {
+		try {
+			Integer i = new Integer("raj");
+		} 
+		catch (Exception ex) {
+			System.out.println("Name of the exception :"+ex.getClass().getName());
+			ex.printStackTrace();
+		}
+		finally {
+			System.out.println("Finally Block is executed");
+		}
+
+		
+	}
+
+	public static void main(String[] args) {
+
+		ExceptionHandling exceptionHandling = new ExceptionHandling();
+		exceptionHandling.m1();
+
+	}
+
+}
+
+
+Result:
+
+Name of the exception :java.lang.NumberFormatException
+java.lang.NumberFormatException: For input string: "raj"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:580)
+	at java.lang.Integer.<init>(Integer.java:867)
+	at com.demo.exceptionhnadling.ExceptionHandling.m1(ExceptionHandling.java:9)
+	at com.demo.exceptionhnadling.ExceptionHandling.main(ExceptionHandling.java:25)
+Finally Block is executed
+
+
+package com.demo.exceptionhnadling;
+
+import java.util.Scanner;
+
+public class ExceptionHandling {
+
+	public void m1() {
+		try {
+			Integer i = new Integer(10);
+			System.out.println(i);
+		} 
+		catch (Exception ex) {
+			System.out.println("Name of the exception :"+ex.getClass().getName());
+			ex.printStackTrace();
+		}
+		finally {
+			System.out.println("Finally Block is executed");
+		}
+
+		
+	}
+
+	public static void main(String[] args) {
+
+		ExceptionHandling exceptionHandling = new ExceptionHandling();
+		exceptionHandling.m1();
+
+	}
+
+}
+
+package com.demo.exceptionhnadling;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
+public class ExceptionHandling {
+
+	public void m1() {
+		BufferedReader bufferedReader=null;
+		try {
+			bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+			System.out.println("Enter Your Name");
+			System.out.println(10/0);
+			String name = bufferedReader.readLine();
+			System.out.println("Name is L"+name);
+		} 
+		catch (Exception ex) {
+			System.out.println("Name of the exception :"+ex.getClass().getName());
+			ex.printStackTrace();
+		}
+		finally {
+			try {
+				bufferedReader.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			System.out.println("Finally Block is executed");
+		}
+
+		
+	}
+
+	public static void main(String[] args) {
+
+		ExceptionHandling exceptionHandling = new ExceptionHandling();
+		exceptionHandling.m1();
+
+	}
+
+}
+
+
+package com.demo.exceptionhnadling;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
+public class ExceptionHandling {
+
+	public void m1() throws IOException {
+		BufferedReader bufferedReader=null;
+		try {
+			bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+			System.out.println("Enter Your Name");
+			System.out.println(10/0);
+			String name = bufferedReader.readLine();
+			System.out.println("Name is L"+name);
+		} 
+		catch (NullPointerException ex) {
+			System.out.println("Name of the exception :"+ex.getClass().getName());
+			ex.printStackTrace();
+		}
+		finally {
+			try {
+				bufferedReader.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			System.out.println("Finally Block is executed");
+		}
+	}
+
+	public static void main(String[] args) throws IOException {
+
+		ExceptionHandling exceptionHandling = new ExceptionHandling();
+		exceptionHandling.m1();
+
+	}
+
+}
+
+
+10
+Finally Block is executed
+
+
+try..finally:
+-----------
+
+
+package com.demo.exceptionhnadling;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
+public class ExceptionHandling {
+
+	public void m1() throws IOException {
+		BufferedReader bufferedReader=null;
+		try {
+			bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+			System.out.println("Enter Your Name");
+			String name = bufferedReader.readLine();
+			System.out.println("Name is L"+name);
+		} 
+		finally {
+			try {
+				bufferedReader.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			System.out.println("Finally Block is executed");
+		}
+		
+		System.out.println("test");
+	}
+
+	public static void main(String[] args) throws IOException {
+
+		ExceptionHandling exceptionHandling = new ExceptionHandling();
+		exceptionHandling.m1();
+
+	}
+
+}
+
+
+package com.demo.exceptionhnadling;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
+public class ExceptionHandling {
+
+	public void m1() throws IOException {
+		BufferedReader bufferedReader=null;
+		try {
+			bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+			System.out.println("Enter Your Name");
+			String name = bufferedReader.readLine();
+			System.out.println("Name is L"+name);
+			//Terminates the currently running Java Virtual Machine.
+			System.exit(0);
+		} 
+		finally {
+			try {
+				bufferedReader.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			System.out.println("Finally Block is executed");
+		}
+		
+		System.out.println("test");
+	}
+
+	public static void main(String[] args) throws IOException {
+
+		ExceptionHandling exceptionHandling = new ExceptionHandling();
+		exceptionHandling.m1();
+
+	}
+
+}
+
+
+
+package com.demo.exceptionhnadling;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
+public class ExceptionHandling {
+
+	public String m1() throws IOException {
+		BufferedReader bufferedReader=null;
+		try {
+			bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+			System.out.println("Enter Your Name");
+			String name = bufferedReader.readLine();
+			return name;
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				bufferedReader.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			System.out.println("Finally Block is executed");
+		}
+		return "";
+		
+	}
+
+	public static void main(String[] args) throws IOException {
+
+		ExceptionHandling exceptionHandling = new ExceptionHandling();
+		String name = exceptionHandling.m1();
+		System.out.println("Name is :"+name);
+
+	}
+
+}
+
+
+
+package com.demo.exceptionhnadling;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
+public class ExceptionHandling {
+
+	public String m1() throws IOException {
+		BufferedReader bufferedReader=null;
+		try {
+			bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+			System.out.println("Enter Your Name");
+			String name = bufferedReader.readLine();
+			System.out.println(10/0);
+			return name;
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				bufferedReader.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			System.out.println("Finally Block is executed");
+		}
+		return "";
+		
+	}
+
+	public static void main(String[] args) throws IOException {
+
+		ExceptionHandling exceptionHandling = new ExceptionHandling();
+		String name = exceptionHandling.m1();
+		if(name.isEmpty()) {
+			System.out.println("name is empty");
+		}
+		else {
+			System.out.println("Name is:"+name);
+		}
+	}
+
+}
+
+
+
+try{
+	sysout("test");
+	return;
+}
+catch(){
+	
+}
+finally{
+	sop("Hi");
+}
+
+package com.demo.exceptionhnadling;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
+public class ExceptionHandling {
+
+	public void m1() throws IOException {
+		try {
+			System.out.println("test");
+			return;
+		} catch (Exception e) {
+
+		} finally {
+			System.out.println("Hi");
+		}
+
+	}
+
+	public static void main(String[] args) throws IOException {
+
+		ExceptionHandling exceptionHandling = new ExceptionHandling();
+		exceptionHandling.m1();
+
+	}
+
+}
+
+
+Result:
+--------
+test
+Hi
