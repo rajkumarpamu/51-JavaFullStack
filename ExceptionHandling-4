@@ -1,0 +1,145 @@
+try
+catch
+finally
+throws
+throw
+
+public void test()throws <Exceptionname>{}
+public void test()throws IOException{}
+
+package com.demo.corejava.training;
+
+import java.io.IOException;
+import java.sql.SQLException;
+
+public class FirstProgram {
+	
+	public void m1()throws IOException,SQLException {
+		System.out.println("we are in m1");
+	}
+	public static void main(String[] args) throws IOException,SQLException {
+
+		FirstProgram firstProgram = new FirstProgram();
+		firstProgram.m1();
+	}
+}
+
+
+package com.demo.corejava.training;
+
+import java.io.IOException;
+import java.sql.SQLException;
+
+public class FirstProgram {
+
+	public void m1() throws IOException, SQLException {
+		System.out.println("we are in m1");
+	}
+
+	public static void main(String[] args) {
+
+		FirstProgram firstProgram = new FirstProgram();
+		try {
+			firstProgram.m1();
+		} catch (IOException | SQLException e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+
+
+package com.demo.corejava.training;
+
+import java.io.IOException;
+import java.sql.SQLException;
+
+public class FirstProgram {
+
+	public void m1() throws IOException, SQLException {
+		throw new IOException("IO failure");
+	}
+
+	public static void main(String[] args) {
+
+		FirstProgram firstProgram = new FirstProgram();
+		try {
+			firstProgram.m1();
+		} catch (IOException | SQLException e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+
+package com.demo.corejava.training;
+
+import java.io.IOException;
+import java.sql.SQLException;
+
+public class FirstProgram {
+
+	public void m1() throws IOException, SQLException {
+		throw new SQLException("SQL failure");
+	}
+
+	public static void main(String[] args) {
+
+		FirstProgram firstProgram = new FirstProgram();
+		try {
+			firstProgram.m1();
+		} catch (IOException | SQLException e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+
+Exception Propagation in overiding:
+----------------------------------
+
+1)If parent throws any checked exception child class may or may not throw checked exception.
+
+2)If parent does not throw any checked exception child class should not throw checked exception.
+ex:
+Exception IOException is not compatible with throws clause in A.m1()
+
+3)If parent throws any checked exception child class must throw checked exception of same level or sub class of it but not parent class.
+
+4)If parent throws any un-checked exception child class must throw  any un-checked exception of same level but not super class.
+
+5)If parent does not throw any un-checked exception child class may or may-not throw un-checked exception.
+
+rethrowing and exception:
+---------------------------
+
+
+package com.demo.exceptionhandling;
+
+public class App {
+	
+	public void ageValidation(int age) {
+		if(age >= 18)
+			System.out.println("Eligible for voting");
+		else 
+			throw new AgeNotValidException();
+		
+	}
+
+	public static void main(String[] args) {
+
+		App app = new App();
+		try {
+		app.ageValidation(17);
+		}
+		catch(AgeNotValidException e) {
+			//re-throwing of an exception
+			throw e;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("Validation COmpleted");
+
+	}
+}
