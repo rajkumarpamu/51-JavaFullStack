@@ -1,0 +1,221 @@
+try
+catch
+finally
+throws -> Declare checked exception (throws Exception)
+throw  -> Explict Exception Object Creation(throw new ExceptionName())
+
+Object class:
+-------------
+
+class  -> Object
+Re usability
+
+String
+StringBuffer
+Object - class  -> Object obj = new Object();
+
+public class Object{}
+
+1)Class Object is the root of the class hierarchy. 
+2)Every class has Object as a superclass.
+3)All objects, including arrays, implement the methods of this class.
+
+package com.demo.exceptionhandling;
+
+public class A extends Object{
+
+	public static void main(String[] args) {
+		
+		A a = new A();
+		System.out.println(a.hashCode());/1365202187
+
+	
+	}
+
+}
+
+
+package com.demo.exceptionhandling;
+
+public class A {
+	public static void main(String[] args) {		
+		A a = new A();
+		System.out.println(a.hashCode()); //1365202186
+
+	}
+
+}
+
+
+Note:
+-----
+
+If a user defined do not extends any class then that class will extends Object class
+
+class A extends Object{
+	
+}
+class B extends A{
+	
+}
+class  C extends B{
+	
+}
+
+public int hashCode()  = Object
+Returns a hash code value for the object. 
+
+package com.demo.exceptionhandling;
+public class A {
+	public static void main(String[] args) {
+		A a = new A();
+		System.out.println(a.hashCode());
+	}
+
+}
+
+public String	toString()
+Returns a string representation of the object.
+
+package com.demo.exceptionhandling;
+
+public class A {
+	String name;
+
+	public A(String name) {
+		this.name = name;
+	}
+
+	public static void main(String[] args) {
+
+		//Built In class
+		String s = new String("sachin");
+		System.out.println(s);
+        // User defined class
+		A a = new A("sachin");
+		System.out.println(a);
+
+	}
+
+}
+
+sachin
+com.demo.exceptionhandling.A@379619aa - reference id
+
+sachin
+com.demo.exceptionhandling.A@379619aa
+com.demo.exceptionhandling.A@379619aa
+
+
+return getClass().getName() + "@" + Integer.toHexString(hashCode());
+
+com.demo.exceptionhandling.A@379619aa
+
+
+package com.demo.exceptionhandling;
+
+public class A {
+	String name;
+
+	public A(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		//return getClass().getName() + "@" + Integer.toHexString(hashCode());
+		return name;
+	}
+
+	public static void main(String[] args) {
+		// Built In class
+		String s = new String("sachin");
+		System.out.println(s);
+		System.out.println(s.toString());
+		
+		// User defined class
+		A a = new A("sachin");
+		System.out.println(a.getClass().getName());
+		System.out.println(a);
+		System.out.println(a.toString());
+
+	}
+
+}
+
+
+Employee emp = new Employee();
+sysout(emp);
+
+Employee@123abc
+
+Employee emp = new Employee("sachin");
+sysout(emp);
+
+Employee@123abc
+
+package com.demo.exceptionhandling;
+
+public class A {
+	String name;
+	String id;
+
+	public A(String name, String id) {
+		this.name = name;
+		this.id=id;
+	}
+
+	@Override
+	public String toString() {
+		// return getClass().getName() + "@" + Integer.toHexString(hashCode());
+		return name+" "+id;
+	}
+
+	public static void main(String[] args) {
+		// Built In class
+		String s = new String("sachin");
+		System.out.println(s);
+		System.out.println(s.toString());
+
+		// User defined class
+		A a = new A("sachin","7");
+		System.out.println(a.getClass().getName());
+		System.out.println(a);
+		System.out.println(a.toString());
+
+	}
+
+}
+
+
+package com.demo.exceptionhandling;
+
+public class A {
+
+	String name;
+	String id;
+
+	public A(String name, String id) {
+		this.name = name;
+		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return "A [name=" + name + ", id=" + id + "]";
+	}
+
+	public static void main(String[] args) {
+		// Built In class
+		String s = new String("sachin");
+		System.out.println(s);
+
+		// User defined class
+		A a = new A("sachin", "7");
+		System.out.println(a);
+
+	}
+
+}
+
+
