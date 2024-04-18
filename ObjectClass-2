@@ -1,0 +1,109 @@
+int	hashCode()
+Returns a hash code value for the object.
+
+package com.demo.objectclass;
+
+public class Employee {
+	
+	public static void main(String[] args) {
+		
+		Employee employee = new Employee();
+		System.out.println(employee.hashCode());
+		
+		Employee employee1 = new Employee();
+		System.out.println(employee1.hashCode());
+	}
+
+}
+
+
+1365202186
+212628335
+
+
+Object o = new Employee();
+Object o = new Student();
+Object o = new Pateint();
+Object o = new Customer();
+Object o = new Order();
+
+
+package com.demo.objectclass;
+
+public class Employee extends Object{
+	String name;
+	Employee(String name){
+		this.name=name;
+	}
+	@Override
+	public int hashCode() {
+		return name.hashCode();
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		Employee emp = (Employee) obj;
+		return name.equals(emp.name);
+	}
+	public static void main(String[] args) {
+		
+		Employee emp = new Employee("sachin");
+		Employee emp1 = new Employee("Sachin");
+		
+		System.out.println(emp.hashCode());//-909980776
+		System.out.println(emp1.hashCode());//-909980776
+		
+		System.out.println(emp.equals(emp1));
+		
+		
+	}
+
+}
+
+
+package com.demo.objectclass;
+
+import java.util.Objects;
+
+public class Employee extends Object{
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, name);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		Employee other = (Employee) obj;
+		return Objects.equals(id, other.id) && Objects.equals(name, other.name);
+	}
+
+	String name;
+	String id;
+	Employee(String name,String id){
+		this.name=name;
+		this.id=id;
+	}
+
+	public static void main(String[] args) {
+		
+		Employee emp = new Employee("sachin","123");
+		Employee emp1 = new Employee("Sachin","124");
+		
+		System.out.println(emp.hashCode());//-909980776
+		System.out.println(emp1.hashCode());//-909980776
+		
+		System.out.println(emp.equals(emp1));
+		
+		
+	}
+
+}
+
+
+Account
+  id 
+  name
+  branch
+
+
+  acc1.equals(acc2)
