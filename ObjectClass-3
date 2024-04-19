@@ -1,0 +1,165 @@
+Class<?>	getClass()
+Returns the runtime class of this Object.
+
+Class Loader System:
+---------------------
+
+Loading :
+==========
+Load .class file into JVM.
+
+It will covert into binary format and saves into method area.
+
+Variables
+Methods
+Class name
+is class or enum of interface
+Modifiers
+
+Now JVM will  create an Object of Type  Class
+
+Linking
+Initializatiobn
+
+	String name;
+
+java.lang.String com.demo.objectclass.Employee.name
+---------------
+
+java.lang.String com.demo.objectclass.Employee.name
+public boolean com.demo.objectclass.Employee.equals(java.lang.Object)
+public int com.demo.objectclass.Employee.hashCode()
+
+
+package com.demo.objectclass;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
+public class App {
+	
+	public static void main(String[] args) {
+		
+		Employee emp = new  Employee("sachin");
+		Class cls = emp.getClass();
+		
+		System.out.println(cls.getName());
+		System.out.println(cls.isEnum());
+		System.out.println(cls.isInterface());
+		System.out.println(cls.getPackageName());
+		System.out.println(cls.getClassLoader());
+		
+		
+		Field[] declaredFields = cls.getDeclaredFields();
+		for(Field field :declaredFields ) {
+			System.out.println(field);
+		}
+		
+		Method[] declaredMethods = cls.getDeclaredMethods();
+		for(Method method :declaredMethods ) {
+			System.out.println(method);
+		}
+		
+		Constructor[] declaredConstructors = cls.getDeclaredConstructors();
+		for(Constructor constructor :declaredConstructors ) {
+			System.out.println(constructor);
+		}
+	}
+
+}
+
+
+protected void	finalize()
+Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.
+
+
+package com.demo.objectclass;
+
+public class Employee extends Object{
+	String name;
+	Employee(String name){
+		this.name=name;
+	}
+	@Override
+	protected void finalize() throws Throwable {
+		System.out.println("Garabe Collecter called finalize()");
+		super.finalize();
+	}
+
+}
+
+
+package com.demo.objectclass;
+
+public class App {
+
+	public static void main(String[] args) throws InstantiationException, IllegalAccessException {
+
+		Employee emp = new Employee("sachin");
+		emp = null;
+		System.gc();
+
+	}
+
+}
+
+
+package com.demo.objectclass;
+
+public class App {
+
+	public static void main(String[] args) throws InstantiationException, IllegalAccessException {
+
+		Employee emp = new Employee("sachin");
+		Employee emp1 = new Employee("raghu");
+		
+		emp1=emp;
+		System.gc();
+
+	}
+
+}
+
+
+package com.demo.objectclass;
+
+public class App {
+
+	public static void main(String[] args) throws InstantiationException, IllegalAccessException {
+
+		new Employee("sachin");
+		System.gc();
+
+	}
+
+}
+
+
+Cloning in java:
+---------------
+protected Object	clone()
+Creates and returns a copy of this object.
+
+Shallow Cloning
+
+Deep Cloning
+
+package com.demo.objectclass;
+
+public class Employee implements Cloneable{
+	String name = "sachin";
+	
+	public static void main(String[] args) throws CloneNotSupportedException {
+		
+		Employee emp = new Employee();
+		System.out.println(emp.name);
+		System.out.println(emp.hashCode());
+		//Creates and returns a copy of this object
+		Object obj = emp.clone();
+		Employee emp1 = (Employee)obj;
+		System.out.println(emp1.hashCode());
+		System.out.println(emp1.name);
+	}
+
+}
