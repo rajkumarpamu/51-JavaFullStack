@@ -1,0 +1,220 @@
+
+Cloning in java:
+----------------
+To create a dupliacte copy of an existing object.
+
+clone()
+
+Cloneable - Marker Interface
+
+If an interface contain zero abstarct methods.
+
+A class implements the Cloneable interface to indicate to the Object.clone() method that it is legal for that method to make a field-for-field copy of instances of that class.
+
+package com.demo.objectclass;
+
+public class Employee implements Cloneable{
+	
+	String name = "sachin";
+	int id=123;
+	
+	public static void main(String[] args) throws CloneNotSupportedException {
+		
+	
+		Employee employee = new Employee();
+		System.out.println(employee.name);
+		System.out.println(employee.id);
+		
+		Employee employee1 = employee;
+		System.out.println(employee1.name);
+		System.out.println(employee1.id);
+		
+		employee1.name="raj";
+		
+		System.out.println(employee.name);
+		
+	}
+
+}
+
+
+package com.demo.objectclass;
+
+public class Employee implements Cloneable {
+
+	String name = "sachin";
+	int id = 123;
+
+	public static void main(String[] args) throws CloneNotSupportedException {
+
+		Employee employee = new Employee();
+		System.out.println(employee.name);
+		System.out.println(employee.id);
+
+		Object empClone = employee.clone();
+		Employee emp1 = (Employee) empClone;
+		System.out.println(emp1.name);
+		System.out.println(emp1.id);
+
+		emp1.name = "raj";
+		System.out.println(employee.name);
+
+	}
+
+}
+
+
+
+package com.demo.objectclass;
+
+public class Employee implements Cloneable {
+
+
+	String name;
+	int id ;
+	Address address ;
+	
+	public Employee(String name, int id, Address address) {
+		this.name = name;
+		this.id = id;
+		this.address = address;
+	}
+	public static void main(String[] args) throws CloneNotSupportedException {
+
+		Address address = new Address("ts");
+		Employee employee = new Employee("raj", 123, address);
+		System.out.println(employee.id);
+		System.out.println(employee.name);
+		System.out.println(employee.address.state);
+		
+		Employee emp1 = (Employee)employee.clone();	
+		System.out.println(emp1.id);
+		System.out.println(emp1.name);
+		System.out.println(emp1.address.state);
+		
+		emp1.id=124;
+		System.out.println(employee.id);
+		
+		emp1.address.state="ka";
+		System.out.println(employee.address.state);
+		
+	
+	}
+
+}
+
+
+package com.demo.objectclass;
+
+public class Address {
+
+	String state;
+
+	public Address(String state) {
+		super();
+		this.state = state;
+	}
+
+}
+
+
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		Employee employee =  (Employee) super.clone();
+		Address clonedAddress = (Address) employee.address.clone();
+		employee.address=clonedAddress;
+		return employee;
+	}
+
+
+	package com.demo.objectclass;
+
+public class Employee implements Cloneable {
+
+
+	String name;
+	int id ;
+	Address address ;
+	
+	public Employee(String name, int id, Address address) {
+		this.name = name;
+		this.id = id;
+		this.address = address;
+	}
+	
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		Employee employee =  (Employee) super.clone();//shallow cloning
+		Address clonedAddress = (Address) employee.address.clone();//deep cloning
+		employee.address=clonedAddress;
+		return employee;
+	}
+	public static void main(String[] args) throws CloneNotSupportedException {
+
+		Address address = new Address("ts");
+		Employee employee = new Employee("raj", 123, address);
+		System.out.println(employee.id);
+		System.out.println(employee.name);
+		System.out.println(employee.address.state);
+		
+		Employee emp1 = (Employee)employee.clone();	
+		System.out.println(emp1.id);
+		System.out.println(emp1.name);
+		System.out.println(emp1.address.state);
+		
+		emp1.id=124;
+		System.out.println(employee.id);
+		
+		emp1.address.state="ka";
+		System.out.println(employee.address.state);
+		
+	
+	}
+
+}
+
+
+package com.demo.objectclass;
+
+public class Address implements Cloneable{
+
+	String state;
+
+	public Address(String state) {
+		super();
+		this.state = state;
+	}
+	
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
+
+}
+
+
+package com.demo.objectclass;
+
+public class App {
+	@Override
+	protected void finalize() throws Throwable {
+		System.out.println("finalize is called");
+	}
+
+	public static void main(String[] args) throws InstantiationException, IllegalAccessException {
+
+		// Nullifying the reference
+		App a = new App();
+		a = null;
+
+		// Ananynous Object
+		new App();
+		System.gc();
+
+	}
+
+}
+
+
+finalize is called
+finalize is called
