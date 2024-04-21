@@ -1,0 +1,134 @@
+Marker Interface
+--------------
+Cloneable
+Serializable
+
+Cloning in Java:
+----------------
+
+clone()
+
+Shallow Cloning
+Deep Cloning
+
+Access Modifiers:
+----------------
+
+
+Package Statement:
+------------------
+
+package statement;
+class Test{
+	
+}
+
+Grouping all the classes/Intefaces into a specifed folder.
+
+It will be easy for us to access.
+
+Built-In Package:
+-----------------
+
+java.lang
+java.io
+java.util  etc
+
+User defined package
+--------------------
+
+Syntax:
+------
+package <packagename.subpackagename>;
+
+package <demo.modifers>;
+package <demo.typecasting>;
+
+
+ -d <directory>             Specify where to place generated class files
+
+ javac -d . Filename.java
+
+ . -> represent current working directiry
+
+package demo.modifers;
+class  AccessModifers{
+   public static void main(String ar[]){
+   System.out.println("welcome to java");
+  }
+}
+
+D:\51-CoreJava>javac -d . AccessModifers.java
+
+D:\51-CoreJava>java demo.modifers.AcessModifers
+Error: Could not find or load main class demo.modifers.AcessModifers
+
+D:\51-CoreJava>java demo.modifers.AccessModifers //Fully Qualified Name
+welcome to java
+
+D:\51-CoreJava>
+
+
+D:\51-CoreJava>javac -d D:\MyApp AccessModifers.java
+
+package com.demo.example1;
+
+public class Employee {
+
+}
+
+
+package com.demo.example2;
+
+public class Employee {
+
+}
+
+
+com.ashokit.payementservice.authentcation
+
+com - root 
+sub packages
+
+D:\MyApp>java demo.AccessModifers
+Error: Could not find or load main class demo.AccessModifers
+D:\MyApp>
+
+Note:
+----
+Always we have to give fully qualifed name to loading the .class
+
+
+D:\51-CoreJava>javac -d . TypeCasting.java
+
+D:\51-CoreJava>java demo.typecasting.TypeCasting
+welcome to java
+
+D:\51-CoreJava>
+
+For a class atmost one package statement we should maintain.
+
+public
+default  
+class level modifers
+---------------------
+class
+field
+method
+constructor
+
+private
+protected  
+
+member level modifers
+---------------------
+field
+method
+constructor
+
+
+
+
+
+
+
