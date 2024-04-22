@@ -1,0 +1,96 @@
+Packages:
+---------
+
+package <packagename>;
+
+Atmost a class should have one package statement.
+
+
+package packageName;
+
+class ClassName{
+	
+	//class body
+}
+
+
+IN general:
+----------
+
+company.companyname.servivce.module
+
+package org.ashokit.training.java.modifiiers;
+
+class  Employee{
+	
+}
+
+org.ashokit.training.java.modifiiers.Employee
+
+Compile;'
+--------
+
+-d <directory>               Specify where to place generated class files
+
+javac -d . Employee.java
+
+java <FullyQualifiedName>
+
+java org.ashokit.training.java.modifiiers.Employee
+
+Naming Collision
+
+default Modifer:
+----------------
+
+
+class Test{
+	
+	int a;
+
+	Test{
+
+	}
+	 void m1(
+	 ){
+
+	 }
+}
+
+
+import <pakagedetail.classname>
+
+
+Illegal modifier for the class A; only public, abstract & final are permitted
+
+
+package com.am.p1;
+
+public class A {
+
+    private int a=10;
+
+	private void m1() {
+		System.out.println("m1");
+	}
+
+	private A() {
+		System.out.println("A obj is creatd");
+	}
+
+	public static void main(String[] args) {
+
+		A a = new A();
+		a.m1();
+	}
+
+}
+
+
+publi abstract final class A{
+	
+}
+
+java.applet
+java.io
+java.lang 
