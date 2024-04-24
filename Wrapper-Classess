@@ -1,0 +1,274 @@
+Wrapper Classes:
+----------------
+
+int a=10;
+
+int -> keyword
+
+String s= "sachin";
+
+To reprsent primitive data types in the form of object.
+
+
+byte    ->      Byte
+short   ->      Short
+int     ->      Integer
+long    ->      Long
+
+float   ->      Float
+double  ->      Double
+
+
+char    ->      Character
+
+boolean  ->     Boolean
+
+Integer:
+--------
+
+The Integer class wraps a value of the primitive type int in an object.
+
+Wrapping |   Boxing
+
+Constructors
+------------------
+
+Integer(int value)
+Constructs a newly allocated Integer object that represents the specified int value.
+
+Integer(String s)
+Constructs a newly allocated Integer object that represents the int value indicated by the String parameter.
+
+
+package com.demo.wrapperclasses;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		int a = 10;
+		System.out.println("int value :" + a);
+		// The Integer class wraps a value of the primitive type
+		// int in an object.
+		Integer i1 = new Integer(a);
+
+	}
+
+}
+
+
+
+package com.demo.wrapperclasses;
+
+public class App {
+
+	public static void main(String[] args) {
+
+
+		Integer x = new Integer(10); //Boxing
+		System.out.println(x);
+		
+		Integer y=10; //Auto Boxing
+		System.out.println(y);
+
+	}
+
+}
+
+
+
+package com.demo.wrapperclasses;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		Integer x = new Integer(10);
+		System.out.println(x);
+
+		// Un-Boxing
+		int y = x.intValue();
+		System.out.println(y);
+
+	}
+
+}
+
+
+
+
+
+package com.demo.wrapperclasses;
+
+public class App {
+
+	public Integer add(Integer a, Integer b) {
+		Integer c = a + b;
+		return c;
+	}
+
+	public static void main(String[] args) {
+
+		App app = new App();
+
+		Integer i1 = app.add(new Integer(10), new Integer(20));
+		System.out.println(i1);
+
+	}
+
+}
+
+
+
+package com.demo.wrapperclasses;
+
+public class App {
+
+	public Integer add(Integer a, Integer b) {
+		Integer c = a - b;
+		return c;
+	}
+
+	public static void main(String[] args) {
+
+		App app = new App();
+
+		Integer i1 = app.add(10, 20);
+		System.out.println(i1);
+
+	}
+
+}
+
+
+package com.demo.wrapperclasses;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+		String s= "sachin";
+
+		Integer x = new Integer(s);
+		System.out.println(x);
+
+
+	}
+
+}
+
+Exception in thread "main" java.lang.NumberFormatException: For input string: "sachin"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:580)
+	at java.lang.Integer.<init>(Integer.java:867)
+	at com.demo.wrapperclasses.App.main(App.java:9)
+
+
+
+package com.demo.wrapperclasses;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+		String s= "10";
+
+		Integer x = new Integer(s);
+		System.out.println(x);
+
+
+	}
+
+}
+
+
+package com.demo.wrapperclasses;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+	
+		double salary=100000.0;
+		System.out.println(salary);
+
+		
+		Double d= new Double(salary);
+		System.out.println(d);
+		
+		Double d1= 10.45;
+		System.out.println(d1);
+
+	}
+
+}
+
+
+package com.demo.wrapperclasses;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+
+		double a=10;
+		System.out.println(a);
+		
+		//Type mismatch: cannot convert from int to Double
+		Double a1=10;
+
+
+	}
+
+}
+
+
+CE:
+package com.demo.wrapperclasses;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+
+		double a=10;
+		System.out.println(a);
+		
+		//Type mismatch: cannot convert from int to Double
+		Double a1=10;
+
+
+	}
+
+}
+
+
+Constructors
+Constructor and Description
+Boolean(boolean value)
+Allocates a Boolean object representing the value argument.
+Boolean(String s)
+Allocates a Boolean object representing the value true if the string argument is not null and is equal, ignoring case, to the string "true".
+]
+package com.demo.wrapperclasses;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+
+		Boolean b1 = new Boolean(false);
+		System.out.println(b1);
+
+		
+		Boolean b2 = new Boolean("sachin");
+		System.out.println(b2);
+
+		Boolean b3 = new Boolean("TRuE");
+		System.out.println(b3);
+		
+		Boolean b4 = new Boolean("FALSE");
+		System.out.println(b4);
+	}
+
+}
