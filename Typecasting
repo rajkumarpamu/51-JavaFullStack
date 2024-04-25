@@ -1,0 +1,305 @@
+package com.demo.example1;
+
+public class Employee {
+
+	public static void main(String[] args) {
+
+		Integer i1 = new Integer(10);
+		System.out.println(i1);
+
+		Integer i2 = 21;
+		System.out.println(i2);
+
+	}
+
+}
+
+package com.demo.example1;
+
+public class Employee {
+
+	public static void main(String[] args) {
+
+		Integer i1 = new Integer(10);
+		System.out.println(i1);
+
+		Integer i2 = 21;
+		System.out.println(i2);
+		
+		int i3 = i2.intValue();
+		System.out.println(i3);
+
+	}
+
+}
+
+
+
+package com.demo.example1;
+
+public class Employee {
+
+	public static void main(String[] args) {
+
+		//Boxing
+		Integer i1 = new Integer(10);
+		System.out.println(i1);
+		
+		
+		//Auto Boxing
+		Integer i2 = 21;
+		System.out.println(i2);
+		
+		//UNBoxing
+		int i3 = i2.intValue();
+		System.out.println(i3);
+
+	}
+
+}
+
+
+Type casting:
+-------------
+Converting one type of data to another type.
+
+int a = 'a';
+
+Implicit Type Casting
+----------------------
+byte -> 1  (-128 to +127)
+short -> 2 (-32768 0 +32767)
+
+Smaller data type value -> Bigger Data type -> Widening (Implicit Type CAsting)
+
+byte -> short->int -> long -> float -> double
+char->int -> long -> float -> double
+
+package com.demo.example1;
+
+public class Employee {
+
+	public static void main(String[] args) {
+
+		// Impliicit Type casting (Widening)
+		int a = 'a';
+		System.out.println(a);
+
+		double d = 10;
+		System.out.println(d);
+
+		long l = 123;
+		System.out.println(l);
+
+	}
+
+}
+
+
+Explicit Type Casting:
+-----------------------
+
+Bigger data value to smaller data type -> (Narrowing) -> Explicit Type casting
+
+
+double -> float ->  long -> int -> short -> byte
+
+double -> float ->  long -> int -> char -> byte
+
+
+Syntax:
+------
+
+a b = (c) d;
+
+c- > Smaller type
+d -> Bigger Type
+
+float f = (float)double;
+
+package com.demo.example1;
+
+public class Employee {
+
+	public static void main(String[] args) {
+
+		char c = 'x';
+		int a = c; // Implict Type casting
+
+		double d = 10.9;
+		float f = (float) d; // Explicit Type casting
+		System.out.println(f);
+
+		double d1 = 10;
+		int i = (int) d1;// Explicit Type casting
+		System.out.println(i);
+
+		double d2 = 10.8;
+		int i1 = (int) d2;// Explicit Type casting
+		System.out.println(i1);
+
+	}
+
+}
+
+
+package com.demo.example1;
+
+public class Employee {
+
+	public static void main(String[] args) {
+
+		byte b = 10;
+		byte c = 20;
+		byte sum = (byte) (b + c);
+		System.out.println(sum);
+
+	}
+
+}
+
+
+Upcasting and Downcasting:
+----------------------------
+
+package com.demo.example1;
+
+public class Employee extends Object {
+
+	int a = 10;
+
+	public static void main(String[] args) {
+
+		Employee emp = new Employee();
+		Object obj = new Employee(); // Upcasting 
+		//(Parent type members though child object)
+		System.out.println(obj.toString());
+
+	}
+
+}
+
+package com.demo.example1;
+
+public class Employee extends Object {
+
+	public static void main(String[] args) {
+	
+		Number n = new Integer(10);
+		System.out.println(n);
+		
+		Object o1 = 10;  //Integer -> Number -> Object
+		System.out.println(o1);
+
+	}
+
+}
+
+
+Down Casting:
+------------
+
+
+package com.demo.example1;
+
+public class Employee extends Object {
+
+	public static void main(String[] args) {
+	
+		//Cannot convert from Object to Employee
+		//Down  casting
+		Employee emp = new Object();
+
+	}
+
+}
+
+//Down casting is by defuat not possible ex:
+Child c = new Parent()  // Compile Time Error
+
+Step-1:
+------
+Parent p = new Child();//Upcasting
+
+Step-2:
+-------
+Child c = (Child)p;
+
+
+package com.demo.example1;
+
+public class Employee extends Object {
+	String name;
+	
+	Employee(String name){
+		this.name=name;
+	}
+	public Employee() {
+	
+	}
+	
+	public void saveEmployee(Object obj) {
+	    //Step -2 Down casting
+		Employee emp = (Employee)obj;
+		System.out.println(emp.name);
+		
+	}
+
+	public static void main(String[] args) {
+		Employee  employee = new Employee("raj");
+		//Step -1 UpCasting
+		employee.saveEmployee(employee);	
+	}
+
+}
+
+
+package com.demo.example1;
+
+public class Employee extends Object {
+
+	public void saveEmployee(Number num) {
+		Integer i1 = (Integer) num;
+		System.out.println(i1);
+
+	}
+
+	public static void main(String[] args) {
+
+		Employee emp = new Employee();
+		emp.saveEmployee(new Integer(10));
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
