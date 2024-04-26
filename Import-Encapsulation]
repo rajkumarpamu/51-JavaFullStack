@@ -1,0 +1,260 @@
+Parent p = new Child();  //Upcasting
+
+Child c = new Parent(); //CTE
+
+
+Parent p = new Child(); //Upcasting
+Child c  = (Child)p;// Downcasting
+
+Object o = new Employee();
+Employee emp = (Employee)o;
+
+
+import statement:
+-----------------
+
+package <packagename>;
+
+import <packagename.subpackage>;
+import <packagename.subpackage>;
+import <packagename.subpackage>;
+
+class Employee{
+	
+
+}
+
+package com.am.p1;
+
+public class A {
+	
+	public int x=10;
+
+}
+
+
+package com.am.p2;
+import com.am.p1.A;
+public class C{
+	
+	public static void main(String[] args) {
+	
+		A a = new A();
+		System.out.println(a.x);
+	}
+
+}
+
+
+package com.am.p2;
+import com.am.p1.A;
+import com.am.p1.B;
+public class C{
+	
+	public static void main(String[] args) {
+	
+		A a = new A();
+		System.out.println(a.x);
+		
+		B b = new B();
+		System.out.println(b.y);
+	}
+
+}
+
+
+package com.am.p2;
+
+import com.am.p1.*;
+
+public class C {
+
+	public static void main(String[] args) {
+
+		A a = new A();
+		System.out.println(a.x);
+
+		B b = new B();
+		System.out.println(b.y);
+	}
+
+}
+
+
+package com.am.p2;
+
+import com.am.p1.*;
+
+public class C {
+
+	public static void main(String[] args) {
+
+		A a = new A();
+		System.out.println(a.x);
+
+		B b = new B();
+		System.out.println(b.y);
+	}
+
+}
+
+
+static import:
+--------------
+
+package com.am.p2;
+
+package com.am.p2;
+
+import com.am.p1.*;
+import static java.lang.System.*;
+import static java.lang.String.*;
+
+
+public class C {
+
+	public static void main(String[] args) {
+
+		A a = new A();
+		out.println(a.x);
+
+		B b = new B();
+		out.println(b.y);
+		
+		out.println(valueOf(true));
+		out.println(valueOf(10));
+	}
+
+}
+
+
+Encapuslation:
+---------------
+
+Data Hiding
+
+package com.demo.encaspsulation;
+
+public class Employee {
+	
+	int age=10;
+
+}
+
+
+package com.demo.encaspsulation;
+
+public class App {
+	
+	public static void main(String[] args) {
+		
+		Employee employee = new Employee();
+		System.out.println(employee.age);
+		employee.age=200;
+		System.out.println(employee.age);
+	}
+
+}
+
+
+package com.demo.encaspsulation;
+
+public class Employee {
+	
+	private int age;
+	
+	public void setAge(int age) {
+		if(age <=100)
+		this.age=age;
+		else
+		this.age=100;
+	}
+
+	public int getAge() {
+		return age;
+	}
+	
+}
+
+
+package com.demo.encaspsulation;
+
+public class App {
+	
+	public static void main(String[] args) {
+		
+		Employee employee = new Employee();
+		
+		employee.setAge(101);
+		
+		int age  = employee.getAge();
+		System.out.println("Age is :"+age);
+		
+	}
+
+}
+
+
+package com.demo.encaspsulation;
+
+public class Employee {
+
+	private int age;
+	private String name;
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		if (name.length() > 3)
+			return name;
+		else
+			throw new ArithmeticException("Please eneter valid details");
+	}
+
+	public void setAge(int age) {
+		if (age <= 100)
+			this.age = age;
+		else
+			this.age = 100;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+}
+
+
+package com.demo.encaspsulation;
+
+public class App {
+	
+	public static void main(String[] args) {
+		
+		Employee employee = new Employee();
+		
+		employee.setAge(101);
+		
+		int age  = employee.getAge();
+		System.out.println("Age is :"+age);
+		
+		
+		employee.setName("na");
+		String name = employee.getName();
+		try {
+		System.out.println(name);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+}
+
+
+
+
+
