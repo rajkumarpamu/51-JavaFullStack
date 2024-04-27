@@ -1,0 +1,161 @@
+
+1)private instance varibles
+2)public setter method -> set the data
+3)public getter method -> retrieve the data
+
+By adding setter and getter a class enforce it own data validation rules and ensure the data consistent.
+
+package com.demo.example1;
+
+public class Employee {
+
+	 String name;
+	private int age;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		if(name.length() > 0)
+		this.name = name;
+		else
+		this.name="Invalid Name";
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+}
+
+
+package com.demo.example1;
+
+public class App {
+	
+	public static void main(String[] args) {
+		
+		Employee employee = new Employee();
+		
+		employee.setName("");		
+		
+		String name = employee.getName();
+		System.out.println(name);
+	}
+
+}
+
+
+Wrapping of data under single unit .
+It is  mechnaism that binds the code and the data it manipulates
+
+Inheritance (IS-A and HAS-A )
+Polymrphism (Overaloding and Overiding)
+Encapsulation (private feilds public getter and setter)
+Abstraction (abstarct class abstract method)
+Interface (implements)(Marker Interface)
+Exception Handling (try catch throw throws finally)
+Type Casting (Implicit vs Expliciit (a b = (c)d))
+Wrapper Classes (Boxing Unboxing Auto Boxing)
+Upcasting / Down Casting 
+Object Class (toString() equals() hashcode() getClass() clone() fnalize())
+this
+super
+final vs finally vs finalize
+Access Modifiers
+package Statement
+Import Statement (Static Import)
+IO Streams
+Serialization
+Collections
+MultiThreading
+Java 8 features
+
+IO Streams:
+-----------
+
+I -> Input  -> Read Operation
+O -> Output -> Write Operation
+
+
+System.in ->  InputStream  -> reads sequence of data(byte)
+System.out -> OutputStream -> Writes sequence of data(byte)
+
+Stream:
+------
+A stream is a sequnce of data , It is composed of bytes.
+
+package com.demo.example1;
+
+public class App {
+	public static void main(String[] args) {
+		String s = "sachin";
+		byte[] b= s.getBytes();
+		for(byte x : b) {
+		System.out.print(x+" ");	
+		}
+		
+	}
+
+}
+
+
+115 97 99 104 105 110 
+
+
+
+package com.demo.example1;
+
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Name");
+		String n1 = sc.next(); //raj
+
+		System.out.println("Result :" + n1);//raj
+
+	}
+
+}
+
+
+
+java.io : packages IO Operations
+--------------------------------
+
+InputStream:
+
+This abstract class is the superclass of all classes representing an input stream of bytes.
+
+FileInputStream
+ObjectInputStream
+
+OutputStream:
+
+This abstract class is the superclass of all classes representing an output stream of bytes.
+
+FileOutputStream
+ObjectOutputStream
+
+FileWriter
+FileReader
+
+
+
+
+
+
+
+
+
+
+
