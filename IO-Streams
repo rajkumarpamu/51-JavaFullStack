@@ -1,0 +1,220 @@
+IO  Streans:
+===========
+
+I : Read
+O : Write
+
+InputStream:  Read Operations
+OutputStream : Write Operations
+
+java.io:
+
+java.lang.Object
+
+java.io.InputStream
+
+java.io.FileInputStream:
+
+A FileInputStream obtains input bytes from a file in a file system. What files are available depends on the host environment.
+
+FileInputStream(File file)
+Creates a FileInputStream by opening a connection to an actual file, the file named by the File object file in the file system.
+
+File(String pathname)
+Creates a new File instance by converting the given pathname string into an abstract pathname.
+
+java.lang.Object
+java.io.OutputStream
+java.io.FileOutputStream
+
+A file output stream is an output stream for writing data to a File or to a FileDescriptor. 
+
+FileOutputStream(File file)
+Creates a file output stream to write to the file represented by the specified File object.
+
+package com.demo.io;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class Write {
+
+	public static void main(String[] args) throws IOException {
+
+		File file = new File("developer.txt");
+		FileOutputStream fos = null;
+		try {
+			fos = new FileOutputStream(file);
+			String message = "welcome to AshokIT";
+			byte[] b = message.getBytes();
+			fos.write(b);
+			System.out.println("Task Completed");
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			fos.close();
+		}
+
+	}
+
+}
+
+
+
+package com.demo.io;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+public class Read {
+
+	public static void main(String[] args) throws IOException {
+
+		File file = new File("developer.txt");
+		FileInputStream fileInputStream = null;
+
+		try {
+			fileInputStream = new FileInputStream(file);
+			// the next byte of data,
+			// or -1 if the end of the file is reached.
+			int i1;
+			while ((i1 = fileInputStream.read()) != -1) {
+				System.out.print((char) i1);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			fileInputStream.close();
+		}
+
+	}
+
+}
+
+package com.demo.io;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class Read {
+
+	public static void main(String[] args) throws IOException {
+
+		File file = new File("developer.txt");
+		File file1 = new File("developer-copy.txt");
+		FileInputStream fileInputStream = null;
+		FileOutputStream fileOutputStream = null;
+
+		try {
+			fileInputStream = new FileInputStream(file);
+			fileOutputStream = new FileOutputStream(file1);
+			// the next byte of data,
+			// or -1 if the end of the file is reached.
+			int i1;
+			while ((i1 = fileInputStream.read()) != -1) {
+				fileOutputStream.write(i1);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			fileInputStream.close();
+			fileOutputStream.close();
+		}
+
+	}
+
+}
+
+
+char:
+-----
+
+FileWriter
+
+FileReader:
+FileReader is meant for reading streams of characters. For reading streams of raw bytes, consider using a FileInputStream.
+
+package com.demo.io;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Write {
+
+	public static void main(String[] args) throws IOException {
+
+		File file = new File("developer.txt");
+		FileWriter fileWriter = null;
+		try {
+			fileWriter = new FileWriter(file);
+			String message = "welcome to JAVA";
+			fileWriter.write(message);
+			System.out.println("Task Completed");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			fileWriter.close();
+		}
+
+	}
+
+}
+
+
+package com.demo.io;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Read {
+
+	public static void main(String[] args) throws IOException {
+
+		File file = new File("developer.txt");
+		File file1 = new File("developer-copy.txt");
+		
+		FileReader fileReader = null;
+		FileWriter fileWriter = null;
+
+		try {
+			fileReader = new FileReader(file);
+			fileWriter = new FileWriter(file1);
+			// the next byte of data,
+			// or -1 if the end of the file is reached.
+			int i1;
+			while ((i1 = fileReader.read()) != -1) {
+				fileWriter.write(i1);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			fileReader.close();
+			fileWriter.close();
+		}
+
+	}
+
+}
+
+
+
+Serialization:
+--------------
+
+ObjectInputStream
+ObjectOutputStream
