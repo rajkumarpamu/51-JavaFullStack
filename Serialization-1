@@ -1,0 +1,174 @@
+Serilization:
+-------------
+Its a process of converting state of an object to byte stream.
+
+How to serialize and  deserilaize and object in java:
+-----------------------------------------------------
+
+
+Exception in thread "main" java.io.NotSerializableException: com.demo.example1.Employee
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1184)
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348)
+	at com.demo.example1.SerDemo.main(SerDemo.java:24)
+
+
+
+Marker Interface:
+---------------
+Serializable
+
+package com.demo.example1;
+
+import java.io.Serializable;
+
+public class Employee implements Serializable {
+
+	private String name;
+	private int age;
+	private int doy;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public int getDoy() {
+		return doy;
+	}
+
+	public void setDoy(int doy) {
+		this.doy = doy;
+	}
+
+}
+
+
+package com.demo.example1;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
+public class SerDemo {
+
+	public static void main(String[] args) throws IOException {
+
+		// Object
+		Employee emp = new Employee();
+		emp.setName("raj");
+		emp.setAge(30);
+		emp.setDoy(91);
+
+		File file = new File("ser.txt");
+		FileOutputStream fos = new FileOutputStream(file);
+		// An ObjectOutputStream writes primitive data types and graphs of Java objects
+		// to an OutputStream.
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		// The method writeObject is used to write an object to the stream.
+		oos.writeObject(emp);
+		System.out.println("Serilaization is completed");
+
+	}
+
+}
+
+
+
+package com.demo.example1;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+
+public class DeSer {
+	
+	public static void main(String[] args) throws ClassNotFoundException, IOException {
+		
+		
+		FileInputStream fileInputStream = new FileInputStream("ser.txt");
+		ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+		Object obj = objectInputStream.readObject();
+		
+		Employee employee = (Employee)obj;
+		
+		System.out.println(employee.getAge());
+		System.out.println(employee.getName());
+		System.out.println(employee.getDoy());
+		
+		objectInputStream.close();
+		
+		
+	}
+
+}
+
+
+
+
+Exception in thread "main" java.io.InvalidClassException: com.demo.example1.Employee; local class incompatible: stream classdesc serialVersionUID = -6305449850596843466, local class serialVersionUID = 3843259059182718796
+	at java.io.ObjectStreamClass.initNonProxy(ObjectStreamClass.java:699)
+	at java.io.ObjectInputStream.readNonProxyDesc(ObjectInputStream.java:1963)
+	at java.io.ObjectInputStream.readClassDesc(ObjectInputStream.java:1829)
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2120)
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1646)
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:482)
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:440)
+	at com.demo.example1.DeSer.main(DeSer.java:15)
+
+package com.demo.example1;
+
+import java.io.Serializable;
+
+public class Employee implements Serializable {
+	
+	public final static Long serialVersionUID = 6305449850596843466L;
+
+	private String name;
+	private int age;
+	private int doy;
+
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public int getDoy() {
+		return doy;
+	}
+
+	public void setDoy(int doy) {
+		this.doy = doy;
+	}
+
+}
+
+
+
+
+
+
