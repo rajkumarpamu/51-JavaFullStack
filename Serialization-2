@@ -1,0 +1,371 @@
+transient keyword:
+----------------
+
+During serialization if we dont want to serialize any data member we have to use transient keyword.
+
+package com.demo.example1;
+
+import java.io.Serializable;
+
+public class Employee implements Serializable {
+	
+	public Employee() {
+		System.out.println("Employee Object is cretaed");
+	}
+	
+	public final static Long serialVersionUID = 6305449850596843466L;
+
+	private String name;
+	transient private int age;
+	private int doy;
+
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public int getDoy() {
+		return doy;
+	}
+
+	public void setDoy(int doy) {
+		this.doy = doy;
+	}
+
+}
+
+
+package com.demo.example1;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
+public class SerDemo {
+
+	public static void main(String[] args) throws IOException {
+
+		// Object
+		Employee emp = new Employee();
+		emp.setName("raj");
+		emp.setAge(30);
+		emp.setDoy(91);
+
+		File file = new File("ser.txt");
+		FileOutputStream fos = new FileOutputStream(file);
+		// An ObjectOutputStream writes primitive data types and graphs of Java objects
+		// to an OutputStream.
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		// The method writeObject is used to write an object to the stream.
+		oos.writeObject(emp);
+		System.out.println("Serilaization is completed");
+
+	}
+
+}
+
+
+package com.demo.example1;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+
+public class DeSer {
+	
+	public static void main(String[] args) throws ClassNotFoundException, IOException {
+		
+		
+		FileInputStream fileInputStream = new FileInputStream("ser.txt");
+		ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+		Object obj = objectInputStream.readObject();
+		
+		Employee employee = (Employee)obj;
+		
+		System.out.println(employee.getAge());
+		System.out.println(employee.getName());
+		System.out.println(employee.getDoy());
+		
+		objectInputStream.close();
+		
+		
+	}
+
+}
+
+
+
+Note:
+----
+
+Constructor of class will be never called duirng deserializatoin.
+
+Note:
+----
+
+Only Non static data members are saved via serialization process.
+
+Transient and Static we use if we do not serialize.
+
+package com.demo.example1;
+
+import java.io.Serializable;
+
+public class Employee implements Serializable {
+
+	public final static Long serialVersionUID = 6305449850596843466L;
+	
+	private String name;
+	private int doy;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getDoy() {
+		return doy;
+	}
+
+	public void setDoy(int doy) {
+		this.doy = doy;
+	}
+
+}
+
+
+package com.demo.example1;
+
+public class Programmer extends Employee{
+	
+	private boolean programmer ;
+	
+	public boolean getProgrammer() {
+		return programmer;
+	}
+
+	public void setProgrammer(boolean programmer) {
+		this.programmer = programmer;
+	}
+
+}
+
+package com.demo.example1;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
+public class SerDemo {
+
+	public static void main(String[] args) throws IOException {
+
+		// Object
+		Programmer emp = new Programmer();
+		emp.setName("raj");
+		emp.setDoy(91);
+		emp.setProgrammer(true);
+		
+
+		File file = new File("ser.txt");
+		FileOutputStream fos = new FileOutputStream(file);
+		// An ObjectOutputStream writes primitive data types and graphs of Java objects
+		// to an OutputStream.
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		// The method writeObject is used to write an object to the stream.
+		oos.writeObject(emp);
+		System.out.println("Serilaization is completed");
+
+	}
+
+}
+
+
+package com.demo.example1;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+
+public class DeSer {
+	
+	public static void main(String[] args) throws ClassNotFoundException, IOException {
+		
+		
+		FileInputStream fileInputStream = new FileInputStream("ser.txt");
+		ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+		Object obj = objectInputStream.readObject();
+		
+		Programmer programmer = (Programmer)obj;
+		
+		
+		System.out.println(programmer.getName());
+		System.out.println(programmer.getDoy());
+		System.out.println(programmer.getProgrammer());
+		
+		objectInputStream.close();
+		
+		
+	}
+
+}
+
+
+NOte:
+If parent class implemented Serializable then child class doesn't need to implement Serializable.
+
+package com.demo.example1;
+
+import java.io.Serializable;
+
+public class Employee implements Serializable {
+
+	public final static Long serialVersionUID = 6305449850596843466L;
+	
+	private String name;
+	private int doy;
+	private Programmer programmer;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getDoy() {
+		return doy;
+	}
+
+	public void setDoy(int doy) {
+		this.doy = doy;
+	}
+
+	public Programmer getProgrammer() {
+		return programmer;
+	}
+
+	public void setProgrammer(Programmer programmer) {
+		this.programmer = programmer;
+	}
+}
+
+
+package com.demo.example1;
+
+public class Programmer {
+	
+	private boolean programmer ;
+	
+	public boolean getProgrammer() {
+		return programmer;
+	}
+
+	public void setProgrammer(boolean programmer) {
+		this.programmer = programmer;
+	
+}
+
+package com.demo.example1;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
+public class SerDemo {
+
+	public static void main(String[] args) throws IOException {
+
+		// Object
+		Employee emp = new Employee();
+		emp.setName("raj");
+		emp.setDoy(91);
+		Programmer programmer = new Programmer();
+		programmer.setProgrammer(true);
+		emp.setProgrammer(programmer);
+		
+
+		File file = new File("ser.txt");
+		FileOutputStream fos = new FileOutputStream(file);
+		// An ObjectOutputStream writes primitive data types and graphs of Java objects
+		// to an OutputStream.
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		// The method writeObject is used to write an object to the stream.
+		oos.writeObject(emp);
+		System.out.println("Serilaization is completed");
+
+	}
+
+}
+
+
+
+Exception in thread "main" java.io.NotSerializableException: com.demo.example1.Programmer
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1184)
+	at java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1548)
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1509)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432)
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178)
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348)
+	at com.demo.example1.SerDemo.main(SerDemo.java:27)
+
+
+package com.demo.example1;
+
+import java.io.Serializable;
+
+public class Programmer implements Serializable{
+	
+	private boolean programmer ;
+	
+	public boolean getProgrammer() {
+		return programmer;
+	}
+
+	public void setProgrammer(boolean programmer) {
+		this.programmer = programmer;
+	}
+}
+
+
+Note:
+------
+
+
+Associated objects must be implemneting Serializable interface.
+
+
+Generics
+Collections
+Multithreading
+java 8,9,10,11 features - 20 hrs
+
+
+
+
+
+
+
+
+
