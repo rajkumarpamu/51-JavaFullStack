@@ -1,0 +1,241 @@
+Generics:
+--------
+
+Generics means paramaterized types.
+
+The idea is allow (Integer , String , Float .....User defined type) as a paramter to a method , class , interface.
+
+Using generics , it is possible to create a class that work for different data types.
+
+Generic Method:
+---------------
+
+package com.demo.generics;
+
+public class Addition {
+	
+	public void add(Integer a ,Integer b) {
+		System.out.println(a+b);
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		Addition addition = new Addition();
+		addition.add(new Integer(10), new Integer(20));
+		
+	}
+
+}
+
+
+
+package com.demo.generics;
+
+public class Addition {
+
+	public void add(Object a, Object b) {
+		System.out.println(a);
+		System.out.println(b);
+	}
+
+	public static void main(String[] args) {
+
+		Addition addition = new Addition();
+		addition.add(new Integer(10), new Integer(20));
+		addition.add(new Double(10), new Double(20));
+		addition.add(new String("sachin"), new String("rahul"));
+		addition.add(new Boolean(false), new Boolean(true));
+
+	}
+
+}
+
+
+Note:
+----
+There is lack of type safety.
+
+
+To specify parameter as genric <>
+
+
+class App<T>{
+ 
+    T obj;
+
+    App(T obj){
+      this.obj=obj;
+    }
+
+
+    public T getobject(){
+        obj;
+    }
+	
+
+
+}
+
+
+
+
+package com.demo.generics;
+
+public class Addition<E> {
+	
+	E obj;
+	
+	public Addition(E obj) {
+		this.obj=obj;
+	}
+	
+	public E getObj() {
+		return this.obj;
+	}
+
+	public static void main(String[] args) {
+		
+		Addition<String> type1 = new Addition<String>("sachin");
+		String result1 = type1.getObj();
+		System.out.println(result1);
+		
+		Addition<Integer> type2 = new Addition<Integer>(10);
+		Integer result2 = type2.getObj();
+		System.out.println(result2);
+		
+		Addition<Double> type3 = new Addition<Double>(10.8);
+		Double result3 = type3.getObj();
+		System.out.println(result3);		
+
+	}
+
+}
+
+
+package com.demo.generics;
+
+public class Addition<E, F> {
+
+	E obj1;
+	F obj2;
+
+	public void add(E obj1, F obj2) {
+		this.obj1 = obj1;
+		this.obj2 = obj2;
+	}
+
+	public void print() {
+		System.out.println(obj1);
+		System.out.println(obj2);
+	}
+
+	public static void main(String[] args) {
+
+		Addition<Integer, Integer> addition = new Addition<Integer, Integer>();
+		addition.add(new Integer(10), new Integer(20));
+		addition.print();
+
+		Addition<Double, Double> addition1 = new Addition<Double, Double>();
+		addition1.add(new Double(10), new Double(20));
+		addition1.print();
+
+	}
+
+}
+
+
+package com.demo.generics;
+
+import java.util.ArrayList;
+
+public class Addition<E, F> {
+
+	E obj1;
+	F obj2;
+
+	public void add(E obj1, F obj2) {
+		this.obj1 = obj1;
+		this.obj2 = obj2;
+	}
+
+	public void print() {
+	
+		int i1 = Integer.parseInt(obj1.toString());
+		double i2 = Double.parseDouble(obj2.toString());
+		System.out.println(i1+i2);
+		
+	}
+
+	public static void main(String[] args) {
+
+		Addition<Integer, Double> addition = new Addition<Integer, Double>();
+		addition.add(new Integer(10), new Double(20));
+		addition.print();
+		
+		ArrayList<Integer> al= new ArrayList<Integer>();
+		al.add(10);
+		al.add(20);
+		al.add(30);
+		al.add(40);
+		
+		System.out.println(al);
+		
+		
+
+	
+	}
+}
+
+
+
+T -> Type
+E -> Element
+K -> key
+V -> value
+N -> Number
+
+Code Reusabilty
+Type Safety
+
+
+package com.demo.generics;
+
+import java.util.ArrayList;
+
+public class Addition {
+
+	public static void main(String[] args) {
+
+		ArrayList al = new ArrayList();
+		al.add(10);
+		al.add(20.0);
+		al.add("sachin");
+		al.add(true);
+
+		System.out.println(al);
+
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		list.add(10);
+		list.add(10);
+
+		System.out.println(list);
+
+		ArrayList<String> list1 = new ArrayList<String>();
+		list1.add("sachin");
+		list1.add("rahul");
+
+		System.out.println(list1);
+
+	}
+}
+
+
+
+
+
+
+
+
+
+
