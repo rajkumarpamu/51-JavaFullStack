@@ -1,0 +1,178 @@
+package com.demo.strings;
+
+import java.io.IOException;
+
+public class App {
+
+	public void add(Object a) {
+		Integer i = (Integer) a;
+		System.out.println(a);
+	}
+
+	public static void main(String[] args) throws IOException {
+
+		App app = new App();
+		app.add(new Integer(10));
+
+	}
+
+}
+
+
+package com.demo.strings;
+
+import java.io.IOException;
+
+public class App<E> {
+
+	public void add(E a) {
+		System.out.println(a);
+	}
+
+	public static void main(String[] args) throws IOException {
+
+		App<Integer> app = new App<Integer>();
+		app.add(new Integer(10));
+
+	}
+
+}
+
+
+NoteL\:
+---------
+
+No need of explicit type casting
+
+package com.demo.strings;
+
+import java.io.IOException;
+
+public class App<E1, E2> {
+
+	public void add(E1 a, E2 b) {
+		System.out.println(a);
+		System.out.println(b);
+	}
+
+	public static void main(String[] args) throws IOException {
+
+		App<Integer, Double> app = new App<Integer, Double>();
+		app.add(new Integer(10), new Double(10.5));
+
+	}
+
+}
+
+
+
+Collection:
+-------------
+Storing group of individual objects as a single object.
+
+
+int ar[] = new int[10];
+
+package com.demo.collections;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		Integer marks[] = new Integer[4];
+
+		marks[0] = new Integer(10);
+		marks[1] = new Integer(1);
+		marks[2] = new Integer(11);
+		marks[3] = new Integer(12);
+
+		for (Integer i1 : marks) {
+			System.out.println(i1);
+		}
+
+	}
+
+}
+
+package com.demo.collections;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		Object employees[] = new Object[4];
+
+		employees[0] = new Employee(1, "raj");
+		employees[1] = new Integer(1);
+		employees[2] = new Double(1.2);
+		employees[3] = new String("raj");
+
+		for (Object object : employees) {
+			System.out.println(object);
+		}
+
+	}
+
+}
+
+
+Drawback:
+---------
+
+Multiple objects will be created , if the array sze increases no of object also increase which will cause out of memory issues.
+
+Specifying Size is Mandatory
+
+Cannot Resize an array(Increase or Decrease) , once array object is created
+
+Allows only Same type of data.
+
+Explict Typecasting is required
+
+No underlying Data Structure
+
+
+Collection:
+-----------
+The root interface in the collection hierarchy.
+ A collection represents a group of objects, known as its elements. 
+
+ Some collections allow duplicate elements and others do not
+
+ Some are ordered and others unordered. 
+
+  It provides implementations of more specific subinterfaces like Set and List. 
+
+  Set -> (Does not allowe Duplicates)
+  List -> Allows Duplicates
+
+
+  List:
+  -----
+
+  An ordered collection (also known as a sequence). 
+
+  The user of this interface has precise control over where in the list each element is inserted.
+
+  The user can access elements by their integer index (position in the list), and search for elements in the list.
+
+
+  Set:
+  ----
+
+  A collection that contains no duplicate elements. More formally, sets contain no pair of elements e1 and e2 such that e1.equals(e2), and at most one null element. As implied by its name, this interface models the mathematical set abstraction.
+
+
+Resizbale and Growable
+-----------------------
+
+Each ArrayList instance has a capacity. 
+The capacity is the size of the array used to store the elements in the list. 
+
+ As elements are added to an ArrayList, its capacity grows automatically. The details of the growth policy are not specified beyond the fact that adding an element has constant amortized time cost.
+
+
+An application can increase the capacity of an ArrayList instance before adding a large number of elements using the ensureCapacity operation. This may reduce the amount of incremental reallocation.
+
+	trimToSize()
+Trims the capacity of this ArrayList instance to be the list's current size.
