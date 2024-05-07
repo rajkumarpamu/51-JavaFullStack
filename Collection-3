@@ -1,0 +1,485 @@
+public void clear()
+Removes all of the elements from this list. The list will be empty after this call returns.
+
+package com.demo.collections;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		// Collection-1
+		List<Integer> list1 = new ArrayList<Integer>();
+		list1.add(new Integer(101));
+		list1.add(new Integer(102));
+
+		System.out.println("List details before clear() :" + list1);
+
+		// Removes all of the elements from this list.
+		list1.clear();
+
+		System.out.println("List details after clear():" + list1);
+
+	}
+
+}
+
+
+E	remove(int index)
+======================
+Removes the element at the specified position in this list.
+
+package com.demo.collections;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		// Collection-1
+		List<Integer> list1 = new ArrayList<Integer>();
+		list1.add(new Integer(1));
+		list1.add(new Integer(2));
+		list1.add(new Integer(3));
+
+		System.out.println(list1);
+
+		// Removes the element at the specified position in this list.
+		list1.remove(1);
+
+		System.out.println(list1);
+
+	}
+
+}
+
+
+boolean	remove(Object o)
+============================
+Removes the first occurrence of the specified element from this list, if it is present.
+
+package com.demo.collections;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		// Collection-1
+		List<Integer> list1 = new ArrayList<Integer>();
+		list1.add(new Integer(1));
+		list1.add(new Integer(2));
+		list1.add(new Integer(3));
+
+		System.out.println(list1);
+
+		// Removes the element at the specified position in this list.
+		list1.remove(new Integer(1));
+
+		System.out.println(list1);
+
+	}
+
+}
+
+
+boolean	removeAll(Collection<?> c)
+==================================
+Removes from this list all of its elements that are contained in the specified collection.
+
+package com.demo.collections;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		// Collection-1
+		List<Integer> list1 = new ArrayList<Integer>();
+		list1.add(new Integer(1));
+		list1.add(new Integer(2));
+		list1.add(new Integer(3));
+
+		// Collection-2
+		List<Integer> list2 = new ArrayList<Integer>();
+		list2.add(new Integer(1));
+		list2.add(new Integer(2));
+		list2.add(new Integer(6));
+
+		System.out.println(list1);
+
+		// Removes the element at the specified position in this list.
+		list1.removeAll(list2);
+
+		System.out.println(list1);
+
+	}
+
+}
+
+
+boolean	removeIf(Predicate<? super E> filter)
+Removes all of the elements of this collection that satisfy the given predicate.
+
+package com.demo.collections;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		// Collection-1
+		List<Integer> list1 = new ArrayList<Integer>();
+		list1.add(new Integer(1));
+		list1.add(new Integer(2));
+		list1.add(new Integer(3));
+		list1.add(new Integer(4));
+		list1.add(new Integer(5));
+
+		System.out.println(list1);
+
+		Predicate<Integer> t = x -> x > 4;
+		list1.removeIf(t);
+
+		System.out.println(list1);
+
+	}
+
+}
+
+
+boolean isEmpty()
+====================
+Returns true if this list contains no elements.
+
+package com.demo.collections;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		// Collection-1
+		List<Integer> list1 = new ArrayList<Integer>();
+		list1.add(new Integer(1));
+		list1.add(new Integer(2));
+		list1.add(new Integer(3));
+		list1.add(new Integer(4));
+		list1.add(new Integer(5));
+
+		list1.clear();
+
+		if (list1.isEmpty()) {
+			list1.add(new Integer(6));
+		}
+
+		System.out.println(list1);
+	}
+
+}
+
+
+boolean contains(Object o)
+===========================
+Returns true if this list contains the specified element. More formally, returns true if and only if this list contains at least one element e such that (o==null ? e==null : o.equals(e)).
+
+package com.demo.collections;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		// Collection-1
+		List<Integer> list1 = new ArrayList<Integer>();
+		list1.add(new Integer(1));
+		list1.add(new Integer(2));
+		list1.add(new Integer(3));
+		list1.add(new Integer(4));
+		list1.add(new Integer(5));
+
+		System.out.println(list1.contains(new Integer(6)));
+
+		System.out.println(list1);
+	}
+
+}
+
+
+
+Example 2:
+-----------
+
+
+package com.demo.collections;
+
+import java.util.Objects;
+
+public class Employee {
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, name);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		Employee other = (Employee) obj;
+		return Objects.equals(id, other.id) && Objects.equals(name, other.name);
+	}
+
+	Integer id;
+	String name;
+
+	public Employee(Integer id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + "]";
+	}
+
+}
+
+
+package com.demo.collections;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		// Collection-1
+		List<Employee> list1 = new ArrayList<Employee>();
+		list1.add(new Employee(1, "Raj"));
+		list1.add(new Employee(2, "Ravi"));
+
+		System.out.println(list1.contains(new Employee(1, "Raj")));
+
+	}
+
+}
+
+E	get(int index)
+Returns the element at the specified position in this list.
+
+
+package com.demo.collections;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		// Collection-1
+		List<Integer> list1 = new ArrayList<Integer>();
+		list1.add(new Integer(2));
+		list1.add(new Integer(1));
+		list1.add(new Integer(3));
+		list1.add(new Integer(5));
+		list1.add(new Integer(4));
+
+		Integer i1 = list1.get(3);
+		System.out.println(i1);
+		
+		
+	}
+
+}
+
+
+Object[]	toArray()
+Returns an array containing all of the elements in this list in proper sequence (from first to last element).
+
+
+package com.demo.collections;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		// Collection-1
+		List<Integer> list1 = new ArrayList<Integer>();
+		list1.add(new Integer(2));
+		list1.add(new Integer(1));
+		list1.add(new Integer(3));
+		list1.add(new Integer(5));
+		list1.add(new Integer(4));
+
+		Object[] array = list1.toArray();
+		for (Object i1 : array) {
+			Integer i2 = (Integer) i1;
+			System.out.println(i2);
+		}
+
+	}
+
+}
+
+
+void	ensureCapacity(int minCapacity)
+Increases the capacity of this ArrayList instance, if necessary, to ensure that it can hold at least the number of elements specified by the minimum capacity argument.
+
+
+package com.demo.collections;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		// Collection-1
+		ArrayList<Integer> list1 = new ArrayList<Integer>();
+		list1.add(new Integer(2));
+		list1.add(new Integer(1));
+		list1.add(new Integer(3));
+		list1.add(new Integer(5));
+		list1.add(new Integer(4));
+		
+		list1.ensureCapacity(50);
+
+		Object[] array = list1.toArray();
+		for (Object i1 : array) {
+			Integer i2 = (Integer) i1;
+			System.out.println(i2);
+		}
+
+	}
+
+}
+
+
+
+Iterators:
+-----------
+
+package com.demo.collections;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		// Collection-1
+		ArrayList<Integer> list1 = new ArrayList<Integer>();
+		list1.add(new Integer(2));
+		list1.add(new Integer(1));
+		list1.add(new Integer(3));
+		list1.add(new Integer(5));
+		list1.add(new Integer(4));
+
+		for (int i = 0; i < list1.size(); i++) {
+			Integer i1 = list1.get(i);
+			System.out.println(i1);
+		}
+
+	}
+
+}
+
+
+package com.demo.collections;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		// Collection-1
+		ArrayList<Integer> list1 = new ArrayList<Integer>();
+		list1.add(new Integer(2));
+		list1.add(new Integer(1));
+		list1.add(new Integer(3));
+		list1.add(new Integer(5));
+		list1.add(new Integer(4));
+
+		for (Integer i1 : list1) {
+			System.out.println(i1);
+		}
+
+	}
+
+}
+
+
+
+Iterators allow the caller to remove elements from the underlying collection during the iteration with well-defined semantics.
+Method names have been improved.
+
+Iterator<E>	iterator()
+Returns an iterator over the elements in this list in proper sequence.
+
+
+boolean	hasNext()
+==================
+Returns true if the iteration has more elements.
+
+E	next()
+=============
+Returns the next element in the iteration.
+
+default void	remove()
+========================
+Removes from the underlying collection the last element returned by this iterator (optional operation).
+
+
+package com.demo.collections;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		// Collection-1
+		ArrayList<Integer> list1 = new ArrayList<Integer>();
+		list1.add(new Integer(2));
+		list1.add(new Integer(1));
+		list1.add(new Integer(3));
+		list1.add(new Integer(5));
+		list1.add(new Integer(4));
+
+		Iterator<Integer> iterator = list1.iterator();
+		while (iterator.hasNext()) {
+			Integer element = iterator.next();
+			System.out.println(element);
+		}
+
+	}
+
+}
+
