@@ -1,0 +1,228 @@
+
+
+add() -> Add new element to the list
+
+set() -> Replaces existing element in the list.
+
+remove() -> Removes element from the list
+
+get()  -> Retrieves element from the list
+
+
+soysout(list);
+
+for loop
+
+for each loop
+
+iterators()
+
+hasNext()  -> Next element exist or not
+
+next() -> Return the element that position
+
+
+ArrayList:
+--------
+
+Resizable-array implementation of the List interface.
+
+Object Array
+
+An application can increase the capacity of an ArrayList instance before adding a large number of elements using the ensureCapacity operation. This may reduce the amount of incremental reallocation.
+
+
+
+***Note that this implementation is not synchronized
+
+Collections:
+
+public static <T> List<T> synchronizedList(List<T> list)
+Returns a synchronized (thread-safe) list backed by the specified list. In order to guarantee serial access, it is critical that all access to the backing list is accomplished through the returned list.
+
+
+package com.demo.collections;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		// Collection-1
+		ArrayList<Integer> list1 = new ArrayList<Integer>();
+		list1.add(new Integer(2));
+		list1.add(new Integer(1));
+		list1.add(new Integer(3));
+		list1.add(new Integer(5));
+		list1.add(new Integer(4));
+
+		System.out.println(list1);
+
+		List<Integer> list2 = Collections.synchronizedList(list1);
+		System.out.println(list2);
+	}
+
+}
+
+
+Linked List:
+--------------
+
+Doubly-linked list implementation of the List and Deque interfaces. Implements all optional list operations, and permits all elements (including null).
+
+package com.demo.collections;
+
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		// Collection-1 Constructs an empty list.
+		LinkedList<Integer> list1 = new LinkedList<Integer>();
+		list1.add(new Integer(2));
+		list1.add(new Integer(1));
+		list1.add(new Integer(3));
+		list1.add(new Integer(5));
+		list1.add(new Integer(4));
+
+		System.out.println(list1);
+		
+		System.out.println(list1.getFirst());
+		System.out.println(list1.getLast());
+		//Adds the specified element as the tail (last element) of this list.
+		list1.offer(new Integer(6));
+		
+		System.out.println(list1);
+		
+		//Retrieves, but does not remove, 
+		//the head (first element) of this list.
+		Integer peek = list1.peek();
+		System.out.println("Peek :"+peek);
+		//Retrieves and removes the head (first element) 
+		//of this list.
+		Integer poll = list1.poll();
+		System.out.println("Poll :"+poll);
+		
+		System.out.println("After Poll:"+list1);
+		//Pops an element from the stack represented by this list. 
+		//In otherwords, removes and returns the first element of this list. 
+		Integer pop = list1.pop();
+		System.out.println("POP "+pop);
+		
+		System.out.println("After POP :"+list1);
+
+	}
+
+}
+
+
+Stack:
+-------
+
+The Stack class represents a last-in-first-out (LIFO) stack of objects.
+
+ It extends class Vector with five operations that allow a vector to be treated as a stack. 
+
+ The usual push and pop operations are provided, as well as a method to peek at the top item on the stack, a method to test for whether the stack is empty, and a method to search the stack for an item and discover how far it is from the top.
+When a stack is first created, it contains no items.
+
+A more complete and consistent set of LIFO stack operations is provided by the Deque interface and its implementations, which should be used in preference to this class. For example:
+
+
+
+package com.demo.collections;
+
+import java.util.Stack;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		Stack<Integer> stack = new Stack<Integer>();
+
+		stack.push(101);
+		stack.push(102);
+		stack.push(103);
+		stack.push(104);
+		stack.push(105);
+
+		System.out.println(stack);
+
+		Integer peek = stack.peek();
+		System.out.println(peek);
+		System.out.println("After Peek " + stack);
+
+		Integer pop = stack.pop();
+		System.out.println(pop);
+		System.out.println("After pop " + stack);
+
+	}
+
+}
+
+Vector:
+---------
+
+The Vector class implements a growable array of objects. Like an array, it contains components that can be accessed using an integer index. However, the size of a Vector can grow or shrink as needed to accommodate adding and removing items after the Vector has been created.
+
+Vector is synchronized. If a thread-safe implementation is not needed, it is recommended to use ArrayList in place of Vector.
+
+
+package com.demo.collections;
+
+import java.util.Vector;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		Vector<Integer> vector = new Vector<Integer>();
+		vector.add(new Integer(101));
+		vector.add(new Integer(102));
+		vector.add(new Integer(103));
+		vector.add(new Integer(104));
+		
+		System.out.println(vector);
+		
+
+		
+	}
+
+}
+
+
+Vector(int initialCapacity, int capacityIncrement)
+Constructs an empty vector with the specified initial capacity and capacity increment.
+
+package com.demo.collections;
+
+import java.util.Vector;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		Vector<Integer> vector = new Vector<Integer>(5, 10);
+		vector.add(new Integer(101));
+		vector.add(new Integer(102));
+		vector.add(new Integer(103));
+		vector.add(new Integer(104));
+		vector.add(new Integer(105));
+		System.out.println(vector.capacity());
+		vector.add(new Integer(106));
+		System.out.println(vector.capacity());
+
+	}
+
+}
+
+
+5
+15
