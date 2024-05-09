@@ -1,0 +1,390 @@
+List:
+-----
+ArrayList 
+LinkedList
+Vector
+Stack (LIFO Operations)
+
+Set:
+----
+
+A collection that contains no duplicate elements. 
+More formally, sets contain no pair of elements e1 and e2 such that e1.equals(e2), and at most one null element. 
+
+HashSet
+=======
+This class implements the Set interface, backed by a hash table (actually a HashMap instance).
+
+Step:1
+-------
+
+    public HashSet() {
+        map = new HashMap<>();
+    }
+
+Step:2
+--------
+When we add an element to set
+    set.add(1);
+
+Internally:
+-----------
+  public boolean add(E e) {
+        return map.put(e, PRESENT)==null;
+    }
+    // Dummy value to associate with an Object in the backing Map
+    map.put(e, PRESENT); 
+    //k -> element of set , value is a constant or a dummy object
+    map.put(1,PRESENT);
+
+package com.demo.collections;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class App {
+	
+	public static void main(String[] args) {
+		
+		Set<Integer> set = new HashSet<>();
+		set.add(new Integer(101));
+		set.add(new Integer(102));
+		set.add(new Integer(103));
+		set.add(new Integer(104));
+		
+		System.out.println(set);
+		
+	}
+
+}
+
+
+
+package com.demo.collections;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class App {
+	
+	public static void main(String[] args) {
+		
+		Set<Integer> set = new HashSet<>();
+		set.add(new Integer(101));
+		set.add(new Integer(101));
+		set.add(new Integer(103));
+		set.add(new Integer(103));
+		
+		System.out.println(set);
+		
+	}
+
+}
+
+CE:
+---
+[101, 103]
+
+package com.demo.collections;
+
+public class Employee {
+
+	@Override
+	public String toString() {
+		return "Employee [empId=" + empId + ", empName=" + empName + "]";
+	}
+
+	private Integer empId;
+	private String empName;
+	
+	public Integer getEmpId() {
+		return empId;
+	}
+
+	public void setEmpId(Integer empId) {
+		this.empId = empId;
+	}
+
+
+	
+	public Employee(Integer empId, String empName) {
+		super();
+		this.empId = empId;
+		this.empName = empName;
+	}
+
+	public String getEmpName() {
+		return empName;
+	}
+
+	public void setEmpName(String empName) {
+		this.empName = empName;
+	}
+
+}
+
+
+
+package com.demo.collections;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		Set<Employee> set = new HashSet<>();
+		set.add(new Employee(123, "raj")); 
+		set.add(new Employee(123, "raj")); 
+		set.add(new Employee(123, "raj")); 
+		set.add(new Employee(123, "raj")); 
+
+		System.out.println(set);
+
+	}
+
+}
+
+
+Result:
+------
+[Employee [empId=123, empName=raj], Employee [empId=123, empName=raj], Employee [empId=123, empName=raj], Employee [empId=123, empName=raj]]
+
+package com.demo.collections;
+
+import java.util.Objects;
+
+public class Employee {
+
+	private Integer empId;
+	private String empName;
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(empId, empName);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		Employee other = (Employee) obj;
+		return Objects.equals(empId, other.empId) && Objects.equals(empName, other.empName);
+	}
+
+
+	public Integer getEmpId() {
+		return empId;
+	}
+
+	public void setEmpId(Integer empId) {
+		this.empId = empId;
+	}
+
+	public Employee(Integer empId, String empName) {
+		super();
+		this.empId = empId;
+		this.empName = empName;
+	}
+
+	public String getEmpName() {
+		return empName;
+	}
+
+	public void setEmpName(String empName) {
+		this.empName = empName;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [empId=" + empId + ", empName=" + empName + "]";
+	}
+
+}
+
+
+
+package com.demo.collections;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		Set<Employee> set = new HashSet<>();
+		set.add(new Employee(123, "raj")); 
+		set.add(new Employee(123, "ramu"));
+		set.add(new Employee(123, "raj"));
+		set.add(new Employee(123, "raj"));
+
+		System.out.println(set);
+
+	}
+
+}
+
+
+
+package com.demo.collections;
+
+import java.util.Objects;
+
+public class Employee {
+
+	private Integer empId;
+	private String empName;
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(empId);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		Employee other = (Employee) obj;
+		return Objects.equals(empId, other.empId) ;
+	}
+
+
+	public Integer getEmpId() {
+		return empId;
+	}
+
+	public void setEmpId(Integer empId) {
+		this.empId = empId;
+	}
+
+	public Employee(Integer empId, String empName) {
+		super();
+		this.empId = empId;
+		this.empName = empName;
+	}
+
+	public String getEmpName() {
+		return empName;
+	}
+
+	public void setEmpName(String empName) {
+		this.empName = empName;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [empId=" + empId + ", empName=" + empName + "]";
+	}
+
+}
+
+
+
+package com.demo.collections;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		Set<Employee> set = new HashSet<>();
+		set.add(new Employee(123, "raj")); 
+		set.add(new Employee(123, "ramu"));
+
+
+		System.out.println(set);
+
+	}
+
+}
+
+
+package com.demo.collections;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		Set<Integer> set = new HashSet<>();		
+		set.add(1);  //1
+		set.add(new Integer(1));//1
+		System.out.println(set);
+		
+	}
+
+}
+
+
+
+package com.demo.collections;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		//Insertion order is not presevred
+		Set<Integer> set = new HashSet<>();		
+		set.add(2);  
+		set.add(1);
+		set.add(4);
+		set.add(3);
+		set.add(5);
+		System.out.println(set);
+		
+	}
+
+}
+
+
+
+
+package com.demo.collections;
+
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		//Insertion order is not presevred
+		HashSet<Integer> set = new HashSet<>();		
+		set.add(2);  
+		set.add(1);
+		set.add(4);
+		set.add(3);
+		set.add(5);
+		set.add(null);
+		set.add(6);
+		set.add(null);
+		
+		System.out.println(set);
+		
+		for(Integer i1  : set) {
+			System.out.println(i1);
+		}
+		
+		
+		
+		
+		Iterator<Integer> iterator = set.iterator();
+		while(iterator.hasNext()) {
+			System.out.println(iterator.next());
+		}
+		
+	}
+
+}
+
+
+LinkedHashSet:
+-------------
+Hash table and linked list implementation of the Set interface, with predictable iteration order.
+
