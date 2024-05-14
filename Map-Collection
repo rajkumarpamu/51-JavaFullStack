@@ -1,0 +1,191 @@
+What are fail-fast iterators and Fail Safe iterator?
+====================================================
+
+Iterators:
+----------
+
+3
+Exception in thread "main" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:911)
+	at java.util.ArrayList$Itr.next(ArrayList.java:861)
+	at com.demo.collections.App.main(App.java:24)
+
+ final void checkForComodification() {
+            if (modCount != expectedModCount)
+                throw new ConcurrentModificationException();
+        }
+
+
+
+package com.demo.collections;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.TreeSet;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		ArrayList<Integer> list = new ArrayList<>();
+		list.add(3);
+		list.add(1);
+		list.add(1);
+		list.add(2);
+
+	    Iterator<Integer> iterator = list.iterator();
+	    
+	    while(iterator.hasNext()) { //checking the conditin
+	    	Integer i1 = iterator.next(); //Returning the element
+	    	System.out.println(i1); //Printing
+	    	list.add(5); //Adding an element	    	
+	    }
+	}
+
+}
+
+
+
+
+package com.demo.collections;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		List<Integer> list = new CopyOnWriteArrayList<>();
+		list.add(3);
+		list.add(1);
+		list.add(1);
+		list.add(2);
+
+	    Iterator<Integer> iterator = list.iterator();
+	    
+	    while(iterator.hasNext()) { //checking the conditin
+	    	Integer i1 = iterator.next(); //Returning the element
+	    	System.out.println(i1); //Printing
+	    	list.add(5); //Adding an element	    	
+	    }
+	    
+	    System.out.println(list);
+	
+
+}
+}
+
+
+ Object[] newElements = Arrays.copyOf(elements, len + 1);
+            newElements[len] = e;
+            setArray(newElements);
+
+
+
+
+package com.demo.collections;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		List<Integer> list = new CopyOnWriteArrayList<>();
+		list.add(3);
+		list.add(1);
+		list.add(1);
+		list.add(2);
+
+	    Iterator<Integer> iterator = list.iterator();
+	    
+	    while(iterator.hasNext()) { //checking the conditin
+	    	Integer i1 = iterator.next(); Synchronized - A lock will be acquired at a time onlt thread can access the Collection object
+	    	System.out.println(i1); //Printing
+	    	list.add(5); //Adding an element	    	
+	    }
+	    
+	    System.out.println(list);
+	
+
+}
+}
+
+Map:
+----
+
+Collection:
+-----------
+
+Storing gruop of individual Object as a single object.
+
+Map: Storing group of indivudual object as a key , value 
+
+
+list.add(new Employee());
+
+map.put(key , value);
+
+key is an Object
+value is an Object
+
+Rno(Integer)-> Result (Object)
+
+Interface Map<K,V>
+Type Parameters:
+K - the type of keys maintained by this map
+V - the type of mapped values
+
+
+An object that maps keys to values. A map cannot contain duplicate keys; each key can map to at most one value.
+
+Keys cannot be duplicated
+But values can be duplicated
+
+
+HashMap:
+-------
+
+
+package com.demo.collections;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		Map<Integer, String> map = new HashMap<>();
+		map.put(1, "Raj Kumar");
+		map.put(2, "Rahul");
+		map.put(3, "Raj Kumar");
+		map.put(2, "Raj Kumar");
+		
+		System.out.println(map);
+		
+		
+		System.out.println(map.get(2));
+		
+
+	}
+}
+
+
+
+How hashMap internally works?
+----------------------------
+
+
+
+Its a situation where two or more keys will produce same hash value.
+
+
+
+
+
