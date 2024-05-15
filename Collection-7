@@ -1,0 +1,354 @@
+TreeMap:
+-------
+
+The map is sorted according to the natural ordering of its keys, or by a Comparator provided at map creation time, depending on which constructor is used.
+
+1)Store objects as key value pair
+2)Sorting the object
+
+
+Exception in thread "main" java.lang.ClassCastException: com.demo.collections.Employee cannot be cast to java.lang.Comparable
+	at java.util.TreeMap.compare(TreeMap.java:1294)
+	at java.util.TreeMap.put(TreeMap.java:538)
+	at com.demo.collections.Demo.main(Demo.java:10)
+
+
+package com.demo.collections;
+
+import java.util.Objects;
+
+public class Employee implements Comparable<Employee> {
+
+	Integer id;
+	String name;
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, name);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		Employee other = (Employee) obj;
+		return Objects.equals(id, other.id) && Objects.equals(name, other.name);
+	}
+
+	public Employee(Integer id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + "]";
+	}
+
+	@Override
+	public int compareTo(Employee o) {
+		if (o.id > id)
+			return -1;
+		else if (o.id < id)
+			return 1;
+		else
+			return 0;
+	}
+
+}
+
+
+package com.demo.collections;
+
+import java.util.TreeMap;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		TreeMap<Employee, Integer> map = new TreeMap<>();
+        map.put(new Employee(new Integer(1), "Raj") , new Integer(1));
+        map.put(new Employee(new Integer(3), "Raj") , new Integer(1));
+        map.put(new Employee(new Integer(2), "Raj") , new Integer(1));
+        
+        System.out.println(map);
+        		
+	}
+
+}
+
+
+package com.demo.collections;
+
+import java.util.TreeMap;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		TreeMap<Employee, Integer> map = new TreeMap<>();
+        map.put(new Employee(new Integer(1), "Raj") , new Integer(1));
+        map.put(new Employee(new Integer(3), "Raj") , new Integer(3));
+        map.put(new Employee(new Integer(2), "Raj") , new Integer(2));
+        
+        Integer integer = map.get(new Employee(new Integer(1), "Raj"));
+        System.out.println(integer);
+        
+        
+     
+        System.out.println(map);
+        
+		
+
+		
+	}
+
+}
+
+
+package com.demo.collections;
+
+import java.util.Iterator;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.TreeMap;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		TreeMap<Integer, String> map = new TreeMap<>();
+		map.put(new Integer(1), "raj"); //Entry
+		map.put(new Integer(2), "raj"); //Entry
+		map.put(new Integer(3), "raj"); //Entry
+		
+		Set<Entry<Integer, String>> entrySet = map.entrySet();
+		
+		Iterator<Entry<Integer, String>> iterator = entrySet.iterator();
+		
+		while(iterator.hasNext()) {
+			Entry<Integer, String> entry = iterator.next();
+			System.out.println(entry.getKey());
+			System.out.println(entry.getValue());
+		}
+    
+	}
+
+}
+
+
+		List<List<Employee>> list  = new ArrayList();
+		
+		List<Employee> employees1 = new ArrayList<>();
+		employees1.add(new Employee(1, "raj"));
+		employees1.add(new Employee(2, "ravi"));
+		
+		List<Employee> employees2 = new ArrayList<>();
+		employees2.add(new Employee(3, "raj"));
+		employees2.add(new Employee(4, "ravi"));
+		
+		list.add(employees1);
+		list.add(employees2);
+
+[
+
+[
+Employee [id=1, name=raj], Employee [id=2, name=ravi]
+]
+, 
+[
+Employee [id=3, name=raj], Employee [id=4, name=ravi]
+]
+
+
+
+package com.demo.collections;
+
+import java.util.Objects;
+
+public class Employee implements Comparable<Employee> {
+
+	Integer id;
+	String name;
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, name);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		Employee other = (Employee) obj;
+		return Objects.equals(id, other.id) && Objects.equals(name, other.name);
+	}
+
+	public Employee(Integer id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + "]";
+	}
+
+	@Override
+	public int compareTo(Employee o) {
+		if (o.id > id)
+			return -1;
+		else if (o.id < id)
+			return 1;
+		else
+			return 0;
+	}
+
+}
+
+]
+
+
+[{1=Employee [id=1, name=Raj], 2=Employee [id=2, name=Raj]}]
+
+package com.demo.collections;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		Set<Map<Integer,Employee>> set  = new HashSet<>();
+		
+		Map<Integer,Employee> map1 = new HashMap<>();
+		map1.put(new Integer(1), new Employee(1, "Raj"));
+		map1.put(new Integer(2), new Employee(2, "Raj"));
+		
+		Map<Integer,Employee> map2 = new HashMap<>();
+		map2.put(new Integer(1), new Employee(1, "Raj"));
+		map2.put(new Integer(2), new Employee(2, "Raj"));
+		
+		set.add(map1);
+		set.add(map2);
+       
+		
+		System.out.println(set);
+       
+ 
+	}
+
+}
+
+
+package com.demo.collections;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		Map<Integer, Employee> map = new HashMap<>();
+
+		map.put(null, new Employee(1, "sachin")); //Bucket Zero
+        map.put(null, new Employee(1, "raj")); //Bucket Zero
+		System.out.println(map);
+
+	}
+
+}
+
+
+package com.demo.collections;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		Map<Integer, Employee> map = new HashMap<>();
+
+		map.put(null, new Employee(1, "sachin"));
+		map.put(null, new Employee(1, "raj"));
+		
+		System.out.println(map);
+
+	}
+
+}
+
+
+
+
+Exception in thread "main" java.lang.NullPointerException
+	at java.util.Hashtable.put(Hashtable.java:466)
+	at com.demo.collections.Demo.main(Demo.java:16)
+
+/ Make sure the value is not null
+        if (value == null) {
+            throw new NullPointerException();
+        }
+
+HashMap is non-synchronized, making it faster for single-threaded tasks, while HashTable is inherently synchronized, providing thread safety. 
+HashTable doesn't allow any null keys or values, 
+but HashMap lets you have one null key and several null values.
+
+package com.demo.collections;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		Map<Integer, Employee> map = new Hashtable<>();
+		map.put(null, new Employee(1, "sachin"));
+		map.put(null, new Employee(1, "raj"));
+		
+		System.out.println(map);
+
+	}
+
+}
+package com.demo.collections;
+
+import java.util.Hashtable;
+import java.util.Map;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		Map<Integer, Employee> map = new Hashtable<>();
+		map.put(1, new Employee(1, "sachin"));
+		map.put(2, new Employee(1, "raj"));
+		
+		System.out.println(map.get(2));
+		
+		
+		
+		
+
+
+	}
+
+}
