@@ -1,0 +1,147 @@
+Queue:
+-----
+A collection designed for holding elements prior to processing.
+
+
+PriorityQueue<E>:
+------------------
+
+The elements of the priority queue are ordered according to their natural ordering.
+
+E	peek()
+Retrieves, but does not remove, the head of this queue, or returns null if this queue is empty.
+
+E	poll()
+Retrieves and removes the head of this queue, or returns null if this queue is empty
+
+package com.demo.collections;
+
+import java.util.PriorityQueue;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		PriorityQueue<Integer> priorityQueue = new PriorityQueue<Integer>();
+
+		priorityQueue.add(new Integer(102));
+		priorityQueue.add(new Integer(103));
+		priorityQueue.add(new Integer(101));
+		priorityQueue.add(new Integer(104));
+		priorityQueue.add(new Integer(105));
+
+		System.out.println(priorityQueue);
+		System.out.println(priorityQueue.size());
+
+		System.out.println("Calling " + ":" + priorityQueue.poll());
+		System.out.println("Calling " + ":" + priorityQueue.poll());
+		System.out.println("Calling " + ":" + priorityQueue.poll());
+		System.out.println("Calling " + ":" + priorityQueue.poll());
+		System.out.println("Calling " + ":" + priorityQueue.poll());
+	}
+
+}
+
+
+How to print count of each character in string?
+-----------------------------------------------
+
+String str = "rajkumar";  r=2 a =2 j=1
+
+package com.demo.collections;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
+import java.util.PriorityQueue;
+import java.util.Set;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		String str = "rajkumar";
+		char c[] = str.toCharArray();
+		HashMap<Character, Integer> hashMap = new HashMap<>();
+		for(int i=0;i<c.length;i++) {
+			if(hashMap.containsKey(c[i])) {			
+				hashMap.put(c[i],hashMap.get(c[i])+1 );
+			}
+			else {
+				hashMap.put(c[i],1);
+			}
+			
+		}
+		
+		System.out.println(hashMap);
+		
+		Set<Entry<Character, Integer>> entrySet = hashMap.entrySet();
+		Iterator<Entry<Character, Integer>> iterator = entrySet.iterator();
+		while(iterator.hasNext()) {
+		 Entry<Character, Integer> entry = iterator.next();
+		 
+		 if(entry.getValue() > 1) {
+			 System.out.println(entry.getKey() + " "en);
+		 }
+		}
+		
+	}
+
+}
+
+
+package com.demo.collections;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
+import java.util.PriorityQueue;
+import java.util.Set;
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		String str = "rajkumar";
+		//char c[] = str.toCharArray();
+		HashMap<Character, Integer> hashMap = new HashMap<>();
+		for(int i=0;i<str.length();i++) {
+			char x = str.charAt(i);
+			if(hashMap.containsKey(x)) {			
+				hashMap.put(x,hashMap.get(x)+1 );
+			}
+			else {
+				hashMap.put(x,1);
+			}
+			
+		}
+		
+		System.out.println(hashMap);
+		
+		Set<Entry<Character, Integer>> entrySet = hashMap.entrySet();
+		Iterator<Entry<Character, Integer>> iterator = entrySet.iterator();
+		while(iterator.hasNext()) {
+		 Entry<Character, Integer> entry = iterator.next();
+		 
+		 if(entry.getValue() > 1) {
+			 System.out.println(entry.getKey());
+		 }
+		}
+		
+	}
+
+}
+
+
+MultiThreading:
+--------------
+
+Multi tasking:
+-------------
+
+Multi Processing:
+----------------
+
+
+Multi Threading:
+----------------
