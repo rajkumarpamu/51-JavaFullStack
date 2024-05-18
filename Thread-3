@@ -1,0 +1,211 @@
+1)Extend Thread class
+2)Create Object to user defined class
+3)Attach it to main thread
+4)Invoke start()
+5)run()
+
+Life Cycle of thread:
+---------------------
+
+
+package com.demo.mt;
+
+public class UserThread extends Thread {
+
+	@Override
+	public void run() {
+
+		System.out.println(Thread.currentThread());
+		extracted();
+
+	}
+
+	public static void main(String[] args) {
+
+		UserThread userThread = new UserThread();
+
+		Thread thread = new Thread(userThread);
+		System.out.println("State before start() :" + thread.getState());
+		thread.start();
+		System.out.println("State after start():" + thread.getState());
+
+	}
+
+	private void extracted() {
+		for (int i = 0; i <= 10; i++) {
+
+			System.out.println("i value is :" + i);
+			try {
+				Thread.sleep(2500);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}
+
+
+package com.demo.mt;
+
+public class UserThread extends Thread {
+
+	@Override
+	public void run() {
+
+		System.out.println(Thread.currentThread());
+		extracted();
+
+	}
+
+	public static void main(String[] args) {
+
+		UserThread userThread = new UserThread();
+		Thread thread1 = new Thread(userThread);
+		Thread thread2 = new Thread(userThread);
+		thread1.start();
+		try {
+			//Waits for this thread to die. 
+			thread1.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		thread2.start();
+		
+
+	}
+
+	private void extracted() {
+		for (int i = 0; i <= 10; i++) {
+			System.out.println("i value is :" + i);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}
+
+
+package com.demo.mt;
+
+public class Multiplication {
+
+	public void mul(int number) {
+		for (int i = 0; i <= 10; i++) {
+			System.out.println(number + "*" + i + "=" + (number * i));
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
+
+}
+
+
+package com.demo.mt;
+
+public class Thread1 extends Thread{
+	Multiplication multiplication;
+	
+	public Thread1(Multiplication multiplication) {
+	this.multiplication=multiplication;
+	}
+	
+	@Override
+	public void run() {
+		multiplication.mul(9);
+	}
+
+}
+
+
+package com.demo.mt;
+
+public class Thread2 extends Thread{
+	Multiplication multiplication;
+	Thread2(Multiplication multiplication){
+		this.multiplication=multiplication;
+	}
+	
+	@Override
+	public void run() {
+		multiplication.mul(8);
+	}
+
+}
+
+
+package com.demo.mt;
+
+public class App {
+	
+	public static void main(String[] args) {
+		
+		Multiplication multiplication = new Multiplication();
+		
+		Thread1 thread1 = new Thread1(multiplication);
+		Thread2 thread2 = new Thread2(multiplication);
+		
+		thread1.start();
+		thread2.start();
+		
+	}
+
+}
+
+
+Synchronization:
+----------------
+Allowing only one thread to access the resource at the same time
+
+package com.demo.mt;
+
+public class Multiplication {
+
+	public synchronized void mul(int number) {
+		for (int i = 0; i <= 10; i++) {
+			System.out.println(number + "*" + i + "=" + (number * i));
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
+
+}
+
+
+package com.demo.mt;
+
+public class Multiplication {
+
+	public  void mul(int number) {
+		System.out.println("Start");
+		synchronized(this) {
+		for (int i = 0; i <= 10; i++) {
+			System.out.println(number + "*" + i + "=" + (number * i));
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println("End");
+		}
+
+	}
+
+}
+
+
+Note that this implementation is not synchronized. If multiple threads access an ArrayList instance concurrently, and at least one of the threads modifies the list structurally, 	
+
+
+
+ List list = Collections.synchronizedList(new ArrayList(...));
