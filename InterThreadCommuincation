@@ -1,0 +1,232 @@
+Inter thread communicatiion:
+---------------------------
+
+In  synchronization object lock will happen once the execution is completed it will release the lock, then other waiting thread will acquire lock on so on.
+
+In this state we have to  make 2 thread communicate each other:
+
+wait()
+
+Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.
+
+notify()
+
+Wakes up a single thread that is waiting on this object's monitor.
+
+
+notifAll()
+
+Wakes up all threads that are waiting on this object's monitor.
+
+
+Customer:
+--------
+int balAmount=10000;
+
+synchronized Withdraw() -> Withdraw - Thread-1 -> 20000
+
+synchronized deposit() -> deposit() - Thread-2 -> 10000
+
+package com.demo.cpllections;
+
+public class Account {
+
+	int balanceAmount = 10000;
+
+	public synchronized void withdraw(int withdrawAmount) {
+		System.out.println("Withdrawl is Started");
+
+		if (withdrawAmount > balanceAmount) {
+			try {
+				System.out.println("Going to Waiting state");
+				wait();
+				System.out.println("Notifed and started executing withdraw");
+				
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
+		}
+		balanceAmount = withdrawAmount - balanceAmount;
+		System.out.println("Withdrawl is completed :"+balanceAmount);
+
+	}
+
+	public synchronized void deposit(int depositAmount) {
+
+		System.out.println("Depoist Stared");
+		balanceAmount = depositAmount + balanceAmount;
+		System.out.println("Wakes up a single thread that is waiting on this object's monitor.");
+		notify();
+		System.out.println("Deposit completed");
+
+	}
+}
+
+
+package com.demo.cpllections;
+
+public class Thread1 extends Thread{
+	
+	Account account;
+	
+	public Thread1(Account account) {
+		this.account= account;
+	}
+	
+	@Override
+	public void run() {
+		account.withdraw(20000);
+	}
+	
+
+}
+
+
+package com.demo.cpllections;
+
+public class Thread2  extends Thread{
+	
+	Account account;
+	
+	public Thread2(Account account) {
+		this.account= account;
+	}
+	
+	@Override
+	public void run() {
+		account.deposit(10000);
+	}
+
+}
+
+
+
+package com.demo.cpllections;
+
+public class App {
+	
+	public static void main(String[] args) {
+		
+		Account account = new Account();
+		Thread1 thread1 = new Thread1(account);
+		Thread2 thread2 = new Thread2(account);
+		
+		thread1.start();
+		thread2.start();
+	}
+
+}
+
+
+Runnable Interface:
+-------------------
+
+The Runnable interface should be implemented by any class whose instances are intended to be executed by a thread. The class must define a method of no arguments called run.
+
+void	run()
+When an object implementing interface Runnable is used to create a thread, starting the thread causes the object's run method to be called in that separately executing thread.
+
+
+package com.demo.cpllections;
+
+public class Account {
+
+	int balanceAmount = 10000;
+
+	public synchronized void withdraw(int withdrawAmount) {
+		System.out.println("Withdrawl is Started");
+
+		if (withdrawAmount > balanceAmount) {
+			try {
+				System.out.println("Going to Waiting state");
+				wait();
+				System.out.println("Notifed and started executing withdraw");
+				
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
+		}
+		balanceAmount = withdrawAmount - balanceAmount;
+		System.out.println("Withdrawl is completed");
+
+	}
+
+	public synchronized void deposit(int depositAmount) {
+
+		System.out.println("Depoist Stared");
+		balanceAmount = depositAmount + balanceAmount;
+		System.out.println("Wakes up a single thread that is waiting on this object's monitor.");
+		notify();
+		System.out.println("Deposit completed");
+
+	}
+}
+
+
+
+package com.demo.cpllections;
+
+public class Thread1 implements Runnable{
+	
+	Account account;
+	
+	public Thread1(Account account) {
+		this.account= account;
+	}
+	
+	@Override
+	public void run() {
+		account.withdraw(20000);
+	}
+	
+
+}
+
+
+public class UserThread1 extends Object implements Runnable {
+	
+	Account account;
+	
+	public UserThread1(Account account) {
+		this.account= account;
+	}
+	
+	@Override
+	public void run() {
+		account.withdraw(20000);
+	}
+	
+
+}
+
+
+package com.demo.cpllections;
+
+public class UserThread2  extends Thread{
+	
+	Account account;
+	
+	public UserThread2(Account account) {
+		this.account= account;
+	}
+	
+	@Override
+	public void run() {
+		account.deposit(10000);
+	}
+
+}
+
+public class Thread
+extends Object
+implements Runnable
+
+Runtime:
+-------
+
+
+
+
+
