@@ -1,0 +1,230 @@
+
+Runtime
+-------
+
+Every Java application has a single instance of class Runtime that allows the application to interface with the environment in which the application is running. The current runtime can be obtained from the getRuntime method.
+An application cannot create its own instance of this class.
+
+package com.demo.mt;
+
+public class App {
+	
+	public static void main(String[] args) {
+		
+		Runtime runtime = 	Runtime.getRuntime();
+		
+		System.out.println(runtime.availableProcessors());
+		System.out.println(runtime.freeMemory());
+		System.out.println(runtime.totalMemory());
+		
+	}
+
+}
+
+Java 8 features:
+----------------
+1)Functional Interfaces
+2)Lambda Expression
+3)Method Refernces
+4)Stream Api
+5))Optional Classes
+
+
+ZAM : Zero Abstract Methods - Marker Interface
+SAM : Single Abstract Method - Functional Interface
+
+package com.demo.java8;
+
+@FunctionalInterface
+public interface Bill {
+	void calbill(int units);	
+}
+
+public class EBill implements Bill {
+	@Override
+	public void calbill(int units) {
+		System.out.println("Total Bill AMount is:" + (units * 15));
+
+	}
+
+}
+
+public class App {
+	
+	public static void main(String[] args) {
+		Bill bill = new EBill();
+		bill.calbill(1000);
+	}
+
+}
+
+Ananymous Object:
+-----------------
+
+package com.demo.java8;
+public class App {
+
+	public static void main(String[] args) {		
+		Bill bill=  new Bill() {
+			@Override
+			public void calbill(int units) {
+				System.out.println("Total Bill AMount is:" + (units * 15));
+				
+			}
+		};
+		
+		bill.calbill(100);
+	
+		
+	}
+
+}
+
+
+
+public interface Bill {
+	
+	void calbill(int units);
+	
+	void printBill();
+	
+	
+}
+
+Bill bill= new Bill() {
+			
+			@Override
+			public void printBill() {
+				System.out.println("NPDCL");
+			}
+			
+			@Override
+			public void calbill(int units) {
+				System.out.println(units*100);
+			}
+		};
+		
+		bill.printBill();
+		bill.calbill(1000);
+
+
+@FunctionalInterface
+public interface Bill {
+	void calbill(int units);
+	
+}
+
+public class App {
+	
+	public static void main(String[] args) {	
+		Bill bill = (units) -> {
+			System.out.print("Total bill amount is :");
+			System.out.println(units*100);
+			
+		
+		};
+		bill.calbill(1000);
+	}
+
+}
+
+
+package com.demo.java8;
+
+public class App {
+	
+	public void testBill(Bill bill) {
+		bill.calbill(1000);
+	}
+	
+	public static void main(String[] args) {
+		
+		App app = new App();
+		app.testBill(new Bill() {
+			
+			@Override
+			public void calbill(int units) {
+				System.out.println("test");
+				
+			}
+		});
+		
+		
+	}
+
+}
+
+
+public class EBill  implements Bill{
+
+	@Override
+	public void calbill(int units) {
+		System.out.println("WEelcome");
+		
+	}
+
+
+}
+
+public class App {
+	
+	public void testBill(Bill bill) {
+		bill.calbill(1000);
+	}
+	
+	public static void main(String[] args) {
+		
+		App app = new App();
+		Bill bill = new EBill();
+		app.testBill(bill);
+		
+		
+	}
+
+}
+
+
+public class App {
+	
+	public void testBill(Bill bill) {
+		bill.calbill(1000);
+	}
+	
+	public static void main(String[] args) {
+		
+		App app = new App();
+        app.testBill(units -> System.out.println("tets"));
+		
+		
+	}
+
+}
+
+
+package com.demo.java8;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		List<Integer> list = new ArrayList<>();
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		
+		
+		Stream<Integer> stream = list.stream();
+		
+		List<Integer> collect = stream.filter(t -> t>2).collect(Collectors.toList());
+		System.out.println(collect);
+		
+
+	}
+
+}
