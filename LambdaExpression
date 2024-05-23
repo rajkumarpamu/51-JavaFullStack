@@ -1,0 +1,214 @@
+
+@FunctionalInterface
+interface interfaceName{
+	
+	void m1();
+}
+
+Lambda Expression:
+------------------
+It is an instance of functional interface with a single abstract method.
+
+
+Lambda Expression Syntax:
+---------------------------
+
+(int a,int b)                   ->              {Sysout(a +" "+b);}
+
+ArguemenList            Arrow Operator       Body of the Lambda Expression
+
+
+Lamba Expression Parameters:
+---------------------------
+Zero Parameters
+---------------
+
+() -> System.out.println("zero Parameter");
+
+Single Parameter
+----------------
+(p1) -> System.out.println("Single Parameter");
+
+Multiple Paramters
+--------------------
+
+(p1,p2) -> System.out.println("Multiple Parameter");
+
+
+
+
+package com.demo.java8;
+
+@FunctionalInterface
+public interface MyInterface1 {
+	
+	public void calBill(int billAmount);
+
+}
+
+
+
+package com.demo.java8;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		MyInterface1 myInterface1 = (billAmount) -> {
+			System.out.println("Bill Amount is :" + (billAmount * 20));
+		};
+		
+		myInterface1.calBill(10000);
+
+	}
+
+}
+
+
+
+
+public class MyClass{
+
+	
+	public void m1(MyInterface1 interface1) {
+		interface1.calBill(1000);
+	}
+}
+
+
+
+package com.demo.java8;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		MyInterface1 myInterface1 = (billAmount) -> {
+			System.out.println("Bill Amount is :" + (billAmount * 20));
+		};
+		
+		myInterface1.calBill(10000);
+	
+		MyClass  myClass = new MyClass();
+		myClass.m1((p1) -> {System.out.println("Bill Amount :"+(p1*1000));});
+	}
+
+}
+
+
+
+package com.demo.java8;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		MyInterface1 myInterface1 = (billAmount) -> {
+			System.out.println("Bill Amount is :" + (billAmount * 20));
+		};
+		
+		myInterface1.calBill(10000);
+		
+		
+		MyClass  myClass = new MyClass();
+		myClass.m1(
+				(p1) 
+				->
+				{
+				System.out.println("Bill Amount :"+(p1*1000));
+				System.out.println("Thank you");
+				}
+				);
+	
+	}
+
+}
+
+
+public interface MyInterface1 {
+	
+	public int calBill(int billAmount);
+
+}
+
+
+package com.demo.java8;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		
+		MyInterface1 myInterface1 = 	(p1) ->  p1*100;
+	
+		int billAmount = myInterface1.calBill(1000);
+		System.out.println("Bill Amount is:"+(billAmount));
+	}
+
+}
+
+
+package com.demo.java8;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		
+		List<Integer> list = new ArrayList<>();
+		list.add(new Integer(1));
+		list.add(new Integer(2));
+		list.add(new Integer(3));
+		list.add(new Integer(4));
+		list.add(new Integer(5));
+		
+		//Consumer -> void
+		list.forEach((t) -> System.out.println(t*2));
+		
+		//boolean test(T t);
+		//Predicate returns boolean
+		System.out.println(list.removeIf((t) -> t>2));
+		System.out.println(list);
+		
+		//Function
+		List<Integer> mappedList = list.stream().map((t1) -> t1+100).collect(Collectors.toList());
+		System.out.println(mappedList);
+		
+	}
+
+}
+
+
+package com.demo.java8;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		
+		List<String> list = new ArrayList<>();
+		list.add(new String("1"));
+		list.add(new String("2"));
+		list.add(new String("3"));
+		list.add(new String("4"));
+		list.add(new String("5"));
+		
+	
+		list.stream()
+		.mapToDouble(value -> Double.parseDouble(value))
+		.forEach(value -> System.out.println(value));
+	}
+
+}
+
+
+
+
+
