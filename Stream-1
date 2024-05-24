@@ -1,0 +1,312 @@
+public class App {
+	
+	public void m1(Object str) {
+		System.out.println("Hi");
+	}
+	
+	public void m1(Integer str) {
+		System.out.println("Hello");
+	}
+
+	public static void main(String[] args) {
+
+		App app = new App();
+		app.m1(null);
+
+	}
+
+}
+
+Stream Api:
+-----------
+
+A sequence of elements supporting sequential and parallel aggregate operations. 
+
+List<Integer> list = new new ArrayLis();
+list.add(10);
+list.add(10);
+list.add(10);
+list.add(10);
+list.add(10);
+
+To perform any operation on collection object we have to convert collection object to stream.
+
+list.stream();
+
+
+package com.demo.java8;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class App {
+	
+	
+	public static void main(String[] args) {
+
+
+		List<Integer> list =  new ArrayList();
+		list.add(10);
+		list.add(10);
+		list.add(10);
+		list.add(10);
+		list.add(10);
+		List<Integer> distinctlist =  new ArrayList();
+		Iterator<Integer> iterator = list.iterator();
+		while(iterator.hasNext()) {
+			Integer integer = iterator.next();
+			if(!(distinctlist.contains(integer))) {
+				distinctlist.add(integer);
+			}
+		}		
+		System.out.println(distinctlist);
+		
+		List<Integer> collect = list.stream().distinct().collect(Collectors.toList());
+		
+		System.out.println(collect);
+	}
+
+}
+
+
+package com.demo.java8;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		List<Integer> list = new ArrayList();
+		list.add(10);
+		list.add(10);
+		list.add(10);
+		list.add(10);
+		list.add(10);
+
+		Stream<Integer> stream = list.stream();
+		Stream<Integer> distinct = stream.distinct();
+		List<Integer> collect = distinct.collect(Collectors.toList());
+		System.out.println(collect);
+
+		List<Integer> collect2 = list.stream().distinct().collect(Collectors.toList());
+		System.out.println(collect2);
+	}
+}
+
+
+package com.demo.java8;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class App {
+
+	public static List<Integer> removeDuplicates(List<Integer> list) {
+		List<Integer> collect2 = list.stream().distinct().collect(Collectors.toList());
+		return collect2;
+	}
+
+	public static void main(String[] args) {
+
+		List<Integer> list = new ArrayList();
+		list.add(10);
+		list.add(10);
+		list.add(10);
+		list.add(10);
+		list.add(10);
+
+		App.removeDuplicates(list);
+
+	}
+}
+
+
+
+package com.demo.java8;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class App {
+
+	public static List<Integer> removeDuplicates(List<Integer> list) {
+		List<Integer> collect2 = list.stream().distinct().collect(Collectors.toList());
+		return collect2;
+	}
+
+	public static void main(String[] args) {
+
+		List<Integer> list = new ArrayList();
+		list.add(10);
+		list.add(10);
+		list.add(10);
+		list.add(10);
+		list.add(10);
+
+		List<Integer> list1 = App.removeDuplicates(list);
+		System.out.println(list1);
+
+	}
+}
+
+
+
+package com.demo.java8;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class App {
+	
+	
+	public static void main(String[] args) {
+
+
+		List<Integer> list =  new ArrayList();
+		list.add(10);
+		list.add(10);
+		list.add(11);
+		list.add(11);
+		list.add(10);
+
+		 Stream<Integer> stream = list.stream();
+		 Stream<Integer> distinct = stream.distinct();
+		 List<Integer> collect = distinct.collect(Collectors.toList());
+		 System.out.println(collect);
+		 
+		 long duplicateCount = list.stream().distinct().count();
+		 System.out.println(duplicateCount);
+	
+}
+}
+
+
+package com.demo.java8;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		List<Integer> list = new ArrayList();
+		list.add(12);
+		list.add(10);
+		list.add(11);
+		list.add(11);
+		list.add(9);
+
+		List<Integer> collect = list.stream().distinct().sorted().collect(Collectors.toList());
+		System.out.println(collect);
+
+	}
+}
+
+package com.demo.java8;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		List<Integer> list = new ArrayList();
+		list.add(12);
+		list.add(10);
+		list.add(11);
+		list.add(11);
+		list.add(9);
+
+		Stream<Integer> stream = list.stream();
+		Stream<Integer> distinct = stream.distinct();// Intermediate Operation
+		Stream<Integer> sorted = distinct.sorted();// Intermediate Operation
+		List<Integer> collect = sorted.collect(Collectors.toList());// terminal operation
+		System.out.println(collect);
+
+	}
+}
+
+
+package com.demo.java8;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		List<Employee> list = new ArrayList();
+
+		list.add(new Employee("Raj", "A123", 10000));
+		list.add(new Employee("Raj", "A124", 20000));
+		list.add(new Employee("Raj", "A125", 30000));
+		list.add(new Employee("Raj", "A126", 40000));
+		list.add(new Employee("Raj", "A127", 50000));
+
+		List<Integer> collect = list.stream().map(t -> t.getSalary() + 5000).collect(Collectors.toList());
+		System.out.println(collect);
+	}
+}
+
+
+package com.demo.java8;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		List<Employee> list = new ArrayList();
+
+		list.add(new Employee("Raj", "A123", 10000));
+		list.add(new Employee("Raj", "A124", 20000));
+		list.add(new Employee("Raj", "A125", 30000));
+		list.add(new Employee("Raj", "A126", 40000));
+		list.add(new Employee("Raj", "A127", 50000));
+
+		Double totalSalaries = list.stream()
+				.map(t -> t.getSalary())
+				.collect(Collectors.summingDouble(value -> value));
+		System.out.println(totalSalaries);
+		
+		Double avgSalaries = list.stream()
+				.map(t -> t.getSalary())
+				.collect(Collectors.averagingInt(value -> value));
+		System.out.println(avgSalaries);
+		
+	}
+}
