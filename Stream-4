@@ -1,0 +1,255 @@
+Method References:
+-----------------
+
+Functional Interfaces
+Lambda Expressions
+
+Method:
+-----
+Collection of statement to perform some specifc task.
+
+If we want to treat a method as primitve value or an object and we can treat them as a variable
+
+Syntax:
+---------
+
+Object :: methodName
+
+age
+age()
+
+Object :: age
+
+package com.demo.java8;
+
+public class Employee {
+
+	private String name;
+	private Integer id;
+	
+	public Employee(String name, Integer id) {
+		this.name = name;
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [name=" + name + ", id=" + id + "]";
+	}
+	
+	
+}
+
+
+package com.demo.java8;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class App {
+
+
+	public static int nameCompare(Employee a , Employee b) {	
+		return a.getName().compareTo(b.getName());
+		
+	}
+	
+	public static int idCompare(Employee a , Employee b) {		
+		return a.getId().compareTo(b.getId());	
+	}
+	
+	public static void main(String[] args) {
+		
+		List<Employee> listOfEmployees = new ArrayList<>();
+		listOfEmployees.add(new Employee("Raj", new Integer(2)));
+		listOfEmployees.add(new Employee("Ravi", new Integer(1)));
+		listOfEmployees.add(new Employee("Rahul", new Integer(3)));
+		
+		Collections.sort(listOfEmployees, App::nameCompare);
+		
+		System.out.println(listOfEmployees);
+		
+		Collections.sort(listOfEmployees, App::idCompare);
+		
+		System.out.println(listOfEmployees);
+		
+		listOfEmployees
+		.stream()
+		.map(Employee::getId)//Getting ids
+		.map(String::valueOf)//Convets Integer to string
+		.forEach(System.out::println);
+		
+		
+	}
+
+}
+
+
+If a lambda expression call an existing method then using method reference is recomonded , it will make code more readable.
+
+		listOfEmployees
+		.stream()
+		.map(Employee::getId)//Getting ids
+		.map(String::valueOf)//Convets Integer to string
+		.forEach(System.out::println);
+
+Optional:
+---------
+
+A container object which may or may not contain a non-null value.
+If a value is present, isPresent() will return true and get() will return the value.
+
+		String s = null;
+		System.out.println(s.length());
+		
+		System.out.println("hello");
+
+Exception in thread "main" java.lang.NullPointerException
+	at com.demo.java8.App.main(App.java:7)
+
+
+package com.demo.java8;
+
+import java.util.Optional;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		Integer i1= null;
+        Integer i2=new Integer(10);
+        
+        Optional<Integer> optional = Optional.empty();
+        //Returns an   the specified value, if non-null,
+        // otherwise returns an empty}.
+        Optional<Integer> ofNullable = optional.ofNullable(i1);
+        System.out.println(ofNullable);
+        
+        Optional<Integer> of = optional.of(i1);
+        System.out.println(of);
+
+	}
+
+}
+
+
+Optional.empty
+Exception in thread "main" java.lang.NullPointerException
+	at java.util.Objects.requireNonNull(Objects.java:203)
+	at java.util.Optional.<init>(Optional.java:96)
+	at java.util.Optional.of(Optional.java:108)
+	at com.demo.java8.App.main(App.java:
+
+package com.demo.java8;
+
+import java.util.Optional;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		Integer i1 = null;
+		Integer i2 = new Integer(10);
+
+		Optional<Integer> optional = Optional.empty();
+		// Returns an the specified value, if non-null,
+		// otherwise returns an empty}.
+		Optional<Integer> ofNullable = Optional.ofNullable(i1);
+		System.out.println(ofNullable);
+
+		Optional<Integer> of1 = Optional.of(i2);
+		System.out.println(of1);
+
+		Optional<Integer> of = Optional.of(i1);
+		System.out.println(of);
+
+	}
+
+}
+
+
+Optional.empty
+Optional[10]
+Exception in thread "main" java.lang.NullPointerException
+	at java.util.Objects.requireNonNull(Objects.java:203)
+	at java.util.Optional.<init>(Optional.java:96)
+	at java.util.Optional.of(Optional.java:108)
+	at com.demo.java8.App.main(App.java:23)
+
+
+
+package com.demo.java8;
+
+import java.util.Optional;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		Integer i2 = null;
+
+		Optional<Integer> ofNullable = Optional.ofNullable(i2);
+		boolean present = ofNullable.isPresent();
+		System.out.println(present);
+
+	}
+
+}
+
+
+package com.demo.java8;
+
+import java.util.Optional;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		Integer i2 = null;
+
+		Optional<Integer> ofNullable = Optional.ofNullable(i2);
+		Integer orElse = ofNullable.orElse(-1);
+		System.out.println(orElse);
+
+		Optional<Integer> ofNullable1 = Optional.ofNullable(i2);
+		Integer orElse1 = ofNullable1.orElseGet(() -> (int) Math.min(10, 20));
+		System.out.println(orElse1);
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
